@@ -1,0 +1,112 @@
+﻿Driver Name,Phone Number,Email,Date/Time,Trip ID,Type,Fare Adjustment,Fare Distance,Fare Dropoff Fee,Fare Eats Driver Payment,Fare Minimum Fare Supplement,Fare Pickup Fee,Fare Surge,Service Fee,Promotion Boost,Tip,Total
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 7:15 PM",5c2dd798-5d89-4b90-bba7-734d0767b064,Delivery,,£1.02 ,£0.65 ,,£0.43 ,£1.90 ,£1.50 ,(£1.00),£0.80 ,,£5.30 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 9:30 PM",49f1ef0d-b881-4cf7-bf27-c558ea3e7cdf,Delivery,,£1.13 ,£0.65 ,,£0.32 ,£1.90 ,,(£1.00),£0.40 ,£1.77 ,£5.17 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 11:50 AM",53058640-0e52-4c1e-b153-abb2bd76c0ec,Delivery,,£4.95 ,£1.30 ,,,£2.75 ,£1.00 ,(£2.26),£1.80 ,,£9.54 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 6:29 PM",8ad4ce72-7053-41fb-ab51-933b276c8c28,Delivery,,£8.84 ,£1.30 ,,£0.10 ,£2.75 ,£2.00 ,(£3.25),£2.60 ,£1.52 ,£15.86 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 6:49 PM",65adce06-958f-4411-ba19-e39364f0ec29,Delivery,,£3.12 ,£0.65 ,,,£1.90 ,£1.50 ,(£1.42),£1.13 ,,£6.88 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 12:31 PM",3d2e5a3b-91c9-4f88-9708-f017d9301180,Delivery,,£1.43 ,£0.65 ,,£0.02 ,£1.90 ,,(£1.00),£1.20 ,,£4.20 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 2:17 PM",d015e129-72ec-4eca-b445-f9fc5ffb1d12,Delivery,,£1.37 ,£0.65 ,,£0.08 ,£1.90 ,£1.50 ,(£1.00),£0.80 ,,£5.30 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 2:44 PM",dcaee283-e8c4-43b2-a52c-cb0ec6d297bc,Delivery,,£2.93 ,£0.65 ,,,£1.90 ,£1.00 ,(£1.37),£1.10 ,,£6.21 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 8:40 PM",65e46c1c-55f8-4e5c-bc4c-763ebc03a802,Delivery,,£0.48 ,£0.65 ,,£0.97 ,£1.90 ,£1.00 ,(£1.00),£0.40 ,,£4.40 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 4:02 PM",3eb63d71-5afc-42a2-a3f8-e07b8f0d9ab7,Delivery,,£2.24 ,£0.65 ,,,£1.90 ,£1.00 ,(£1.20),£0.96 ,,£5.55 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 9:48 PM",c6e9a497-bbf1-468d-a599-5fe37bfee372,Delivery,,£0.51 ,£0.65 ,,£0.94 ,£1.90 ,,(£1.00),£0.40 ,,£3.40 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 1:58 PM",11f3b576-0f8f-476a-8f42-0c588c99635a,Delivery,,£2.45 ,£0.65 ,,,£1.90 ,,(£1.25),£1.00 ,,£4.75 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 10:25 AM",0f186fea-aed5-43ef-8bf1-589263872060,Delivery,,£0.69 ,£0.65 ,,£0.76 ,£1.90 ,,(£1.00),£0.40 ,,£3.40 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 5:34 PM",5f44aad1-8ad8-47be-8f11-d1ec320e0106,Delivery,£7.32 ,,,,,,,(£1.83),£2.19 ,,£7.68 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 7:23 PM",55c98bd6-877e-4042-9853-66e9be5773a6,Delivery,,£1.10 ,£0.65 ,,£0.35 ,£1.90 ,£2.50 ,(£1.00),£0.80 ,£4.41 ,£10.71 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 5:57 PM",4fa27477-5a9d-44f1-8b19-6f4c47c4709d,Delivery,,£2.18 ,£0.65 ,,,£1.90 ,£1.50 ,(£1.18),£1.42 ,£1.45 ,£7.92 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 3:30 PM",223c5385-61a4-463b-a088-287af1707047,Delivery,,£5.86 ,£1.30 ,,£0.50 ,£1.90 ,£3.00 ,(£2.39),£1.91 ,,£12.08 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 7:23 PM",98e7a4f3-f149-4f15-b369-2c92129f6867,Delivery,,£0.41 ,£0.65 ,,£1.04 ,£1.90 ,,(£1.00),,,£3.00 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 12:24 PM",e40a0043-2f4f-4e60-a067-04412f57aee1,Delivery,,£3.03 ,£0.65 ,,,£1.90 ,,(£1.40),£1.12 ,,£5.30 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 8:16 AM",9a668142-e5ed-4d85-b6d9-0efce99db4bf,Delivery,,£2.19 ,£0.65 ,,,£1.90 ,,(£1.19),£0.95 ,,£4.50 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 7:05 PM",b5409fb2-35eb-4f43-ace1-7156892ef435,Delivery,,£5.78 ,£1.30 ,,£0.11 ,£1.90 ,£2.50 ,(£2.27),£1.82 ,,£11.14 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 8:32 AM",4e23fbe5-8177-43dd-8016-2e3da4892e53,Delivery,,£2.63 ,£0.65 ,,,£1.90 ,,(£1.30),£1.04 ,,£4.92 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 10:14 AM",d342cf22-067a-48e0-96dc-798d0b9527d8,Delivery,,£2.60 ,£0.65 ,,,£1.90 ,,(£1.29),£0.52 ,£1.23 ,£5.61 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 3:09 PM",28d385e5-8ba0-4137-be6f-fcd5f44cde37,Delivery,,£4.25 ,£0.65 ,,,£1.90 ,£1.00 ,(£1.70),£0.68 ,£8.80 ,£15.58 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 10:14 AM",d9afe5be-2601-489c-85ac-44eeb2f9e2c2,Delivery,,£4.13 ,£0.65 ,,,£1.90 ,,(£1.67),£1.34 ,,£6.35 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 8:13 PM",52c03b12-7893-422c-90aa-11b667827794,Delivery,,£6.78 ,£1.30 ,,£0.37 ,£1.90 ,£3.00 ,(£2.59),£2.07 ,,£12.83 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 4:59 PM",eeaa2fcd-7345-4ea9-b3bd-83e5c906af87,Delivery,,£1.25 ,£0.65 ,,£0.20 ,£1.90 ,£1.00 ,(£1.00),£0.80 ,,£4.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 8:58 PM",7b8dcaa1-2633-4c40-90ee-002dc747d5d7,Delivery,,£5.90 ,£0.65 ,,,£1.90 ,,(£2.11),£0.85 ,,£7.19 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 10:26 AM",ab22ed92-4fde-4be8-9fcb-87c16c0a6f56,Delivery,,£0.92 ,£0.65 ,,£0.53 ,£1.90 ,,(£1.00),,,£3.00 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 5:52 PM",07cfbf1b-6708-425b-a9ea-2907d5c944e7,Delivery,,£0.72 ,£0.65 ,,£0.73 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 12:24 PM",8e894f0a-2632-4064-9895-c5eef575eff4,Delivery,,£2.79 ,£0.65 ,,,£1.90 ,£1.50 ,(£1.34),£1.07 ,£2.62 ,£9.19 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 8:57 AM",84b855d8-1004-4782-b9a3-2e60fda09c3d,Delivery,,£3.48 ,£0.65 ,,,£1.90 ,,(£1.51),£1.21 ,£1.64 ,£7.37 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 1:40 PM",f6682f76-9a59-4c74-9e79-109b812f9029,Delivery,,£2.33 ,£0.65 ,,,£1.90 ,,(£1.22),£1.46 ,£0.89 ,£6.01 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 5:45 PM",c37125bf-f22f-4999-aa82-caebf0e10207,Delivery,,£1.59 ,£0.65 ,,,£1.90 ,,(£1.04),£1.24 ,,£4.34 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 2:32 PM",c45d5e2c-c0d8-4430-951f-41f2552b1a14,Delivery,,£1.25 ,£0.65 ,,£0.20 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 1:15 PM",c4882fd9-dae1-4d27-8ae3-7a88282b9bf1,Delivery,,£4.76 ,£0.65 ,,,£1.90 ,,(£1.83),£1.46 ,£1.83 ,£8.77 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 10:03 AM",4c206131-d938-4e56-b37d-d191e94d5e8f,Delivery,,£0.71 ,£0.65 ,,£0.74 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 5:24 PM",16c5482b-402a-4c92-948c-6088303eb520,Delivery,,£4.44 ,£1.30 ,,,£2.75 ,£2.50 ,(£2.12),£1.69 ,,£10.56 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 9:25 AM",773f7170-b8d5-4d09-938d-3069b66076f1,Delivery,,£1.35 ,£0.65 ,,£0.10 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 2:58 PM",2ff19c5e-0991-4985-816b-ce93a884821b,Delivery,,£1.04 ,£0.65 ,,£0.41 ,£1.90 ,,(£1.00),£0.80 ,£2.30 ,£6.10 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 7:09 PM",45ab4f32-0986-408f-abaf-18856ac49b81,Delivery,,£2.00 ,£0.65 ,,,£1.90 ,£1.00 ,(£1.14),£0.91 ,£4.32 ,£9.64 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 9:35 PM",d6ba9bd1-20e1-4172-a0d0-72ff37f2429a,Delivery,,£2.79 ,£0.65 ,,,£1.90 ,,(£1.34),£0.53 ,£2.38 ,£6.91 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 2:30 PM",1a478a09-80a0-40b9-b85b-8b9582474b8d,Delivery,,£1.08 ,£0.65 ,,£0.37 ,£1.90 ,£1.50 ,(£1.00),£0.80 ,£2.00 ,£7.30 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 3:03 PM",7a12f5a6-62b0-417a-8640-e791871262ee,Delivery,,£3.21 ,£0.65 ,,,£1.90 ,£1.50 ,(£1.44),£1.15 ,,£6.97 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 7:15 PM",e1e9cc40-2c8e-4047-9d22-e1ab121088e7,Delivery,,£0.36 ,£0.65 ,,£1.09 ,£1.90 ,,(£1.00),,£1.26 ,£4.26 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 11:24 AM",4180edae-7233-4bc5-922b-e95ec7c7b093,Delivery,,£2.85 ,£1.30 ,,£0.64 ,£1.90 ,£2.00 ,(£1.67),£1.34 ,,£8.36 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 12:58 PM",a45e7395-9f3b-4b05-81d8-453fb896af40,Delivery,,£3.63 ,£0.65 ,,,£1.90 ,,(£1.55),£1.24 ,,£5.87 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 12:05 PM",cc81fd82-c651-4f3a-a36e-7b258bd9283f,Delivery,,£3.53 ,£0.65 ,,,£1.90 ,,(£1.52),£1.82 ,,£6.38 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 2:25 PM",a6de81af-dd59-4951-9109-c81c6e6965cd,Delivery,,£1.67 ,£0.65 ,,,£1.90 ,,(£1.06),£0.42 ,,£3.58 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Monday, February 8, 2021 9:42 AM",0eed4c51-4d1e-48fa-857b-544a84834dab,Delivery,,£3.39 ,£0.65 ,,,£1.90 ,,(£1.49),£0.59 ,£1.55 ,£6.59 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 8:52 AM",fa543a5a-7f50-432f-8932-1df2a5792ff2,Delivery,,£1.89 ,£0.65 ,,,£1.90 ,,(£1.11),£0.89 ,,£4.22 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 11:48 AM",a0f4d655-ad80-427f-bbbe-6bfa0117ecff,Delivery,,£4.62 ,£0.65 ,,,£1.90 ,,(£1.79),£1.43 ,,£6.81 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 7:03 PM",f360a87c-2a6f-4078-94a9-a8e214683940,Delivery,,£3.15 ,£0.65 ,,,£1.90 ,£1.00 ,(£1.43),£1.14 ,,£6.41 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 12:38 PM",5f0c8c88-2cc9-4a77-8865-40d8867c8620,Delivery,,£1.08 ,£0.65 ,,£0.37 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 12:57 PM",692d231f-313a-4efd-9287-98622f982954,Delivery,,£5.00 ,£1.30 ,,£0.19 ,£1.90 ,£2.50 ,(£2.10),£1.68 ,,£10.47 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 8:52 PM",136dcb60-33b4-4be7-9d48-71e1183fb02a,Delivery,,£1.15 ,£1.30 ,,£1.75 ,£1.90 ,£2.00 ,(£1.52),£0.62 ,£1.50 ,£8.70 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 3:17 PM",1c38ad2d-3242-46c5-a65e-bf3ea0527bc6,Delivery,,£1.08 ,£0.65 ,,£0.37 ,£1.90 ,,(£1.00),£0.40 ,£1.50 ,£4.90 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 2:48 PM",cd531eba-eaea-4134-b445-7525ee673b6e,Delivery,,£2.54 ,£0.65 ,,,£1.90 ,,(£1.27),£0.51 ,,£4.33 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 10:58 AM",696a41fe-2fe6-4b7a-ac07-c1f08aaa36a8,Delivery,,£2.97 ,£0.65 ,,,£1.90 ,,(£1.38),£1.10 ,£1.65 ,£6.89 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 9:27 AM",38a84793-d7e9-4919-a067-8aa538afc065,Delivery,,£0.75 ,£0.65 ,,£0.70 ,£1.90 ,,(£1.00),£0.80 ,£1.56 ,£5.36 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 3:55 PM",1a93be7d-9279-45ce-b5ae-f0fe3d4645c8,Delivery,,£2.34 ,£0.65 ,,,£1.90 ,,(£1.22),£0.98 ,£2.51 ,£7.16 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 1:14 PM",882a502f-1e38-4c0a-8502-126f94054165,Delivery,,£4.40 ,£0.65 ,,,£1.90 ,,(£1.74),£2.09 ,,£7.30 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 8:12 PM",59f698e5-decb-4a47-b532-46f55c3565a5,Delivery,,£1.74 ,£0.65 ,,,£1.90 ,,(£1.07),£0.86 ,£1.00 ,£5.08 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 8:26 PM",c5298d8c-969d-4212-91e1-1598716abb30,Delivery,,£5.69 ,£1.30 ,,£0.98 ,£2.75 ,,(£2.68),,£2.97 ,£11.01 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 8:02 PM",eba437ee-dfb6-48db-8f7b-67ad627d30e9,Delivery,,£1.28 ,£0.65 ,,£0.17 ,£1.90 ,£1.00 ,(£1.00),,£1.15 ,£5.15 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 9:42 AM",7c7ee741-80db-48b7-b966-2fedae7a7d63,Delivery,,£2.93 ,£0.65 ,,,£1.90 ,,(£1.37),£1.10 ,,£5.21 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 6:25 PM",a31e726e-77d4-4517-bbdb-9abb9490f3de,Delivery,,£3.31 ,£1.30 ,,£0.41 ,£2.75 ,£3.00 ,(£1.95),£1.55 ,£3.90 ,£14.27 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 8:36 PM",79b07bf0-54e0-42d7-b6a8-8f5a0d2052c6,Delivery,,£1.58 ,£0.65 ,,,£1.90 ,£1.50 ,(£1.03),£0.83 ,,£5.43 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 9:27 AM",2c2fd111-90a3-4f6a-9304-d8d0b0d20634,Delivery,,£2.66 ,£0.65 ,,,£1.90 ,,(£1.30),£1.56 ,,£5.47 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 1:14 PM",cf1ff713-25e8-4c23-9e74-2a6cd61a1f86,Delivery,,£2.82 ,£1.30 ,,£0.37 ,£1.90 ,£2.50 ,(£1.60),£1.28 ,,£8.57 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 11:02 AM",68504a5e-f74c-4f32-8a82-8d47cfbc96ec,Delivery,,£0.63 ,£0.65 ,,£0.82 ,£1.90 ,£1.00 ,(£1.00),£0.80 ,,£4.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 9:23 PM",90efc332-4c70-45ea-b43d-909a655678c3,Delivery,,£1.95 ,£0.65 ,,,£1.90 ,,(£1.13),£0.45 ,,£3.82 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 7:08 PM",6132aba2-671c-442e-a136-bf05476e5bdc,Delivery,,£2.99 ,£1.30 ,,£0.83 ,£1.90 ,£3.75 ,(£1.75),£1.40 ,,£10.42 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 8:18 PM",79a49f96-4b59-400f-97af-8b559fd1ecc7,Delivery,,£1.97 ,£0.65 ,,,£1.90 ,,(£1.13),£0.45 ,,£3.84 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 2:32 PM",4504e7c8-d7ab-4785-a31e-3865ce41e3da,Delivery,,£0.20 ,£0.65 ,,£1.25 ,£1.90 ,£1.00 ,(£1.00),£0.80 ,£1.42 ,£6.22 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 10:04 AM",47a6dcdb-06d7-4169-b7eb-4e3fd7ed5e1b,Delivery,,£0.65 ,£0.65 ,,£0.80 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 1:07 PM",7ea5b6d6-7dac-4181-8f8f-3fef64ecc1a3,Delivery,,£0.99 ,£0.65 ,,£0.46 ,£1.90 ,£1.50 ,(£1.00),£0.80 ,,£5.30 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 12:06 PM",0589e931-ac8f-46ca-adfd-dd8101701aba,Delivery,,£1.76 ,£0.65 ,,,£1.90 ,,(£1.08),£0.86 ,£0.85 ,£4.94 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 9:26 AM",f4c6a124-4019-4973-a2d1-f1068704728a,Delivery,,£5.15 ,£1.30 ,,,£2.75 ,,(£2.31),£1.84 ,£3.68 ,£12.41 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 8:52 PM",c44717c0-ee4a-45a3-94f6-5860bcb8813d,Delivery,,£2.35 ,£1.30 ,,£0.62 ,£2.75 ,£3.00 ,(£1.76),£1.40 ,£1.95 ,£11.61 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 8:14 PM",16ec3fee-bbb5-4529-93c3-a1a5d4529b4f,Delivery,,£5.21 ,£0.65 ,,,£1.90 ,£2.00 ,(£1.94),£1.55 ,,£9.37 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 2:40 PM",493ae1f1-1e31-410e-ba49-f34bc960328e,Delivery,,£1.05 ,£0.65 ,,£0.40 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 10:47 AM",ddaca72e-0ccd-44f2-b0c2-604f877cd0be,Delivery,,£1.65 ,£0.65 ,,,£1.90 ,,(£1.05),£1.26 ,£1.97 ,£6.38 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 9:46 AM",35691fb3-cabf-4f39-95f9-de502d99f6d1,Delivery,,£4.26 ,£0.65 ,,,£1.90 ,,(£1.70),£1.36 ,,£6.47 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 10:20 PM",fa3bfeb8-1c48-4661-b86e-231792bc344e,Delivery,,£1.58 ,£0.65 ,,,£1.90 ,,(£1.03),£0.83 ,,£3.93 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 5:35 PM",60395425-6786-4cb8-9f52-a75d44697dd3,Delivery,,£2.09 ,£0.65 ,,,£1.90 ,,(£1.16),£0.93 ,,£4.41 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 7:22 PM",61083815-ed5a-4abd-97f6-052fc9328d0d,Delivery,,£7.13 ,£1.30 ,,,£2.75 ,£3.00 ,(£2.80),£2.24 ,,£13.62 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 2:25 PM",ef100601-c90c-4691-ad47-f308a633045a,Delivery,,£0.87 ,£0.65 ,,£0.58 ,£1.90 ,£1.00 ,(£1.00),£0.80 ,,£4.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 12:16 PM",95a8e5dc-267e-4be7-9c05-a5fc41583efc,Delivery,,£0.84 ,£0.65 ,,£0.61 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 5:12 PM",20861af9-f662-4287-9ec4-8009085f5c7d,Delivery,,£3.23 ,£0.65 ,,,£1.90 ,,(£1.45),£1.73 ,,£6.06 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 9:43 PM",3064b76a-88e2-44b8-bc33-cad152dacaee,Delivery,,£2.48 ,£0.65 ,,,£1.90 ,£1.00 ,(£1.26),£0.50 ,,£5.27 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 4:20 PM",f8dfd6f9-b566-41f9-a684-ac0f2139bbc6,Delivery,,£0.86 ,£0.65 ,,£0.59 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 4:33 PM",707a17f2-44a6-4dc2-a4e1-9b916c71d5f2,Delivery,,£3.75 ,£1.30 ,,£1.12 ,£1.90 ,,(£2.02),£1.61 ,£4.47 ,£12.13 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 1:35 PM",c7266ada-2ac0-4dd0-b88a-89f4c1450654,Delivery,,£2.18 ,£0.65 ,,,£1.90 ,,(£1.18),£0.95 ,£2.74 ,£7.24 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 4:51 PM",4227b779-b6ac-406a-a073-9e1aacfff926,Delivery,,£6.67 ,£1.30 ,,,£2.75 ,£2.00 ,(£2.68),£2.14 ,£3.41 ,£15.59 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 10:41 AM",7519adaf-16d6-48ad-b3f3-02a907472353,Delivery,,£2.04 ,£0.65 ,,,£1.90 ,,(£1.15),£0.46 ,,£3.90 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 9:51 AM",494ac810-8715-492a-b950-4c73c95c36ca,Delivery,,£0.24 ,£0.65 ,,£1.21 ,£1.90 ,,(£1.00),£0.40 ,£1.53 ,£4.93 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 6:13 PM",57130de2-c1cd-4791-824a-f3cb22347cba,Delivery,,£5.84 ,£0.65 ,,,£1.90 ,£2.00 ,(£2.10),£1.68 ,,£9.97 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 11:30 AM",3795e55a-4942-4941-ba90-5820d256bbaf,Delivery,,£2.49 ,£0.65 ,,,£1.90 ,,(£1.26),£1.01 ,,£4.79 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 10:42 AM",92dd4698-4ab5-4cf6-b2dc-f653e1766272,Delivery,,£0.59 ,£0.65 ,,£0.86 ,£1.90 ,£1.00 ,(£1.00),£0.40 ,,£4.40 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 11:02 AM",bac69799-46fc-43a3-922d-0c2105026d6a,Delivery,,£1.17 ,£0.65 ,,£0.28 ,£1.90 ,,(£1.00),,,£3.00 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 5:01 PM",84e3c79b-564d-43fc-a7f2-d0d5251dd917,Delivery,,£5.99 ,£0.65 ,,,£1.90 ,£1.00 ,(£2.14),£1.71 ,,£9.11 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 9:38 AM",d10b6e3f-b8bb-40e0-a4b5-cfb81bb685d3,Delivery,,£1.61 ,£0.65 ,,,£1.90 ,,(£1.04),£0.83 ,£3.60 ,£7.55 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 6:22 PM",dfc06dce-b516-43df-ba33-2c50cf3b561c,Delivery,,£3.68 ,£0.65 ,,,£1.90 ,£1.50 ,(£1.56),£1.25 ,£4.30 ,£11.72 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 1:44 PM",7ebd1cc2-7acf-4fa3-8aa1-d18ede3fbd26,Delivery,,£2.13 ,£0.65 ,,,£1.90 ,,(£1.17),£0.94 ,£1.00 ,£5.45 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Saturday, February 13, 2021 12:35 PM",e5d85b73-3e10-4669-b12d-dad687c3b095,Delivery,,£1.88 ,£0.65 ,,,£1.90 ,,(£1.11),£0.89 ,,£4.21 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 10:07 AM",08ada9e9-1b12-4812-87f8-1d4bb2fc3419,Delivery,,£0.33 ,£0.65 ,,£1.12 ,£1.90 ,,(£1.00),£0.40 ,£2.92 ,£6.32 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 4:55 PM",e5ffdb2f-ef3a-4f0f-a423-040a8ec5e09f,Delivery,,£1.29 ,£0.65 ,,£0.16 ,£1.90 ,,(£1.00),£0.80 ,,£3.80 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Friday, February 12, 2021 11:04 AM",b6fd5439-e6b5-4879-aacd-a5120af103af,Delivery,,£4.25 ,£0.65 ,,,£1.90 ,,(£1.70),£1.36 ,£1.25 ,£7.71 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Thursday, February 11, 2021 8:54 PM",2223e24b-6ccd-4025-b554-de619faf5718,Delivery,,£2.16 ,£0.65 ,,,£1.90 ,,(£1.18),,£0.94 ,£4.47 
+Calum Hugh Davidson,,calumhugh@gmail.com,"Sunday, February 14, 2021 4:12 PM",fc67cb57-e566-4f63-87b7-ad3b9b1b72f4,Delivery,,£1.05 ,£0.65 ,,£0.40 ,£1.90 ,£1.50 ,(£1.00),£0.80 ,,£5.30 
