@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button, Image} from 'react-native';
 import { Camera } from 'expo-camera';
 
 const CameraComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [torch, setTorch] = useState(Camera.Constants.FlashMode.off);
-  const [photo, setPhoto] = useState(null);
-    const cameraRef = React.createRef();
+  const [capture, setCapture] = useState(null);
+  const [visibility, setVisability] = useState(false);
+  const cameraRef = React.createRef();
 
   useEffect(() => {
     (async () => {
@@ -33,10 +34,14 @@ const CameraComponent = () => {
 
   snap = async () => {
     if(this.camera){
-      let photo = await this.camera.takePictureAsync();
-      console.log(photo);
-
+      this.camera.takePictureAsync({onPictureSaved: processPicture});
     }
+  }
+
+  const processPicture = photo => {
+    console.log(photo)
+    setCapture(photo);
+    // setVisability(true);
   }
   
   
@@ -63,6 +68,12 @@ const CameraComponent = () => {
       </Camera>
       <Button title={"Take a photo"} onPress={snap}/>
       <Button title={"Toggle Torch"} onPress={toggleTorch}/>
+      {capture ? <Image
+                    style={styles.capturedImage}
+                    source={{
+                        uri: capture.uri,
+                    }}
+                /> : null}
     </View>
   );
 }
@@ -93,4 +104,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
   },
+  capturedImage:{
+    height: 100,
+    width: 100
+  }
 });
