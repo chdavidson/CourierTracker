@@ -86,8 +86,8 @@ public class Payslip {
         this.date = date;
     }
 
-    public String getCompanyName() {
-        return companyName.getCourierName();
+    public CourierCompany getCompanyName() {
+        return companyName;
     }
 
     public void setCompanyName(CourierCompany companyName) {

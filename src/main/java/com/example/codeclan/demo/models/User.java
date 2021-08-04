@@ -1,3 +1,4 @@
+package com.example.codeclan.demo.models;
 
 import com.example.codeclan.demo.models.Expense;
 import com.example.codeclan.demo.models.Payslip;
