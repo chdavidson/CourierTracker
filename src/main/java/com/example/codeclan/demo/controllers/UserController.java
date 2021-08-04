@@ -40,8 +40,6 @@ public class UserController {
         currentUser.setProfilePicture(user.getProfilePicture());
         userRepository.save(currentUser);
         return new ResponseEntity<>(currentUser, HttpStatus.ACCEPTED);
-
-
     }
 
 }
