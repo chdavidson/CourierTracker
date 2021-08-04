@@ -5,7 +5,9 @@ import { Camera } from 'expo-camera';
 const CameraComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
-  const [torch, setTorch] = useState(Camera.Constants.FlashMode.off)
+  const [torch, setTorch] = useState(Camera.Constants.FlashMode.off);
+  const [photo, setPhoto] = useState(null);
+    const cameraRef = React.createRef();
 
   useEffect(() => {
     (async () => {
@@ -20,10 +22,7 @@ const CameraComponent = () => {
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
-  
-  const takePhotograph = () => {
-      console.log("shutter closed.")
-  }
+
 
   const toggleTorch = () => {
     if(torch == Camera.Constants.FlashMode.off){
@@ -31,11 +30,23 @@ const CameraComponent = () => {
     }
     else setTorch(Camera.Constants.FlashMode.off)
   }
+
+  snap = async () => {
+    if(this.camera){
+      let photo = await this.camera.takePictureAsync();
+      console.log(photo);
+
+    }
+  }
   
   
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type} flashMode={torch}>
+      <Camera style={styles.camera} 
+              type={type}
+              flashMode={torch}
+              ref={ref => { this.camera = ref}}
+      >
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
@@ -50,7 +61,7 @@ const CameraComponent = () => {
           </TouchableOpacity>
         </View>
       </Camera>
-      <Button title={"Take a photo"} onPress={takePhotograph}/>
+      <Button title={"Take a photo"} onPress={snap}/>
       <Button title={"Toggle Torch"} onPress={toggleTorch}/>
     </View>
   );
