@@ -25,7 +25,7 @@ export default function App() {
               <Stack.Screen name="Sign in" component={LogInScreen} />
               <Stack.Screen name="Reset Password" component={ResetPasswordScreen} />
               <Stack.Screen name="Create Account" component={CreateAccountScreen} />
-              <Stack.Screen name="Landing Page" component={LandingScreen} />
+              <Stack.Screen name="Landing Page" component={LandingScreen}/>
               <Stack.Screen
                   name="Profile"
                   component={ProfileScreen}
