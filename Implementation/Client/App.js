@@ -14,6 +14,7 @@ import LandingScreen from './Screens/LandingScreen';
 import AccountSettingsScreen from './Screens/AccountSettingsScreen';
 import ReportScreen from './Screens/ReportScreen';
 import RecordItemScreen from './Screens/RecordItemScreen';
+import MainContainer from './Screens/MainContainer'
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,7 @@ export default function App() {
               <Stack.Screen name="Landing Page" component={LandingScreen}/>
               <Stack.Screen
                   name="Profile"
-                  component={ProfileScreen}
+                  component={MainContainer}
                   options={{ title: "Profile"}}
               />
               <Stack.Screen name="Profile Settings" component={AccountSettingsScreen} />
