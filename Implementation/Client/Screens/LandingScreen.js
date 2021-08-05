@@ -3,6 +3,8 @@ import { StyleSheet, View, Button} from 'react-native'
 import firebase from 'firebase'
 import ColourPalette from '../Constants/ColourPalette'
 
+import Request from '../helpers/request';
+
 const LandingScreen = ({navigation}) => {
 
     const [users, setUsers] = useState(null);
@@ -16,6 +18,24 @@ const LandingScreen = ({navigation}) => {
             .then(data => setUsers(data))
             //Set loaded
             .catch(err => {console.log(err)})
+    }
+
+    const handleCreateRequest = (path, payload) => {
+        const request = new Request();
+        request.post(path, payload)
+        console.log("payload delivered to "+ path)
+    }
+
+    const handleUpdateRequest = (path, payload) => {
+        const request = new Request();
+        request.patch(path+payload.id, payload)
+        //.then(()=>{})
+    }
+
+    const handleDeleteRequest = (path, id) => {
+        const request = new Request();
+        request.delete(url+id);
+        //.then(()=>{})
     }
 
 
@@ -54,6 +74,17 @@ const LandingScreen = ({navigation}) => {
               style={{
                 marginTop: 10,
               }}
+            />
+            <Button
+                title="TEST POST user"
+                onPress={() => {
+                    handleCreateRequest('users', {  firstName: "TEST",
+                                                    secondName: "TEST",
+                                                    username: "TEST",
+                                                    password: "TEST",
+                                                    profilePicture: ""
+                                                })
+                }}
             />
         </View>
     )
