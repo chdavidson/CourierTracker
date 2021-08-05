@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { StyleSheet, View, Button} from 'react-native'
+import firebase from 'firebase'
+import ColourPalette from '../Constants/ColourPalette'
 
 const LandingScreen = ({navigation}) => {
 
@@ -24,7 +26,7 @@ const LandingScreen = ({navigation}) => {
     }, [])// watch on loaded
 
     return(
-        <View>
+        <View style={styles.screen}>
             <Button
                 title="My Account"
                 onPress={() => {
@@ -43,11 +45,24 @@ const LandingScreen = ({navigation}) => {
                     navigation.navigate("Record")
                 }}
             />
+             <Button
+              status="danger"
+              title="Logout"
+              onPress={() => {
+                firebase.auth().signOut();
+              }}
+              style={{
+                marginTop: 10,
+              }}
+            />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    screen:{
+        backgroundColor: ColourPalette.SECONDARY
+    }
 
 })
 
