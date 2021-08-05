@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StoreProvider, createStore} from "easy-peasy";
 import Request from '../helpers/request'
-import {FlatList, Text, TouchableOpacity, View} from "react-native";
 import ProfileScreen from "./ProfileScreen";
-import UserServices from '../helpers/UserServices'
 import {NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 import LogInScreen from "./LogInScreen";
@@ -16,25 +14,6 @@ import RecordItemScreen from "./RecordItemScreen";
 
 
 const MainContainer = () => {
-   //  const [users, setUsers] = useState(null);
-   //  const [payslips, setPayslips] = useState(null)
-   //  const [expenses, setExpenses] = useState(null)
-   //
-   // const getUsers = function() {
-   //      fetch('http://localhost:8080/users')
-   //          .then(res => res.json())
-   //          .then(data => setUsers(data))
-   //          .catch(err => {console.log(err)})
-   // }
-   //
-   //
-   //  useEffect(() => {
-   //      setUsers(getUsers());
-   //  }, [users])
-
-    // console.log(users)
-
-
     const userID = "saadtarik"
 
     // const renderUser = users?.map((user, index) => {
@@ -69,6 +48,7 @@ const MainContainer = () => {
             </Stack.Navigator>
         </NavigationContainer>
     )
+
 
 }
 export default MainContainer;
