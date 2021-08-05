@@ -66,9 +66,9 @@ const Main = () => {
       <MainStack.Screen name="MainTabs" component={MainTabs} />
       <MainStack.Screen name="SecondScreen" component={SecondScreen} />
       <MainStack.Screen name="Landing Page" component={LandingScreen}/>
-              <MainStack.Screen name="Profile Settings" component={AccountSettingsScreen} />
-              <MainStack.Screen name="Reports" component={ReportScreen} />
-              <MainStack.Screen name="Record" component={RecordItemScreen} />
+        <MainStack.Screen name="Profile Settings" component={AccountSettingsScreen} />
+        <MainStack.Screen name="Reports" component={ReportScreen} />
+        <MainStack.Screen name="Record" component={RecordItemScreen} />
               
     </MainStack.Navigator>
   );
@@ -113,14 +113,26 @@ const MainTabs = () => {
         }}
       />
       <Tabs.Screen
-        name="About"
-        component={About}
+        name="Reports"
+        component={ReportScreen}
         options={{
           tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="About" />
+            <TabBarText focused={focused} title="Reports" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-information-circle"} />
+            <TabBarIcon focused={focused} icon={"ios-trending-up"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Record"
+        component={RecordItemScreen}
+        options={{
+          tabBarLabel: ({ focused }) => (
+            <TabBarText focused={focused} title="Record" />
+          ),
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} icon={"ios-barcode-outline"} />
           ),
         }}
       />
