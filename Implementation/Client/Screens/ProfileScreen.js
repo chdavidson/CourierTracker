@@ -1,23 +1,28 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import ColourPalette from '../Constants/ColourPalette'
 import ProfilePicture from '../components/ProfilePicture'
 import SettingsClickable from '../components/SettingsClickable'
+import { AuthContext } from "../provider/AuthProvider";
+
 
 const ProfileScreen = ({route, navigation}) => {
     const {users} = route.params;
     const userID = "saadtarik"
+    const auth = useContext(AuthContext);
+    const userData = auth.userData;
     const renderUser = users?.map((user, index) => {
         if (user.username === userID) {
             return (
                 <View key={index}>
+                <Text>{userData.email}</Text>
                     {/*{console.log(users)}*/}
                     <Text>{user.firstName} {user.secondName}</Text>
                     <Text>Income: {user.payslips[0].amount}</Text>
                 </View>)
         }
     })
-    // console.log(users)
+    // console.log(users) 
 
     return(
         <View style={styles.screen}>

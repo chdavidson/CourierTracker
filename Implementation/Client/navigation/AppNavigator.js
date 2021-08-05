@@ -37,8 +37,8 @@ const firebaseConfig = {
 };
 
 if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
+    firebase.initializeApp(firebaseConfig);
+  }
 
 const AuthStack = createStackNavigator();
 const Auth = () => {
