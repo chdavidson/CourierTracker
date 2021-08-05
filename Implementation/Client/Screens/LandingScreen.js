@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, View, Button} from 'react-native'
 import firebase from 'firebase'
+import ColourPalette from '../Constants/ColourPalette'
 
 const LandingScreen = ({navigation}) => {
     return(
-        <View>
+        <View style={styles.screen}>
             <Button
                 title="My Account"
                 onPress={() => {
@@ -38,6 +39,9 @@ const LandingScreen = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
+    screen:{
+        backgroundColor: ColourPalette.SECONDARY
+    }
 
 })
 

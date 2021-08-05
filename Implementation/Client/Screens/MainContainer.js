@@ -8,6 +8,7 @@ const MainContainer = () => {
     const [users, setUsers] = useState(null);
     const [payslips, setPayslips] = useState(null)
     const [expenses, setExpenses] = useState(null)
+    // const [test, setTest] = useState('mahallu')
 
    const getUsers = function() {
         fetch('http://localhost:8080/users')
@@ -21,6 +22,10 @@ const MainContainer = () => {
     useEffect(() => {
         setUsers(getUsers());
     }, [])
+
+    // export const TestContext = React.createContext(
+    //     test
+    // )
 
     const userID = "saadtarik"
 
