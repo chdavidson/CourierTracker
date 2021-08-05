@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 const AuthProvider = (props) => {
 	// user null = loading
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState(null); 
 
 	useEffect(() => {
 		checkLogin();

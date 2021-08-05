@@ -51,7 +51,7 @@ const ProfileScreen = ({route, navigation}) => {
                 {/*<ProfilePicture uri={testImage}/>*/}
             </View>
             <View style={styles.userSummary}  >
-                {renderUser}
+                {users ? renderUser : null}
             </View>
 
             
