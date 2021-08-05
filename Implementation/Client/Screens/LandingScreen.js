@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Button} from 'react-native'
+import firebase from 'firebase'
 
 const LandingScreen = ({navigation}) => {
     return(
@@ -21,6 +22,16 @@ const LandingScreen = ({navigation}) => {
                 onPress={() => {
                     navigation.navigate("Record")
                 }}
+            />
+             <Button
+              status="danger"
+              title="Logout"
+              onPress={() => {
+                firebase.auth().signOut();
+              }}
+              style={{
+                marginTop: 10,
+              }}
             />
         </View>
     )
