@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { StyleSheet, View, Button} from 'react-native'
 
 const LandingScreen = ({navigation}) => {
+
     return(
         <View>
             <Button
