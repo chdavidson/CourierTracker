@@ -28,13 +28,14 @@ const LandingScreen = ({navigation}) => {
 
     const handleUpdateRequest = (path, payload) => {
         const request = new Request();
-        request.patch(path+payload.id, payload)
-        //.then(()=>{})
+        request.patch(path+'/'+payload.id, payload)
+        console.log("object at "+path+'/'+payload.id+" updated successfully");
     }
 
     const handleDeleteRequest = (path, id) => {
         const request = new Request();
-        request.delete(url+id);
+        request.delete(path, id);
+        console.log("DELETE request on: "+path+'/'+id);
         //.then(()=>{})
     }
 
@@ -78,11 +79,25 @@ const LandingScreen = ({navigation}) => {
             <Button
                 title="TEST POST user"
                 onPress={() => {
-                    handleCreateRequest('users', {  firstName: "TEST",
-                                                    secondName: "TEST",
-                                                    username: "TEST",
-                                                    password: "TEST",
+                    handleCreateRequest('users', {  firstName: "A",
+                                                    secondName: "A",
+                                                    username: "A",
+                                                    password: "A",
                                                     profilePicture: ""
+                                                })
+                }}
+            />
+            <Button
+                title="TEST PUT user"
+                onPress={() => {
+                    handleUpdateRequest('users', {  id: 4,
+                                                    firstName: "CCC",
+                                                    secondName: "CCC",
+                                                    username: "CCC",
+                                                    password: "123",
+                                                    profilePicture: "",
+                                                    expenses: [],
+                                                    payslips: []
                                                 })
                 }}
             />

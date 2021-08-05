@@ -7,8 +7,8 @@ class Request {
     //         .then((res) => res.json());
     // }
 
-    // delete(url) {
-    //     return fetch(url, {
+    // delete(url, id) {
+    //     return fetch(baseUrl+url+'/'+id, {
     //         method: "DELETE",
     //         headers: {'Content-Type': 'application/json'}
     //     })
@@ -24,13 +24,15 @@ class Request {
         })
     }
 
-    // patch(url, payload){
-    //     return fetch(url, {
-    //         method: "PUT",
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(payload)
-    //     })
-    // }
+    patch(url, payload){
+        return fetch(baseUrl+url, {
+            method: "PUT",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+    }
 
 
 }
