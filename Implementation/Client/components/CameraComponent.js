@@ -7,8 +7,6 @@ const CameraComponent = () => {
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [torch, setTorch] = useState(Camera.Constants.FlashMode.off);
   const [capture, setCapture] = useState(null);
-  const [visibility, setVisability] = useState(false);
-  const cameraRef = React.createRef();
 
   useEffect(() => {
     (async () => {
