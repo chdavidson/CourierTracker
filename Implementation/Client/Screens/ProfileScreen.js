@@ -19,6 +19,8 @@ const ProfileScreen = ({route, navigation}) => {
     // useEffect(() => {
     //     setUsers(getUsers());
     // }, [])
+
+    
     const {users} = route.params;
 
     const userID = "saadtarik"
@@ -27,7 +29,7 @@ const ProfileScreen = ({route, navigation}) => {
     const renderUser = users?.map((user, index) => {
         if (user.username === userID) {
             return (
-                <View>
+                <View key={index}>
                     {/*{console.log(users)}*/}
                     <Text>{user.firstName} {user.secondName}</Text>
                     <Text>Income: {user.payslips[0].amount}</Text>
