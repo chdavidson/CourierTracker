@@ -19,42 +19,6 @@ const ProfileScreen = ({route, navigation}) => {
     })
     // console.log(users)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return(
         <View style={styles.screen}>
             {console.log(users)}
