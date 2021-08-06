@@ -36,12 +36,20 @@ const DbProvider = (props) => {
         if(userData && users){
             for(let i=0; i<users.length; i++){
                 if(users[i].username === userData.email){
-                    setCurrentUser(users[i]);
+                    setCurrentUser(users[i])
                 }
             }
-            console.log("Current User: "+currentUser.firstName);
+        }
+        else{
+            console.log("identify user failed userData and users not yet loaded")
         }
     }, [userData])
+
+    useEffect(() => {
+        if(currentUser){
+            console.log("Current User: "+currentUser.firstName);
+        }
+    }, [currentUser]);
 
 
     return(
