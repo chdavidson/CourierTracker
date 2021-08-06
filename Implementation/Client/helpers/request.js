@@ -7,15 +7,17 @@ class Request {
     //         .then((res) => res.json());
     // }
 
-    // delete(url, id) {
-    //     return fetch(baseUrl+url+'/'+id, {
-    //         method: "DELETE",
-    //         headers: {'Content-Type': 'application/json'}
-    //     })
-    // }
+    delete(url, id) {
+        console.log("Delete request recieved on "+baseUrl+url+'/'+id);
+        return fetch(baseUrl+url+'/'+id, {
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'}
+        })
+    }
 
     post(url, payload) {
-        fetch(baseUrl+url, {
+        console.log("Payload successfully delivered to "+baseUrl+url);
+        return fetch(baseUrl+url, {
             method: "POST",
             headers: {
                         Accept: 'application/json',
@@ -25,6 +27,7 @@ class Request {
     }
 
     patch(url, payload){
+        console.log("Object at "+baseUrl+url+" update request sent successfully")
         return fetch(baseUrl+url, {
             method: "PUT",
             headers: {

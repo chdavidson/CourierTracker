@@ -23,19 +23,16 @@ const LandingScreen = ({navigation}) => {
     const handleCreateRequest = (path, payload) => {
         const request = new Request();
         request.post(path, payload)
-        console.log("payload delivered to "+ path)
     }
 
     const handleUpdateRequest = (path, payload) => {
         const request = new Request();
         request.patch(path+'/'+payload.id, payload)
-        console.log("object at "+path+'/'+payload.id+" updated successfully");
     }
 
     const handleDeleteRequest = (path, id) => {
         const request = new Request();
         request.delete(path, id);
-        console.log("DELETE request on: "+path+'/'+id);
         //.then(()=>{})
     }
 
