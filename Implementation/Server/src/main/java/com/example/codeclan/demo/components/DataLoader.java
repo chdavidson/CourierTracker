@@ -27,8 +27,8 @@ public class DataLoader implements ApplicationRunner {
     public DataLoader() {}
 
     public void run(ApplicationArguments args){
-        User saad = new User("Saad", "Tariq", "saadtarik", "123");
-        User calum = new User("Calum", "Davidosn", "ChDavidison", "123");
+        User saad = new User("Saad", "Tariq", "test@test.test", "123");
+        User calum = new User("Calum", "Davidosn", "t@t.com", "123");
         User michael = new User("Michael", "Chirstie", "mikeySB", "123");
         userRepository.save(saad);
         userRepository.save(calum);
@@ -39,6 +39,9 @@ public class DataLoader implements ApplicationRunner {
 
         Payslip uber = new Payslip(300.00, "123abc", new Date(), CourierCompany.UBEREATS, saad);
         payslipRepository.save(uber);
+
+        Payslip uber2 = new Payslip(300.00, "123abc", new Date(), CourierCompany.UBEREATS, calum);
+        payslipRepository.save(uber2);
 
 
     }

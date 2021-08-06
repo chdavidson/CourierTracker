@@ -71,6 +71,7 @@
 import React from "react";
 import AppNavigator from "./navigation/AppNavigator";
 import { AuthProvider } from "./provider/AuthProvider";
+import { DbProvider } from "./provider/DbProvider";
 import { ThemeProvider } from "react-native-rapi-ui";
 
 
@@ -87,7 +88,9 @@ export default function App() {
     // <MainContainer />
     <ThemeProvider images={images}>
       <AuthProvider>
-        <AppNavigator />
+        <DbProvider>   
+            <AppNavigator />
+        </DbProvider>
       </AuthProvider>
     </ThemeProvider>
   );

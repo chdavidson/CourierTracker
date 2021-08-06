@@ -4,14 +4,21 @@ import ColourPalette from '../Constants/ColourPalette'
 import ProfilePicture from '../components/ProfilePicture'
 import SettingsClickable from '../components/SettingsClickable'
 import { AuthContext } from "../provider/AuthProvider";
+import { DbContext } from "../provider/DbProvider";
 
 
 const ProfileScreen = ({route, navigation}) => {
     const {users} = route.params;
     const userID = "saadtarik"
+
     const auth = useContext(AuthContext);
     const userData = auth.userData;
-    const renderUser = users?.map((user, index) => {
+
+    const db = useContext(DbContext);
+    console.log("db: " + db)
+    const userDbData = db.users
+    
+    const renderUser = userDbData?.map((user, index) => {
         if (user.username === userID && users) {
             return (
                 <View key={index}>
@@ -38,8 +45,6 @@ const ProfileScreen = ({route, navigation}) => {
             <View style={styles.userSummary}  >
                 {users ? renderUser : null}
             </View>
-
-            
         </View>
     )
 }
