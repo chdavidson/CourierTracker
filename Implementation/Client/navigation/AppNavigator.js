@@ -9,7 +9,6 @@ import TabBarIcon from "../components/utils/TabBarIcon";
 import TabBarText from "../components/utils/TabBarText";
 //Screens
 import Home from "../Screens/Home";
-import SecondScreen from "../Screens/SecondScreen";
 import About from "../Screens/About";
 import ProfileScreen from "../Screens/ProfileScreen";
 import Loading from "../Screens/utils/Loading";
@@ -37,8 +36,8 @@ const firebaseConfig = {
 };
 
 if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
+    firebase.initializeApp(firebaseConfig);
+  }
 
 const AuthStack = createStackNavigator();
 const Auth = () => {
@@ -64,9 +63,8 @@ const Main = () => {
       }}
     >
       <MainStack.Screen name="MainTabs" component={MainTabs} />
-      <MainStack.Screen name="SecondScreen" component={SecondScreen} />
       <MainStack.Screen name="Landing Page" component={LandingScreen}/>
-        <MainStack.Screen name="Profile Settings" component={AccountSettingsScreen} />
+        <MainStack.Screen name="Profile" component={ProfileScreen} />
         <MainStack.Screen name="Reports" component={ReportScreen} />
         <MainStack.Screen name="Record" component={RecordItemScreen} />
               
@@ -79,7 +77,7 @@ const MainTabs = () => {
   const { isDarkmode } = useTheme();
   return (
     <Tabs.Navigator
-      tabBarOptions={{
+      screenOptions={{
         style: {
           borderTopWidth: 1,
           borderTopColor: isDarkmode ? themeColor.dark100 : "#c0c0c0",

@@ -1,4 +1,5 @@
 import React from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { StyleSheet, ScrollView, Text, View } from 'react-native'
 import {
     LineChart,
@@ -13,6 +14,7 @@ import { Dimensions } from "react-native";
 import ColourPalette from '../Constants/ColourPalette';
 
 const screenWidth = Dimensions.get("window").width;
+
 
 const chartConfig = {
     // backgroundGradientFrom: "#1E2923",

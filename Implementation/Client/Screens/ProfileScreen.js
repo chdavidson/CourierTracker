@@ -1,74 +1,37 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import ColourPalette from '../Constants/ColourPalette'
 import ProfilePicture from '../components/ProfilePicture'
 import SettingsClickable from '../components/SettingsClickable'
+import { AuthContext } from "../provider/AuthProvider";
+import { DbContext } from "../provider/DbProvider";
+
 
 const ProfileScreen = ({route, navigation}) => {
-    const {users} = route.params;
-    const userID = "saadtarik"
-    const renderUser = users?.map((user, index) => {
-        if (user.username === userID) {
-            return (
-                <View key={index}>
-                    {/*{console.log(users)}*/}
-                    <Text>{user.firstName} {user.secondName}</Text>
-                    <Text>Income: {user.payslips[0].amount}</Text>
-                </View>)
+    // const {users} = route.params;
+    // const userID = "saadtarik"
+
+    // const auth = useContext(AuthContext);
+    // const userData = auth.userData;
+
+    const db = useContext(DbContext);
+    // console.log("db: " + db)
+    const currentUser = db.currentUser
+
+    useEffect(() => {
+        if(currentUser){        
+            console.log(currentUser.firstName)
         }
-    })
-    // console.log(users)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        else(
+            console.log("NAEBODY HERE")
+        )
+    },[currentUser])
 
     return(
         <View style={styles.screen}>
-            {console.log(users)}
-            <View style={styles.settingsContainer}>
-                <SettingsClickable navigation={navigation}/>
+            <View style={styles.userSummaryContainer}>
+                {currentUser ? <Text>{currentUser.firstName}</Text> : null}
             </View>
-            <View style={styles.profilePictureContainer}>
-                {/*<ProfilePicture uri={testImage}/>*/}
-            </View>
-            <View style={styles.userSummary}  >
-                {renderUser}
-            </View>
-
-            
         </View>
     )
 }

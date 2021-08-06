@@ -5,6 +5,7 @@ const AuthContext = createContext();
 const AuthProvider = (props) => {
 	// user null = loading
 	const [user, setUser] = useState(null);
+	const [userData, setUserData] = useState(null);
 
 	useEffect(() => {
 		checkLogin();
@@ -14,18 +15,37 @@ const AuthProvider = (props) => {
 		firebase.auth().onAuthStateChanged(function (u) {
 			if (u) {
 				setUser(true);
-				// getUserData();
+				setUserData(getUserData());
 			} else {
 				setUser(false);
-				// setUserData(null);
+				setUserData(null);
 			}
 		});
 	}
+
+	// function getUserData() {
+	// 	firebase.auth().onAuthStateChanged(user => {console.log(user)})
+	// 	}
+
+	const getUserData = () => {
+		const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+			user ? setUserData(user) : setUserData(null)
+		})
+
+		return unsubscribe
+	}
+	
+
+	
+	// userData ? console.log("user data: " + userData.email) : console.log('loading')
+	// userData ? console.log("user data: " + JSON.stringify(userData)) : console.log('loading')
+	
 
 	return (
 		<AuthContext.Provider
 			value={{
 				user,
+				userData
 			}}
 		>
 			{props.children}
