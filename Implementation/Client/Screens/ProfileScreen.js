@@ -12,13 +12,15 @@ const ProfileScreen = ({route, navigation}) => {
     const auth = useContext(AuthContext);
     const userData = auth.userData;
     const renderUser = users?.map((user, index) => {
-        if (user.username === userID) {
+        if (user.username === userID && users) {
             return (
                 <View key={index}>
-                <Text>{userData.email}</Text>
+                
                     {/*{console.log(users)}*/}
                     <Text>{user.firstName} {user.secondName}</Text>
                     <Text>Income: {user.payslips[0].amount}</Text>
+                    <Text>{userData.email}</Text>
+                    <Text>{userData.uid}</Text>
                 </View>)
         }
     })
