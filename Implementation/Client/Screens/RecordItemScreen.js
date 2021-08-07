@@ -5,6 +5,7 @@ import CameraComponent from '../components/CameraComponent'
 import { Dimensions } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { counterEvent } from 'react-native/Libraries/Performance/Systrace';
+import Request from '../helpers/request';
 
 const RecordItemScreen = () => {
 
@@ -20,9 +21,17 @@ const RecordItemScreen = () => {
     const [newPayslip, setNewPayslip] = useState({  "amount": 0.0,
                                                     "invoiceNumber": null,
                                                     "date": '',
-                                                    "courierName": '',
+                                                    "courierName": 'UBEREATS',
                                                     "image": [],
-                                                    "user": currentUser     })
+                                                    "user": {
+                                                        "id": currentUser.id,
+                                                        "firstName": currentUser.firstName,
+                                                        "secondName": currentUser.secondName,
+                                                        "username": currentUser.username,
+                                                        "password": currentUser.password,
+                                                        "profilePicture": currentUser.profilePicture,
+                                                    }    
+                                                })
 
     const handleDateChange = (event, date) => {
         newPayslip["date"] = date;
@@ -36,9 +45,19 @@ const RecordItemScreen = () => {
         newPayslip["amount"] = event.nativeEvent.text;
     }
 
+    const handlePhoto = (photoURI) => {
+        newPayslip["image"] = photoURI;
+        console.log(newPayslip);
+    }
+
     useEffect(() => {
         currentDate = Date.now();
     }, [])
+
+    const handlePOST = (path, payload) => {
+            const request = new Request();
+            request.post(path, payload)
+    }
 
     
 
@@ -46,50 +65,52 @@ const RecordItemScreen = () => {
     return(
     <View style={styles.screen}>
         <View>
-            <Text>Amount: </Text>
-            <TextInput
-            keyboardType={'decimal-pad'}
-            placeholder={'0.0'}
-            onChange={handleAmountChange}
+            <View>
+                <Text>Amount: </Text>
+                <TextInput
+                keyboardType={'decimal-pad'}
+                placeholder={'0.0'}
+                onChange={handleAmountChange}
+                />
+            </View>
+            <View>
+                <Text>Invoice #: </Text>
+                <TextInput
+                name={'invoiceNumber'}
+                keyboardType={'default'}
+                placeholder={'###'}
+                onChange={handleInvChange}
+                />
+            </View>
+            <View>
+                <Text>Work Provider: </Text>
+            </View>
+            <View>
+            <DateTimePicker
+                value={ currentDate }
+                is24Hour={true}
+                display="default"
+                onChange={handleDateChange}
             />
+            </View>
+            <View>
+                <Button title={"TEST POST"} onPress={() => handlePOST('payslips', newPayslip)}/>
+            </View>
+            
+            <View style={styles.buttonContainer}>
+                <Button title={"Record Earnings"} onPress={() => setEarningModal(!earningModal)}/>
+            </View>
         </View>
-        <View>
-            <Text>Invoice #: </Text>
-            <TextInput
-            name={'invoiceNumber'}
-            keyboardType={'default'}
-            placeholder={'###'}
-            onChange={handleInvChange}
-            />
-        </View>
-        <View>
-            <Text>Work Provider: </Text>
-        </View>
-        <View>
-        <DateTimePicker
-            value={ currentDate }
-            is24Hour={true}
-            display="default"
-            onChange={handleDateChange}
-        />
-        </View>
-        <View>
-            <Button title={"Take photo"}/>
-        </View>
-        
-        <View style={styles.buttonContainer}>
-            <Button title={"Record Earnings"} onPress={() => setEarningModal(!earningModal)}/>
-        </View>
-        <View style={styles.CameraComponent}>
-            <CameraComponent />
+        <View style={styles.CameraViewContainer}>
+            <CameraComponent handlePhoto={handlePhoto}/>
         </View>
     </View>
 )}
 
 const styles = StyleSheet.create({
     CameraViewContainer:{
-        height: 200,
-        width: 200
+        height: 300,
+        // width: 200
     },
     buttonContainer: {
         height: 100
