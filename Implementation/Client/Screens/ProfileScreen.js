@@ -18,20 +18,20 @@ const ProfileScreen = ({route, navigation}) => {
     console.log("db: " + db)
     const userDbData = db.users
 
-    const renderUser = userDbData?.map((user, index) => {
-        // if (user.username === userID && userDbData) {
-        //     return (
-        //         <View key={index}>
+    // const renderUser = userDbData?.map((user, index) => {
+    //     if (user.username === userID && userDbData) {
+    //         return (
+    //             <View key={index}>
                 
-        //             {/*{console.log(users)}*/}
-        //             <Text>{user.firstName} {user.secondName}</Text>
-        //             <Text>Income: {user.payslips[0].amount}</Text>
-        //             <Text>{userData.email}</Text>
-        //             <Text>{userData.uid}</Text>
-        //         </View>)
+    //                 {/*{console.log(users)}*/}
+    //                 <Text>{user.firstName} {user.secondName}</Text>
+    //                 <Text>Income: {user.payslips[0].amount}</Text>
+    //                 <Text>{userData.email}</Text>
+    //                 <Text>{userData.uid}</Text>
+    //             </View>)}
 
-        //     }
-    // console.log("db: " + db)
+    //         })
+    console.log("db: " + db)
     const currentUser = db.currentUser
 
     useEffect(() => {
@@ -43,6 +43,7 @@ const ProfileScreen = ({route, navigation}) => {
         )
     },[currentUser])
 
+
     return(
         <View style={styles.screen}>
             <View style={styles.userSummaryContainer}>
@@ -50,7 +51,8 @@ const ProfileScreen = ({route, navigation}) => {
             </View>
         </View>
     )
-
+}
+    
 
 const styles = StyleSheet.create({
     screen:{
@@ -71,5 +73,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     }
 })
+    
 
 export default ProfileScreen;
