@@ -29,7 +29,7 @@ const AuthProvider = (props) => {
 
 	const getUserData = () => {
 		const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-			setUser ? setUserData(user) : setUserData(null)
+			user ? setUserData(user) : setUserData(null)
 		})
 
 		return unsubscribe
@@ -37,8 +37,8 @@ const AuthProvider = (props) => {
 	
 
 	
-	userData ? console.log("user data: " + userData.email) : console.log('loading')
-	userData ? console.log("user data: " + JSON.stringify(userData)) : console.log('loading')
+	// userData ? console.log("user data: " + userData.email) : console.log('loading')
+	// userData ? console.log("user data: " + JSON.stringify(userData)) : console.log('loading')
 	
 
 	return (

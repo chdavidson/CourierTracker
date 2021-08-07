@@ -12,16 +12,16 @@ const DbProvider = (props) => {
     const auth = useContext(AuthContext);
     const userData = auth.userData;
 
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
+    const [loaded, setLoaded] = useState(false)
 
 
     const getUsers = function() {
         fetch('http://localhost:8080/users')
             .then(res => res.json())
             .then(data => setUsers(data))
-            .then(() => {grabCurrentUser()})
-            //Set loaded
+            .then(() => console.log("api loaded to state"))
             .catch(err => {console.log(err)})
             
     }
@@ -29,26 +29,28 @@ const DbProvider = (props) => {
 
     useEffect(() => {
         setUsers(getUsers());
-        // console.log(users);
-        // console.log(loaded);
-    }, [])// watch on loaded
+    }, [])
 
-    const grabCurrentUser = () => {
-        
-        if(users){
-            setCurrentUser(users.filter((user) => {
-                console?.log("username: " + user.username)
-                console?.log("userData.email: " + userData.email)
-                console?.log("matchy matchy: " + String(user.username) == String(userData.email))
-                
-            }))
+    // Matches Authorised user to DB user, holds in state.
+    useEffect(() => {
+        if(userData && users){
+            for(let i=0; i<users.length; i++){
+                if(users[i].username === userData.email){
+                    setCurrentUser(users[i])
+                }
+            }
         }
-        console?.log("current user: " + currentUser)
-    }
+        else{
+            console.log("identify user failed userData and users not yet loaded")
+        }
+    }, [userData])
 
-    
+    useEffect(() => {
+        if(currentUser){
+            console.log("Current User: "+currentUser.firstName);
+        }
+    }, [currentUser]);
 
-    
 
     return(
         <DbContext.Provider
