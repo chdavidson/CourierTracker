@@ -37,11 +37,14 @@ public class DataLoader implements ApplicationRunner {
         Expense expense1 = new Expense(20.00, new Date(),  ExpenseCategory.FUEL, saad);
         expenseRepository.save(expense1);
 
-        Payslip uber = new Payslip(300.00, "123abc", new Date(), CourierCompany.UBEREATS, saad);
+        Payslip uber = new Payslip(300.00, "123abc", new Date(), CourierCompany.UBEREATS, calum);
         payslipRepository.save(uber);
 
         Payslip uber2 = new Payslip(300.00, "123abc", new Date(), CourierCompany.UBEREATS, calum);
         payslipRepository.save(uber2);
+
+        Expense expense2 =  new Expense(55.21, new Date(), ExpenseCategory.FUEL, calum);
+        expenseRepository.save(expense2);
 
 
     }
