@@ -13,6 +13,7 @@ const DbProvider = (props) => {
     const userData = auth.userData;
 
     const [users, setUsers] = useState([]);
+    // const [workProviders, setWorkProviders] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
     const [loaded, setLoaded] = useState(false)
 

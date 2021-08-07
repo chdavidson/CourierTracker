@@ -9,9 +9,6 @@ import { DbContext } from "../provider/DbProvider";
 
 const ProfileScreen = ({route, navigation}) => {
 
-
-    const [transactions, setTransactions] = useState(null);
-
     const db = useContext(DbContext);
    
     const currentUser = db.currentUser
