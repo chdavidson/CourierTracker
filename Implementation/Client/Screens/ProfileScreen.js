@@ -17,9 +17,9 @@ const ProfileScreen = ({route, navigation}) => {
     const db = useContext(DbContext);
     console.log("db: " + db)
     const userDbData = db.users
-    
+
     const renderUser = userDbData?.map((user, index) => {
-        if (user.username === userID && users) {
+        if (user.username === userID && userDbData) {
             return (
                 <View key={index}>
                 
