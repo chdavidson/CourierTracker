@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { View, Text, Button, StyleSheet, FlatList } from 'react-native'
+import { View, Text, Button, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import ColourPalette from '../Constants/ColourPalette'
 import ProfilePicture from '../components/ProfilePicture'
 import SettingsClickable from '../components/SettingsClickable'
@@ -30,21 +30,25 @@ const ProfileScreen = ({route, navigation}) => {
         console.log(currentUser.expenses);
         let payList = (currentUser.payslips.map((p,i) => {
                             return(
-                                    <View key={i}>
+                                <TouchableOpacity key={i}>
+                                    <View>
                                         <Text>£{p.amount}</Text>
                                         <Text>{p.companyName}</Text>
                                         <Text>{p.invoiceNumber}</Text>
                                         <Text>{p.date}</Text>
                                     </View>
+                                </TouchableOpacity>
                             )
         }))
         let expenseList = (currentUser.expenses.map((e, i) => {
                                 return(
-                                    <View key={i+currentUser.payslips.length}>
-                                        <Text>£{e.amount}</Text>
-                                        <Text>{e.category}</Text>
-                                        <Text>{e.date}</Text>
-                                    </View>
+                                    <TouchableOpacity key={i+currentUser.payslips.length}>
+                                        <View>
+                                            <Text>£{e.amount}</Text>
+                                            <Text>{e.category}</Text>
+                                            <Text>{e.date}</Text>
+                                        </View>
+                                    </TouchableOpacity>
 
                                 )
         }))
