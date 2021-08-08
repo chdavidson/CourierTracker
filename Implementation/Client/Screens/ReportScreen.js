@@ -21,11 +21,11 @@ const screenWidth = Dimensions.get("window").width;
 
 
 const chartConfig = {
-    // backgroundGradientFrom: "#1E2923",
-    backgroundGradientFromOpacity: 0,
+    backgroundGradientFrom: "black",
+    backgroundGradientFromOpacity: 1,
 
-    backgroundGradientToOpacity: 0,
-    // backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 1,
+    backgroundGradientTo: "black",
     // backgroundGradientToOpacity: 0.5,
 
     color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
@@ -116,10 +116,11 @@ const ReportScreen = () => {
                 backgroundGradientFromOpacity: 0,
                 backgroundGradientToOpacity: 0,
 
-                fillShadowGradientFrom:'dodgerblue',
-                fillShadowGradientTo:'dodgerblue',
-                fillShadowGradientOpacity: 0,
-                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,        // Tips of bars
+                fillGradientFrom:'dodgerblue',
+                fillShadowGradient:'dodgerblue',
+                fillShadowGradientOpacity: 1,
+              
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,        // Tips of bars
                 labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,   // Labels x&y
                 
             }}
