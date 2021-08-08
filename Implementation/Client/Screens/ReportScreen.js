@@ -94,7 +94,10 @@ const ReportScreen = () => {
 
 
   return(
+    <>
     <ScrollView style={styles.screen}>
+
+    
 
         <Text>Work Provider Comparisson?</Text>
 
@@ -114,6 +117,7 @@ const ReportScreen = () => {
         <LineChartComponent />
 
     </ScrollView>
+    </>
 )}
 
 const styles = StyleSheet.create({
