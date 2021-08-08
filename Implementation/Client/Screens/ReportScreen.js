@@ -15,12 +15,72 @@ import ColourPalette from '../Constants/ColourPalette';
 
 import { DbContext } from '../provider/DbProvider'
 
-const screenWidth = Dimensions.get("window").width;
+const ReportScreen = () => {
+
+  const db = useContext(DbContext);
+  const userData = db.currentUser
+  console.log("data: " + JSON.stringify(userData));
+
+  var payslipTotal = 0
+  var uberTotal = 0
+  var deliverooTotal = 0
+  var justEatTotal = 0 
+
+  for(var i = 0; userData.payslips.length > i; i++){
+    payslipTotal += userData.payslips[i].amount
+    if(userData.payslips[i].companyName == "UBEREATS"){
+      uberTotal += userData.payslips[i].amount
+    } else if (userData.payslips[i].companyName == "DELIVEROO"){
+      deliverooTotal += userData.payslips[i].amount
+    } else if (userData.payslips[i].companyName == "JUSTEAT"){
+      justEatTotal += userData.payslips[i].amount
+    } 
+  }
 
 
+  console.log("Total Income = " + payslipTotal + "\n")
 
+  console.log("Uber Total = " + uberTotal)
+  console.log("Deliveroo Total = " + deliverooTotal)
+  console.log("Just Eat Total = " + justEatTotal + "\n")
 
-const chartConfig = {
+  var expenseTotal = 0
+  var fuelTotal = 0
+  var entertainmentTotal = 0
+  var foodTotal = 0
+  var insuranceTotal = 0
+  var maintenanceTotal = 0
+  var miscTotal = 0
+
+  for(var i = 0; userData.expenses.length > i; i++){
+    expenseTotal += userData.expenses[i].amount
+  
+    if(userData.expenses[i].category == "Fuel"){
+      fuelTotal += userData.expenses[i].amount
+    } else if (userData.expenses[i].category == "Entertainment"){
+      entertainmentTotal += userData.expenses[i].amount
+    } else if (userData.expenses[i].category == "Food"){
+      foodTotal += userData.expenses[i].amount
+    } else if (userData.expenses[i].category == "Insurance"){
+      insuranceTotal += userData.expenses[i].amount
+    } else if (userData.expenses[i].category == "Maintenance"){
+      maintenanceTotal += userData.expenses[i].amount
+    } else if (userData.expenses[i].category == "Misc"){
+      miscTotal += userData.expenses[i].amount
+    } 
+  }
+
+  console.log("Total Expense = " + expenseTotal + "\n")
+  console.log("Fuel Total = " + fuelTotal)
+  console.log("Entertainment Total = " + entertainmentTotal)
+  console.log("Food Total = " + foodTotal)
+  console.log("Insurance Total = " + insuranceTotal)
+  console.log("Maintenance Total = " + maintenanceTotal)
+  console.log("Misc Total = " + miscTotal)
+
+  const screenWidth = Dimensions.get("window").width;
+
+  const chartConfig = {
     backgroundGradientFrom: "black",
     backgroundGradientFromOpacity: 1,
 
@@ -80,17 +140,15 @@ const chartConfig = {
     legend: ["Fat Stacks"] // optional
   };
 
-const ReportScreen = () => {
 
-  const db = useContext(DbContext);
-  const userData = db.currentUser
   
-  console.log("data: " + JSON.stringify(userData).replaceAll(",", ",\n"))
+  
 
 
   return(
     <ScrollView style={styles.screen}>
         <Text>Work Provider Comparisson?</Text>
+        <Text>{payslipTotal}</Text>
         <PieChart
             data={sampleData}
             width={screenWidth}
