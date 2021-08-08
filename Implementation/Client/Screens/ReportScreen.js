@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect, useContext} from 'react'
-import { StyleSheet, ScrollView, Text, View } from 'react-native'
+import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
 import {
     LineChart,
     BarChart,
@@ -13,7 +13,11 @@ import {
 import { Dimensions } from "react-native";
 import ColourPalette from '../Constants/ColourPalette';
 
+import { DbContext } from '../provider/DbProvider'
+
 const screenWidth = Dimensions.get("window").width;
+
+
 
 
 const chartConfig = {
@@ -76,7 +80,15 @@ const chartConfig = {
     legend: ["Fat Stacks"] // optional
   };
 
-const ReportScreen = () => {return(
+const ReportScreen = () => {
+
+  const db = useContext(DbContext);
+  const userData = db.currentUser
+  
+  console.log("data: " + JSON.stringify(userData).replaceAll(",", ",\n"))
+
+
+  return(
     <ScrollView style={styles.screen}>
         <Text>Work Provider Comparisson?</Text>
         <PieChart
@@ -89,6 +101,7 @@ const ReportScreen = () => {return(
             paddingLeft={"40"}
             // center={[10, 50]}
         />
+        <View style={styles.circle}></View>
         <View style={styles.divider}></View>
         <Text>Income vs Expenses?</Text>
         <BarChart
@@ -103,8 +116,9 @@ const ReportScreen = () => {return(
                 backgroundGradientFromOpacity: 0,
                 backgroundGradientToOpacity: 0,
 
-                fillShadowGradient:'dodgerblue',
-                fillShadowGradientOpacity:1,
+                fillShadowGradientFrom:'dodgerblue',
+                fillShadowGradientTo:'dodgerblue',
+                fillShadowGradientOpacity: 0,
                 color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,        // Tips of bars
                 labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,   // Labels x&y
                 
@@ -133,6 +147,19 @@ const styles = StyleSheet.create({
         borderBottomColor: ColourPalette.PRIMARY,
         borderBottomWidth: 2,
         paddingVertical: 10
+    },
+    circle:{
+        backgroundColor: "white",
+        position: "relative",
+        alignItems: 'center',
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        marginLeft: "auto",
+        marginRight: "auto",
+        right: 63,
+        bottom: 150,
+        marginBottom: -130
     }
 })
 

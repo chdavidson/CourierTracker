@@ -3,5 +3,5 @@ export default{
     SECONDARY: 'white',
     DELIVEROO: '#0CF3DA',
     JUSTEAT: '#EC9B08',
-    UBER: '#05FD12'
+    UBER: 'darkgrey'
 }
