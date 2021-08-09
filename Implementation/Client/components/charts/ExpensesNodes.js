@@ -6,6 +6,7 @@ import {
 
 import { Dimensions } from "react-native";
 import ColourPalette from '../../Constants/ColourPalette';
+import { Icon } from 'react-native-elements'
 
 
 const ExpensesNodes = ({
@@ -21,29 +22,73 @@ const ExpensesNodes = ({
     
 
     return (
+        <>
+        <Text style={[styles.nodeText]}>£{expenseTotal}</Text>
+        
         <View style={[styles.container]}>
+           
             <View style={[styles.node]}>
-                <Text style={[styles.nodeText]}>£{expenseTotal}</Text>
-            </View>
-            <View style={[styles.node]}>
+            <Icon
+                    name='ios-color-fill'
+                    type='ionicon'
+                    color='black'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
                 <Text style={[styles.nodeText]}>£{fuelTotal}</Text>
             </View>
             <View style={[styles.node]}>
+            <Icon
+                    name='ios-film'
+                    type='ionicon'
+                    color='black'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
                 <Text style={[styles.nodeText]}>£{entertainmentTotal}</Text>
             </View>
             <View style={[styles.node]}>
+            <Icon
+                    name='ios-pizza'
+                    type='ionicon'
+                    color='black'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
                 <Text style={[styles.nodeText]}>£{foodTotal}</Text>
             </View>
             <View style={[styles.node]}>
+            <Icon
+                    name='ios-car'
+                    type='ionicon'
+                    color='black'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
                 <Text style={[styles.nodeText]}>£{insuranceTotal}</Text>
             </View>
             <View style={[styles.node]}>
+            <Icon
+                    name='ios-construct'
+                    type='ionicon'
+                    color='black'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
                 <Text style={[styles.nodeText]}>£{maintenanceTotal}</Text>
             </View>
             <View style={[styles.node]}>
+            <Icon
+                    name='ios-paw'
+                    type='ionicon'
+                    color='black'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
                 <Text style={[styles.nodeText]}>£{miscTotal}</Text>
             </View>
         </View>
+        </>
     )
 }
 
@@ -59,15 +104,27 @@ const styles = StyleSheet.create({
     node: {
         height: 70,
         width: 70,
+       
         padding: 0,
-        backgroundColor: 'dodgerblue',
+        // backgroundColor: 'dodgerblue',
         margin: 10
     },
     nodeText: {
-        top: 70,
+        top: 0,
         marginLeft: 'auto',
         marginRight: 'auto'
+    },
+    
+    bgCircle: {
+        height: 60,
+        width: 60,
+        backgroundColor: "hotpink",
+        left: 5,
+        bottom: 70,
+        borderRadius: 30,
+       
     }
+
   });
 
 export default ExpensesNodes
