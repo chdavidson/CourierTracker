@@ -21,6 +21,7 @@ import Settings from "../Screens/Settings";
 import ReportDetailScreen from "../Screens/ReportDetailScreen";
 import Report from "../Screens/Report";
 import RecordIncome from "../Screens/RecordIncome";
+
 import HomeScreen from "../Screens/HomeScreen";
 import About from "../Screens/About";
 import ProfileScreen from "../Screens/ProfileScreen";
@@ -28,7 +29,8 @@ import Loading from "../Screens/utils/Loading";
 import LandingScreen from "../Screens/LandingScreen"
 import AccountSettingsScreen from "../Screens/AccountSettingsScreen"
 import ReportScreen from "../Screens/ReportScreen"
-import RecordItemScreen from "../Screens/RecordItemScreen"
+import RecordExpense from "../Screens/RecordExpense"
+
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -81,11 +83,10 @@ const Main = () => {
       <MainStack.Screen name="Landing Page" component={HomeScreen}/>
       <MainStack.Screen name="Profile" component={ProfileScreen} />
       <MainStack.Screen name="Reports" component={ReportDetailScreen} />
-      <MainStack.Screen name="Record" component={RecordItemScreen} />
       <MainStack.Screen name="RecordLandingScreen" component={RecordLandingScreen}/>
       
       <MainStack.Screen name="RecordIncome" component={RecordIncome} />
-      {/* <MainStack.Screen name="RecordExpense" component={RecordData} /> */}
+      <MainStack.Screen name="RecordExpense" component={RecordExpense} />
 
 
       <MainStack.Screen name="ReportScreen" component={ReportScreen} />

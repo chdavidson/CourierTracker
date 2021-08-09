@@ -109,6 +109,7 @@ const RecordIncome = (navigation) => {
             console.log(newPayslip);
             const request = new Request();
             request.post('/payslips', newPayslip)
+            //navigation.navigate("Landing Page")
         }
     
     
