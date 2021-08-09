@@ -1,6 +1,5 @@
 import React from 'react'
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
-import { Entypo } from '@expo/vector-icons';
 import ColourPalette from '../Constants/ColourPalette';
 
 

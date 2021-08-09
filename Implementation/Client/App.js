@@ -68,6 +68,7 @@
 //   },
 // });
 
+
 import React from "react";
 import AppNavigator from "./navigation/AppNavigator";
 import { AuthProvider } from "./provider/AuthProvider";

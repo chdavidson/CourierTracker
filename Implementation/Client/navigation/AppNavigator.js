@@ -166,8 +166,8 @@ const Tabs = () => {
                 }}
             />
             <Tab.Screen
-                name="Portfolio"
-                component={ReportDetailScreen}
+                name="ProfileScreen"
+                component={ProfileScreen}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <View style={{alignItems: 'center',

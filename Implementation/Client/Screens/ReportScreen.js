@@ -97,8 +97,6 @@ const ReportScreen = () => {
     <>
     <ScrollView style={styles.screen}>
 
-    
-
         <Text>Work Provider Comparisson?</Text>
 
         <Text>{payslipTotal}</Text>

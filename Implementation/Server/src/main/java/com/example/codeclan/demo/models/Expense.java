@@ -23,6 +23,8 @@ public class Expense {
     @Lob
     @Column(name = "receipt")
     private byte[] receipt;
+
+    @Column(name="category")
     private ExpenseCategory category;
 
     @JsonIgnoreProperties({"expenses"})
@@ -72,8 +74,8 @@ public class Expense {
         this.receipt = receipt;
     }
 
-    public String getCategory() {
-        return category.getCategory();
+    public ExpenseCategory getCategory() {
+        return category;
     }
 
     public void setCategory(ExpenseCategory category) {
