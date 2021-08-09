@@ -107,6 +107,8 @@ const RecordIncome = (navigation) => {
 
         const onFormSubmit = () => {
             console.log(newPayslip);
+            const request = new Request();
+            request.post('/payslips', newPayslip)
         }
     
     
@@ -115,14 +117,6 @@ const RecordIncome = (navigation) => {
     useEffect(() => {
         currentDate = Date.now();
     }, [])
-
-    const handlePOST = (path, payload) => {
-            const request = new Request();
-            request.post(path, payload)
-    }
-
-
-
 
     const renderForm = () => {
         return (

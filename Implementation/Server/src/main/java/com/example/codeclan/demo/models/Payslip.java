@@ -27,7 +27,7 @@ public class Payslip {
 
     @Lob
     @Column(name = "receiptImage")
-    private byte[] image;
+    private String image;
 
     @JsonIgnoreProperties({"payslip"})
     @ManyToOne
@@ -39,20 +39,13 @@ public class Payslip {
         this.invoiceNumber = invoiceNumber;
         this.date = date;
         this.companyName = companyName;
-        this.image = new byte[0];
+        this.image = "";
         this.user = user;
     }
 
     public Payslip() {
     }
 
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
 
     public Long getId() {
         return id;
@@ -101,4 +94,8 @@ public class Payslip {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setImage(String image){this.image = image;}
+
+    public String getImage() {return image;}
 }
