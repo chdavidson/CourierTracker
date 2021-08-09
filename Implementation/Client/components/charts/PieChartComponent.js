@@ -8,7 +8,7 @@ import {
 import { Dimensions } from "react-native";
 import ColourPalette from '../../Constants/ColourPalette';
 
-const PieChartComponent = ({uberTotal, deliverooTotal, justEatTotal}) => {
+const PieChartComponent = () => {
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -30,21 +30,21 @@ const screenWidth = Dimensions.get("window").width;
   const sampleData = [
     {
       name: "Deliveroo",
-      earnings: deliverooTotal,
+      earnings: 20,
       color: ColourPalette.DELIVEROO,
       legendFontColor: "#7F7F7F",
       legendFontSize: 12
     },
     {
       name: "JustEat",
-      earnings: justEatTotal,
+      earnings: 30,
       color: ColourPalette.JUSTEAT,
       legendFontColor: "#7F7F7F",
       legendFontSize: 12
     },
     {
       name: "UberEats",
-      earnings: uberTotal,
+      earnings: 40,
       color: ColourPalette.UBER,
       legendFontColor: "#7F7F7F",
       legendFontSize: 12

@@ -39,7 +39,7 @@ import ForgetPassword from "../Screens/auth/ForgetPassword";
 import { AuthContext } from "../provider/AuthProvider";
 
 // Better put your these secret keys in .env file
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCg3gv56sdm-8BlaO1o37XtYlyO7L-rF7w",
   authDomain: "authtest-caa8d.firebaseapp.com",
   projectId: "authtest-caa8d",

@@ -1,21 +1,71 @@
-import React, {useState} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import {View, StyleSheet, Text, Picker, ScrollView, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
 import {COLORS, SIZES} from "../Constants";
-import CourierRender from "../components/CourierRender";
 import { Input } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {LinearGradient} from "expo-linear-gradient";
 import HeadBar from "../components/HeadBar";
-import DatePicker from "react-native-date-picker";
-import RNDateTimePicker from "@react-native-community/datetimepicker";
 import DateTimePicker from "@react-native-community/datetimepicker/src/datetimepicker";
-
+import Request from '../helpers/request';
+import PhotoUploader from '../helpers/PhotoUploader';
+import CameraComponent from '../components/CameraComponent';
+import { DbContext } from '../provider/DbProvider';
 
 
 
 const RecordData = (navigation) => {
-    const [date, setDate] = useState(new Date())
+
+    const db = useContext(DbContext);
+    const currentUser = db.currentUser;
+
+    let currentDate = new Date();
+
     const [selectedValue, setSelectedValue] = useState("java");
+    const [newPayslip, setNewPayslip] = useState({  "amount": 0.0,
+                                                    "invoiceNumber": null,
+                                                    "date": '',
+                                                    "courierName": 'UBEREATS',
+                                                    "image": [],
+                                                    "user": {
+                                                        "id": currentUser.id,
+                                                        "firstName": currentUser.firstName,
+                                                        "secondName": currentUser.secondName,
+                                                        "username": currentUser.username,
+                                                        "password": currentUser.password,
+                                                        "profilePicture": currentUser.profilePicture,
+                                                    }    
+                                                })
+
+
+    const handleDateChange = (event, date) => {
+        newPayslip["date"] = date;
+    }
+
+    const handleInvChange = (event) => {
+        newPayslip["invoiceNumber"] = event.nativeEvent.text;
+    }
+
+    const handleAmountChange = (event) => {
+        newPayslip["amount"] = event.nativeEvent.text;
+    }
+
+    const handlePhoto = (photoURI) => {
+        let photoUploader = new PhotoUploader();
+        photoUploader.uploadPhoto(photoURI, currentUser.username+'/Payslips/'+newPayslip["invoiceNumber"])
+        // newPayslip["image"] = photoURI;
+        // console.log(newPayslip);
+    }
+
+    useEffect(() => {
+        currentDate = Date.now();
+    }, [])
+
+    const handlePOST = (path, payload) => {
+            const request = new Request();
+            request.post(path, payload)
+    }
+
+
+
 
     const renderForm = () => {
         return (
@@ -57,6 +107,8 @@ const RecordData = (navigation) => {
                                 }}
                                 placeholder={"£ 0.00"}
                                 placeholderTextColor={COLORS.lightGray}
+                                keyboardType={'decimal-pad'}
+                                onChange={handleAmountChange}
 
                             />
                             <Input
@@ -77,11 +129,12 @@ const RecordData = (navigation) => {
                                 }}
                                 placeholder={"..."}
                                 placeholderTextColor={COLORS.lightGray}
+                                onChange={handleInvChange}
 
 
 
                             />
-                            <DateTimePicker onDateChange={setDate} textColor={'white'}  value={new Date()}  display={"default"} />
+                            <DateTimePicker onDateChange={handleDateChange} textColor={'white'}  value={currentDate}  display={"default"} />
 
 
 
@@ -94,6 +147,10 @@ const RecordData = (navigation) => {
                                 <Picker.Item label="UberEats" value="uber" color={'white'} />
                                 <Picker.Item label="Deliveroo" value="deliveroo" color={'white'} />
                             </Picker>
+
+                            <View style={styles.cameraContainer}>
+                                <CameraComponent handlePhoto={handlePhoto}/>
+                            </View>
                         </View>
                     </View>
 
@@ -140,6 +197,10 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
 
         elevation: 8,
+    },
+    cameraContainer:{
+        height:300,
+        width: 300
     }
 })
 

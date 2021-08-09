@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect, useContext} from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback, Button } from 'react-native'
 
 import ColourPalette from '../Constants/ColourPalette';
 
@@ -8,68 +8,85 @@ import { DbContext } from '../provider/DbProvider'
 import PieChartComponent from '../components/charts/PieChartComponent';
 import BarChartComponent from '../components/charts/BarChartComponent';
 import LineChartComponent from '../components/charts/LineChartComponent';
+import DateTimePicker from '@react-native-community/datetimepicker/src/datetimepicker';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ReportScreen = () => {
+
+  const [dateFrom, setDateFrom] = useState(new Date())
+  const [dateTo, setDateTo] = useState(new Date())
+  const [payslipTotal, setpayslipTotal] = useState(0)
+  const [uberTotal, setuberTotal] = useState(0)
+  const [deliverooTotal, setdeliverooTotal] = useState(0)
+  const [justEatTotal, setjustEatTotal] = useState(0) 
+  const [expenseTotal, setexpenseTotal] = useState(0)
+  const [fuelTotal, setfuelTotal] = useState(0)
+  const [entertainmentTotal, setentertainmentTotal] = useState(0)
+  const [foodTotal, setfoodTotal] = useState(0)
+  const [insuranceTotal, setinsuranceTotal] = useState(0)
+  const [maintenanceTotal, setmaintenanceTotal] = useState(0)
+  const [miscTotal, setmiscTotal] = useState(0)
+
 
   const db = useContext(DbContext);
   const userData = db.currentUser
   console.log("data: " + JSON.stringify(userData));
 
-  var payslipTotal = 0
-  var uberTotal = 0
-  var deliverooTotal = 0
-  var justEatTotal = 0 
+  var payslipTempTotal = 0
+  var uberTempTotal = 0
+  var deliverooTempTotal = 0
+  var justEatTempTotal = 0 
 
   for(var i = 0; userData.payslips.length > i; i++){
-    payslipTotal += userData.payslips[i].amount
+    payslipTempTotal += userData.payslips[i].amount
     if(userData.payslips[i].companyName == "UBEREATS"){
-      uberTotal += userData.payslips[i].amount
+      uberTempTotal += userData.payslips[i].amount
     } else if (userData.payslips[i].companyName == "DELIVEROO"){
-      deliverooTotal += userData.payslips[i].amount
+      deliverooTempTotal += userData.payslips[i].amount
     } else if (userData.payslips[i].companyName == "JUSTEAT"){
-      justEatTotal += userData.payslips[i].amount
+      justEatTempTotal += userData.payslips[i].amount
     } 
   }
 
-  console.log("Total Income = " + payslipTotal + "\n")
+  console.log("Total Income = " + payslipTempTotal + "\n")
 
-  console.log("Uber Total = " + uberTotal)
-  console.log("Deliveroo Total = " + deliverooTotal)
-  console.log("Just Eat Total = " + justEatTotal + "\n")
+  console.log("Uber TempTotal = " + uberTempTotal)
+  console.log("Deliveroo TempTotal = " + deliverooTempTotal)
+  console.log("Just Eat TempTotal = " + justEatTempTotal + "\n")
 
-  var expenseTotal = 0
-  var fuelTotal = 0
-  var entertainmentTotal = 0
-  var foodTotal = 0
-  var insuranceTotal = 0
-  var maintenanceTotal = 0
-  var miscTotal = 0
+  var expenseTempTotal = 0
+  var fuelTempTotal = 0
+  var entertainmentTempTotal = 0
+  var foodTempTotal = 0
+  var insuranceTempTotal = 0
+  var maintenanceTempTotal = 0
+  var miscTempTotal = 0
 
   for(var i = 0; userData.expenses.length > i; i++){
-    expenseTotal += userData.expenses[i].amount
+    expenseTempTotal += userData.expenses[i].amount
   
     if(userData.expenses[i].category == "Fuel"){
-      fuelTotal += userData.expenses[i].amount
+      fuelTempTotal += userData.expenses[i].amount
     } else if (userData.expenses[i].category == "Entertainment"){
-      entertainmentTotal += userData.expenses[i].amount
+      entertainmentTempTotal += userData.expenses[i].amount
     } else if (userData.expenses[i].category == "Food"){
-      foodTotal += userData.expenses[i].amount
+      foodTempTotal += userData.expenses[i].amount
     } else if (userData.expenses[i].category == "Insurance"){
-      insuranceTotal += userData.expenses[i].amount
+      insuranceTempTotal += userData.expenses[i].amount
     } else if (userData.expenses[i].category == "Maintenance"){
-      maintenanceTotal += userData.expenses[i].amount
+      maintenanceTempTotal += userData.expenses[i].amount
     } else if (userData.expenses[i].category == "Misc"){
-      miscTotal += userData.expenses[i].amount
+      miscTempTotal += userData.expenses[i].amount
     } 
   }
 
-  console.log("Total Expense = " + expenseTotal + "\n")
-  console.log("Fuel Total = " + fuelTotal)
-  console.log("Entertainment Total = " + entertainmentTotal)
-  console.log("Food Total = " + foodTotal)
-  console.log("Insurance Total = " + insuranceTotal)
-  console.log("Maintenance Total = " + maintenanceTotal)
-  console.log("Misc Total = " + miscTotal)
+  console.log("TempTotal Expense = " + expenseTempTotal + "\n")
+  console.log("Fuel TempTotal = " + fuelTempTotal)
+  console.log("Entertainment TempTotal = " + entertainmentTempTotal)
+  console.log("Food TempTotal = " + foodTempTotal)
+  console.log("Insurance TempTotal = " + insuranceTempTotal)
+  console.log("Maintenance TempTotal = " + maintenanceTempTotal)
+  console.log("Misc TempTotal = " + miscTempTotal)
 
 
   var earningsByMonthListOfObjects = []; 
@@ -77,6 +94,7 @@ const ReportScreen = () => {
   for(var i = 0; userData.payslips.length > i; i++){
     
     var earningsDate = new Date(userData.payslips[i].date)
+
     var earningsByMonthObject = {
       day: earningsDate.getDate(),
       month: earningsDate.getMonth(),
@@ -89,33 +107,38 @@ const ReportScreen = () => {
 
   console.log(earningsByMonthListOfObjects)
 
-  
+  console?.log("From = " + dateFrom)
+  console?.log("To = " + dateTo)
 
-
+  handleRefine = () => {
+    console.log("weeners")
+  }
 
   return(
-    <>
-    <ScrollView style={styles.screen}>
+    <SafeAreaView>
+      <ScrollView style={styles.screen}>
 
-        <Text>Work Provider Comparisson?</Text>
+      <DateTimePicker onDateChange={setDateFrom} textColor={'white'}  value={new Date()}  display={"default"} />
+      <DateTimePicker onDateChange={setDateTo} textColor={'white'}  value={new Date()}  display={"default"} />
+      <Button title="Refine" onPress={handleRefine}></Button>
 
-        <Text>{payslipTotal}</Text>
+          <Text>Work Provider Comparisson?</Text>
 
-        <PieChartComponent uberTotal={uberTotal} deliverooTotal={deliverooTotal} justEatTotal={justEatTotal}/>
+          <PieChartComponent />
 
-        <View style={styles.divider}></View>
+          <View style={styles.divider}></View>
 
-        <Text>Income vs Expenses?</Text>
+          <Text>Income vs Expenses?</Text>
 
-        <BarChartComponent payslipTotal={payslipTotal} expenseTotal={expenseTotal}/>
+          <BarChartComponent/>
 
-        <View style={styles.divider}></View>
-        <Text>Earnings across n</Text>
+          <View style={styles.divider}></View>
+          <Text>Earnings across n</Text>
 
-        <LineChartComponent />
+          <LineChartComponent />
 
-    </ScrollView>
-    </>
+      </ScrollView>
+    </SafeAreaView>
 )}
 
 const styles = StyleSheet.create({
@@ -143,4 +166,19 @@ const styles = StyleSheet.create({
 })
 
 export default ReportScreen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
