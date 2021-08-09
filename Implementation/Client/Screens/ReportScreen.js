@@ -15,18 +15,18 @@ const ReportScreen = () => {
 
   const [dateFrom, setDateFrom] = useState(new Date())
   const [dateTo, setDateTo] = useState(new Date())
-  const [payslipTotal, setpayslipTotal] = useState(0)
-  const [uberTotal, setuberTotal] = useState(0)
-  const [deliverooTotal, setdeliverooTotal] = useState(0)
-  const [justEatTotal, setjustEatTotal] = useState(0) 
-  const [expenseTotal, setexpenseTotal] = useState(0)
-  const [fuelTotal, setfuelTotal] = useState(0)
-  const [entertainmentTotal, setentertainmentTotal] = useState(0)
-  const [foodTotal, setfoodTotal] = useState(0)
-  const [insuranceTotal, setinsuranceTotal] = useState(0)
-  const [maintenanceTotal, setmaintenanceTotal] = useState(0)
-  const [miscTotal, setmiscTotal] = useState(0)
-
+  const [payslipTotal, setPayslipTotal] = useState(0)
+  const [uberTotal, setUberTotal] = useState(0)
+  const [deliverooTotal, setDeliverooTotal] = useState(0)
+  const [justEatTotal, setJustEatTotal] = useState(0) 
+  const [expenseTotal, setExpenseTotal] = useState(0)
+  const [fuelTotal, setFuelTotal] = useState(0)
+  const [entertainmentTotal, setEntertainmentTotal] = useState(0)
+  const [foodTotal, setFoodTotal] = useState(0)
+  const [insuranceTotal, setInsuranceTotal] = useState(0)
+  const [maintenanceTotal, setMaintenanceTotal] = useState(0)
+  const [miscTotal, setMiscTotal] = useState(0)
+//
 
   const db = useContext(DbContext);
   const userData = db.currentUser
@@ -37,23 +37,6 @@ const ReportScreen = () => {
   var deliverooTempTotal = 0
   var justEatTempTotal = 0 
 
-  for(var i = 0; userData.payslips.length > i; i++){
-    payslipTempTotal += userData.payslips[i].amount
-    if(userData.payslips[i].companyName == "UBEREATS"){
-      uberTempTotal += userData.payslips[i].amount
-    } else if (userData.payslips[i].companyName == "DELIVEROO"){
-      deliverooTempTotal += userData.payslips[i].amount
-    } else if (userData.payslips[i].companyName == "JUSTEAT"){
-      justEatTempTotal += userData.payslips[i].amount
-    } 
-  }
-
-  console.log("Total Income = " + payslipTempTotal + "\n")
-
-  console.log("Uber TempTotal = " + uberTempTotal)
-  console.log("Deliveroo TempTotal = " + deliverooTempTotal)
-  console.log("Just Eat TempTotal = " + justEatTempTotal + "\n")
-
   var expenseTempTotal = 0
   var fuelTempTotal = 0
   var entertainmentTempTotal = 0
@@ -61,33 +44,6 @@ const ReportScreen = () => {
   var insuranceTempTotal = 0
   var maintenanceTempTotal = 0
   var miscTempTotal = 0
-
-  for(var i = 0; userData.expenses.length > i; i++){
-    expenseTempTotal += userData.expenses[i].amount
-  
-    if(userData.expenses[i].category == "Fuel"){
-      fuelTempTotal += userData.expenses[i].amount
-    } else if (userData.expenses[i].category == "Entertainment"){
-      entertainmentTempTotal += userData.expenses[i].amount
-    } else if (userData.expenses[i].category == "Food"){
-      foodTempTotal += userData.expenses[i].amount
-    } else if (userData.expenses[i].category == "Insurance"){
-      insuranceTempTotal += userData.expenses[i].amount
-    } else if (userData.expenses[i].category == "Maintenance"){
-      maintenanceTempTotal += userData.expenses[i].amount
-    } else if (userData.expenses[i].category == "Misc"){
-      miscTempTotal += userData.expenses[i].amount
-    } 
-  }
-
-  console.log("TempTotal Expense = " + expenseTempTotal + "\n")
-  console.log("Fuel TempTotal = " + fuelTempTotal)
-  console.log("Entertainment TempTotal = " + entertainmentTempTotal)
-  console.log("Food TempTotal = " + foodTempTotal)
-  console.log("Insurance TempTotal = " + insuranceTempTotal)
-  console.log("Maintenance TempTotal = " + maintenanceTempTotal)
-  console.log("Misc TempTotal = " + miscTempTotal)
-
 
   var earningsByMonthListOfObjects = []; 
 
@@ -114,7 +70,70 @@ const ReportScreen = () => {
     console.log("weeners")
   }
 
+  useEffect(() => {
+
+    for(var i = 0; userData.payslips.length > i; i++){
+      payslipTempTotal += userData.payslips[i].amount
+    if(userData.payslips[i].companyName == "UBEREATS"){
+      uberTempTotal += userData.payslips[i].amount
+    } else if (userData.payslips[i].companyName == "DELIVEROO"){
+      deliverooTempTotal += userData.payslips[i].amount
+    } else if (userData.payslips[i].companyName == "JUSTEAT"){
+      justEatTempTotal += userData.payslips[i].amount
+    } 
+  }
+
+    for(var i = 0; userData.expenses.length > i; i++){
+      expenseTempTotal += userData.expenses[i].amount
+      if(userData.expenses[i].category == "FUEL"){
+        fuelTempTotal += userData.expenses[i].amount
+      } else if (userData.expenses[i].category == "ENTERTAINMENT"){
+        entertainmentTempTotal += userData.expenses[i].amount
+      } else if (userData.expenses[i].category == "FOOD"){
+        foodTempTotal += userData.expenses[i].amount
+      } else if (userData.expenses[i].category == "INSURANCE"){
+        insuranceTempTotal += userData.expenses[i].amount
+      } else if (userData.expenses[i].category == "MAINTENANCE"){
+        maintenanceTempTotal += userData.expenses[i].amount
+      } else if (userData.expenses[i].category == "MISC"){
+        miscTempTotal += userData.expenses[i].amount
+      } 
+    }
+    setPayslipTotal(payslipTempTotal)
+
+    setUberTotal(uberTempTotal)
+    setDeliverooTotal(deliverooTempTotal)
+    setJustEatTotal(justEatTempTotal)
+
+    setExpenseTotal(expenseTempTotal)
+
+    setFuelTotal(fuelTempTotal)
+    setEntertainmentTotal(entertainmentTempTotal)
+    setFoodTotal(foodTempTotal)
+    setInsuranceTotal(insuranceTempTotal)
+    setMaintenanceTotal(maintenanceTempTotal)
+    setMiscTotal(miscTempTotal)
+  
+  }, [])
+
+
+  console.log("Total Income = " + payslipTotal + "\n")
+
+  console.log("Uber Total = " + uberTotal)
+  console.log("Deliveroo Total = " + deliverooTotal)
+  console.log("Just Eat Total = " + justEatTotal + "\n")
+
+  console.log("Total Expense = " + expenseTotal + "\n")
+  console.log("Fuel Total = " + fuelTotal)
+  console.log("Entertainment Total = " + entertainmentTotal)
+  console.log("Food Total = " + foodTotal)
+  console.log("Insurance Total = " + insuranceTotal)
+  console.log("Maintenance Total = " + maintenanceTotal)
+  console.log("Misc Total = " + miscTotal)
+
+
   return(
+
     <SafeAreaView>
       <ScrollView style={styles.screen}>
 
