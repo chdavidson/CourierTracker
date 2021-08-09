@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import {COLORS, SIZES, FONTS, icons, images, dummyData} from '../Constants'
 
 
@@ -9,27 +9,54 @@ const RecordLandingScreen = ({navigation}) =>{
 
 
     return(
+        <View style={{height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
         <View style={{  justifyContent: 'center',
                         alignItems: 'center',
                         width: '100%',
                         height: 290,
                         ...styles.shadow
                     }}>
-            <TouchableOpacity
-                style={{
-                    width: 170,
-                    paddingVertical: SIZES.padding,
-                    paddingHorizontal: SIZES.padding,
-                    // marginLeft: index === 0 ? SIZES.padding : 0,
-                    marginRight: SIZES.radius,
-                    borderRadius: 10,
-                    backgroundColor: 'white'
+            <View style={styles.touchableContainer}>
+                <TouchableOpacity
+                    style={{
+                        width: 180,
+                        paddingVertical: SIZES.padding,
+                        paddingHorizontal: SIZES.padding,
+                        // marginLeft: index === 0 ? SIZES.padding : 0,
+                        marginRight: SIZES.radius,
+                        borderRadius: 10,
+                        backgroundColor: COLORS.primary
 
-                }}
-                onPress={() => navigation.navigate('RecordIncome')}
-            >
-                
-            </TouchableOpacity>
+                    }}
+                    onPress={() => navigation.navigate('RecordIncome')}
+                >
+
+                    <Text style={{color: COLORS.white}}>RECORD INCOME</Text>
+
+                    
+                </TouchableOpacity>
+            </View>
+            <View style={styles.touchableContainer}>
+                <TouchableOpacity
+                    style={{
+                        width: 180,
+                        paddingVertical: SIZES.padding,
+                        paddingHorizontal: SIZES.padding,
+                        // marginLeft: index === 0 ? SIZES.padding : 0,
+                        marginRight: SIZES.radius,
+                        borderRadius: 10,
+                        backgroundColor: COLORS.primary
+
+                    }}
+                    onPress={() => navigation.navigate('RecordExpense')}
+                >
+
+                    <Text style={{color: COLORS.white}}>RECORD EXPENSE</Text>
+
+                    
+                </TouchableOpacity>
+            </View>
+        </View>
         </View>
     );
 }
@@ -47,5 +74,8 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5
+    },
+    touchableContainer:{
+        padding:20,
     }
 })

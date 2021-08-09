@@ -39,6 +39,7 @@ const DbProvider = (props) => {
                 if(users[i].username === userData.email){
                     setCurrentUser(users[i])
                 }
+                // else POST new user to DB HERE! :D 
             }
         }
         else{

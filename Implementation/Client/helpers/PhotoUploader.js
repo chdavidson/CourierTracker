@@ -37,7 +37,7 @@ class PhotoUploader {
         const ref = Firebase.storage().ref().child(filename);
         const snapshot = ref.put(blob);
 
-        var result = null;
+        let result =
         snapshot.on(    Firebase.storage.TaskEvent.STATE_CHANGED,
                                     () => {
                                         //setUploading(true);
@@ -51,16 +51,13 @@ class PhotoUploader {
                                     () => { 
                                             //setUploading(false);
                                             snapshot.snapshot.ref.getDownloadURL()
-                                            .then(url => {  console.log("download url: "+url); 
-                                                            result = url;                       })
+                                            .then(url => {  console.log("download url: "+url); })
                                             blob.close();
                                             return url;
                                         }
                                 )
 
-        while(!result){}
-        console.log("RESULT: "+result);
-        return result
+        
         
     }
 }
