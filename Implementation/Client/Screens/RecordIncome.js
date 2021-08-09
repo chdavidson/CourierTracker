@@ -12,7 +12,7 @@ import { DbContext } from '../provider/DbProvider';
 
 
 
-const RecordData = (navigation) => {
+const RecordIncome = (navigation) => {
 
     const db = useContext(DbContext);
     const currentUser = db.currentUser;
@@ -204,4 +204,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default RecordData
+export default RecordIncome

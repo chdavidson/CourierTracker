@@ -71,7 +71,7 @@ const TransactionHistory = ({customerContainerStyle, history}) => {
             backgroundColor: COLORS.white,
             ...customerContainerStyle
         }}>
-        <Text style={{fontFamily: 'Roboto', fontSize: 20}} >Transaction History</Text>
+        <Text style={{fontFamily: 'Helvetica', fontSize: 20}} >Transaction History</Text>
         <FlatList
             contentContainerSty le={{marginTop: SIZES.radius}}
             scrollEnabled={false}

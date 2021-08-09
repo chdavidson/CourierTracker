@@ -48,13 +48,13 @@ const HomeScreen = ({navigation}) => {
                     />
                 </View>
                 <View style={{marginLeft: SIZES.base}}>
-                       <Text style={{ fontFamily: 'Roboto', fontSize: 18}}>{item.currency}</Text>
-                       <Text style={{fontFamily: 'Roboto', fontSize: 14}} >{item.code}</Text>
+                       <Text style={{ fontFamily: 'Helvetica', fontSize: 18}}>{item.currency}</Text>
+                       <Text style={{fontFamily: 'Helvetica', fontSize: 14}} >{item.code}</Text>
 
                 </View>
             </View>
             <View style={{ marginTop: SIZES.radius}}>
-                        <Text style={{fontFamily: 'Roboto', fontSize: 22}} >£{item.amount}</Text>
+                        <Text style={{fontFamily: 'Helvetica', fontSize: 22}} >£{item.amount}</Text>
             </View>
 
         </TouchableOpacity>
@@ -82,15 +82,15 @@ const HomeScreen = ({navigation}) => {
                         paddingTop: 80
                     }}
                     >
-                        <Text style= {{color: COLORS.white, fontFamily: 'Roboto', fontSize: 24}}>Your Balance</Text>
-                        <Text style={{ marginTop: SIZES.base, color: COLORS.white, fontFamily: 'Roboto', fontSize:30}}>£{dummyData.portfolio.balance}</Text>
+                        <Text style= {{color: COLORS.white, fontFamily: 'Helvetica', fontSize: 24}}>Your Balance</Text>
+                        <Text style={{ marginTop: SIZES.base, color: COLORS.white, fontFamily: 'Helvetica', fontSize:30}}>£{dummyData.portfolio.balance}</Text>
                     </View>
                     <View style={{
                         position: 'absolute',
                         bottom: '-30%'
                     }}>
                         <Text style={{ marginLeft: SIZES.padding,
-                            color: COLORS.white, fontFamily: 'RobotoSemiBold', fontSize:24
+                            color: COLORS.white, fontFamily: 'HelveticaSemiBold', fontSize:24
                         }}>Couriers</Text>
                         <FlatList
                             contentContainerStyle={{marginTop: SIZES.base}}

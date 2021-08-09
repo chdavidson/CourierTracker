@@ -13,8 +13,9 @@ import HomeScreen from "../Screens/HomeScreen";
 import Settings from "../Screens/Settings";
 import ReportDetailScreen from "../Screens/ReportDetailScreen";
 import Report from "../Screens/Report";
-import RecordData from "../Screens/RecordData";
+import RecordIncome from "../Screens/RecordIncome";
 import { LinearGradient } from 'expo-linear-gradient';
+import RecordLandingScreen from "../Screens/RecordLandingScreen";
 
 const Tab = createBottomTabNavigator()
 const TabBarCustomButton = ({children, onPress}) => {
@@ -120,7 +121,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="Transaction"
-                component={RecordData}
+                component={RecordLandingScreen}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Image
