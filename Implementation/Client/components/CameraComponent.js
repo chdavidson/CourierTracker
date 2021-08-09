@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image} from 'react-native';
 import { Camera } from 'expo-camera';
 
-const CameraComponent = () => {
+const CameraComponent = ({handlePhoto}) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [torch, setTorch] = useState(Camera.Constants.FlashMode.off);
@@ -37,9 +37,8 @@ const CameraComponent = () => {
   }
 
   const processPicture = photo => {
-    console.log(photo)
     setCapture(photo);
-    // setVisability(true);
+    handlePhoto(photo.uri);
   }
   
   

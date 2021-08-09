@@ -3,13 +3,25 @@ import firebase from "firebase/app";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  Text,
+  StyleSheet
+} from "react-native";
+import { COLORS, FONTS, icons } from "../Constants"
 
 import { useTheme, themeColor } from "react-native-rapi-ui";
 import TabBarIcon from "../components/utils/TabBarIcon";
 import TabBarText from "../components/utils/TabBarText";
 //Screens
 import Home from "../Screens/Home";
-import SecondScreen from "../Screens/SecondScreen";
+import Settings from "../Screens/Settings";
+import ReportDetailScreen from "../Screens/ReportDetailScreen";
+import Report from "../Screens/Report";
+import RecordData from "../Screens/RecordData";
+import HomeScreen from "../Screens/HomeScreen";
 import About from "../Screens/About";
 import ProfileScreen from "../Screens/ProfileScreen";
 import Loading from "../Screens/utils/Loading";
@@ -18,6 +30,7 @@ import AccountSettingsScreen from "../Screens/AccountSettingsScreen"
 import ReportScreen from "../Screens/ReportScreen"
 import RecordItemScreen from "../Screens/RecordItemScreen"
 
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Auth Screens
 import Login from "../Screens/auth/Login";
@@ -37,8 +50,8 @@ const firebaseConfig = {
 };
 
 if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
+    firebase.initializeApp(firebaseConfig);
+  }
 
 const AuthStack = createStackNavigator();
 const Auth = () => {
@@ -63,84 +76,202 @@ const Main = () => {
         headerShown: false,
       }}
     >
-      <MainStack.Screen name="MainTabs" component={MainTabs} />
-      <MainStack.Screen name="SecondScreen" component={SecondScreen} />
-      <MainStack.Screen name="Landing Page" component={LandingScreen}/>
-        <MainStack.Screen name="Profile Settings" component={AccountSettingsScreen} />
-        <MainStack.Screen name="Reports" component={ReportScreen} />
-        <MainStack.Screen name="Record" component={RecordItemScreen} />
+      <MainStack.Screen name="Tabs" component={Tabs} />
+      <MainStack.Screen name="Landing Page" component={HomeScreen}/>
+      <MainStack.Screen name="Profile" component={ProfileScreen} />
+      <MainStack.Screen name="Reports" component={ReportDetailScreen} />
+      <MainStack.Screen name="Record" component={RecordItemScreen} />
+      <MainStack.Screen name="RecordData" component={RecordData} />
+      <MainStack.Screen name="ReportScreen" component={ReportScreen} />
+      <MainStack.Screen name="Settings" component={Settings} />
               
     </MainStack.Navigator>
   );
 };
 
-const Tabs = createBottomTabNavigator();
-const MainTabs = () => {
-  const { isDarkmode } = useTheme();
-  return (
-    <Tabs.Navigator
-      tabBarOptions={{
-        style: {
-          borderTopWidth: 1,
-          borderTopColor: isDarkmode ? themeColor.dark100 : "#c0c0c0",
-          backgroundColor: isDarkmode ? themeColor.dark200 : "#ffffff",
-        },
-      }}
-    >
-      {/* these icons using Ionicons */}
-      <Tabs.Screen
-        name="Home"
-        component={LandingScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Home" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"md-home"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Profile" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"person"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Reports"
-        component={ReportScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Reports" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-trending-up"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Record"
-        component={RecordItemScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Record" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-barcode-outline"} />
-          ),
-        }}
-      />
-              
-       
-    </Tabs.Navigator>
-  );
-};
+
+
+const Tab = createBottomTabNavigator()
+const TabBarCustomButton = ({children, onPress}) => {
+    return(
+        <TouchableOpacity
+            style={{
+                top: -30,
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: 30,
+                ...styles.shadow
+            }}
+            onPress={onPress}
+         >
+             <LinearGradient
+                colors={[COLORS.primary, COLORS.secondary]}
+                style={{
+                    width: 70,
+                    height: 70,
+                    borderRadius: 35
+                }}
+             >
+                 {children}
+             </LinearGradient>
+         </TouchableOpacity>
+    )
+}
+
+const Tabs = () => {
+    return (
+        <Tab.Navigator 
+            tabBarOptions={{
+                showLabel: false,
+                style: {
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    elevation: 0,
+                    backgroundColor: COLORS.white,
+                    borderTopColor: "transparent"
+                }
+            }}
+            screenOptions={{
+                headerShown: null
+            }}
+        >
+            <Tab.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.home}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
+                    
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Home</Text>
+
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="ProfileScreen"
+                component={ProfileScreen}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.pie_chart}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
+                    
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Reports</Text>
+
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Transaction"
+                component={RecordData}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <Image
+                            source={icons.transaction}
+                            resizeMode= 'contain'
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: COLORS.white,
+                            }} />
+                    ),
+                    tabBarButton: (props) => (
+                        <TabBarCustomButton {...props}/>
+                    )
+                }}
+                
+            />
+            <Tab.Screen
+                name="ReportScreen"
+                component={ReportScreen}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.line_graph}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
+                    
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Stats</Text>
+
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={Settings}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.settings}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
+                    
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Settings</Text>
+
+                        </View>
+                    )
+                }}
+            />
+        </Tab.Navigator>
+    )
+}
 
 export default () => {
   const auth = useContext(AuthContext);
@@ -153,3 +284,17 @@ export default () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  shadow: {
+      shadowColor: COLORS.primary,
+      shadowOffset: {
+          width: 0,
+          height: 10,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+
+      elevation: 5
+  }
+})
