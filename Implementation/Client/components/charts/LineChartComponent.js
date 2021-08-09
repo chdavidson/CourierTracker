@@ -24,6 +24,8 @@ const LineChartComponent = () => {
     useShadowColorFromDataset: false // optional
   };
 
+
+
   const moreData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
     datasets: [
