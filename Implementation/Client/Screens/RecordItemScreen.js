@@ -18,18 +18,32 @@ const RecordItemScreen = () => {
 
     const [expenseModal, setExpenseModal] = useState(false);
     const [earningModal, setEarningModal] = useState(false);
+    // const [newPayslip, setNewPayslip] = useState({  "amount": 0.0,
+    //                                                 "invoiceNumber": null,
+    //                                                 "date": '',
+    //                                                 "courierName": 'UBEREATS',
+    //                                                 "image": [],
+    //                                                 "user": {
+    //                                                     "id": currentUser.id,
+    //                                                     "firstName": currentUser.firstName,
+    //                                                     "secondName": currentUser.secondName,
+    //                                                     "username": currentUser.username,
+    //                                                     "password": currentUser.password,
+    //                                                     "profilePicture": currentUser.profilePicture,
+    //                                                 }    
+    //                                             })
     const [newPayslip, setNewPayslip] = useState({  "amount": 0.0,
                                                     "invoiceNumber": null,
                                                     "date": '',
                                                     "courierName": 'UBEREATS',
                                                     "image": [],
                                                     "user": {
-                                                        "id": currentUser.id,
-                                                        "firstName": currentUser.firstName,
-                                                        "secondName": currentUser.secondName,
-                                                        "username": currentUser.username,
-                                                        "password": currentUser.password,
-                                                        "profilePicture": currentUser.profilePicture,
+                                                        "id": null,
+                                                        "firstName": null,
+                                                        "secondName": null,
+                                                        "username": null,
+                                                        "password": null,
+                                                        "profilePicture": null,
                                                     }    
                                                 })
 

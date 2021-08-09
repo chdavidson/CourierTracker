@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
-import {View, StyleSheet, Text, Picker, ScrollView, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
+import {View, StyleSheet, Text, Picker, ScrollView, TouchableOpacity, TextInput, SafeAreaView, Button} from 'react-native'
 import {COLORS, SIZES} from "../Constants";
 import { Input } from 'react-native-elements';
 import {LinearGradient} from "expo-linear-gradient";
@@ -9,6 +9,7 @@ import Request from '../helpers/request';
 import PhotoUploader from '../helpers/PhotoUploader';
 import CameraComponent from '../components/CameraComponent';
 import { DbContext } from '../provider/DbProvider';
+import * as Firebase from 'firebase'
 
 
 
@@ -34,9 +35,24 @@ const RecordIncome = (navigation) => {
                                                         "profilePicture": currentUser.profilePicture,
                                                     }    
                                                 })
+    // const [newPayslip, setNewPayslip] = useState({  "amount": 0.0,
+    //                                                 "invoiceNumber": null,
+    //                                                 "date": '',
+    //                                                 "courierName": 'UBEREATS',
+    //                                                 "image": [],
+    //                                                 "user": {
+    //                                                     "id": null,
+    //                                                     "firstName": null,
+    //                                                     "secondName": null,
+    //                                                     "username": null,
+    //                                                     "password": null,
+    //                                                     "profilePicture": null,
+    //                                                 }    
+    //                                             })
 
 
     const handleDateChange = (event, date) => {
+        console.log(date);
         newPayslip["date"] = date;
     }
 
@@ -48,12 +64,53 @@ const RecordIncome = (navigation) => {
         newPayslip["amount"] = event.nativeEvent.text;
     }
 
-    const handlePhoto = (photoURI) => {
-        let photoUploader = new PhotoUploader();
-        photoUploader.uploadPhoto(photoURI, currentUser.username+'/Payslips/'+newPayslip["invoiceNumber"])
-        // newPayslip["image"] = photoURI;
-        // console.log(newPayslip);
-    }
+    const handlePhoto = async (photoURI) => {
+            const blob = await new Promise((resolve, reject)=> {
+                const xhr = new XMLHttpRequest();
+                xhr.onload = function(){
+                  resolve(xhr.response)
+                };
+                xhr.onerror = function (){
+                  reject(new TypeError('Network request failed'));
+                };
+                xhr.responseType = 'blob';
+                xhr.open('GET', photoURI, true);
+                xhr.send(null);
+             });
+    
+    
+            const ref = Firebase.storage().ref().child(currentUser.username+'/Payslips/'+newPayslip["invoiceNumber"]);
+            const snapshot = ref.put(blob);
+    
+            snapshot.on(    Firebase.storage.TaskEvent.STATE_CHANGED,
+                                        () => {
+                                            //setUploading(true);
+                                        },
+                                        err =>  { 
+                                                //setUploading(false);
+                                                console.log(err)
+                                                blob.close();
+                                                return err;
+                                                },
+                                        () => { 
+                                                //setUploading(false);
+                                                snapshot.snapshot.ref.getDownloadURL()
+                                                .then(url => {  
+                                                                console.log("download url: "+url); 
+                                                                newPayslip["image"] = url;
+                                                    })
+                                                blob.close();
+                                                return url;
+                                            }
+                                    )
+        }
+
+        const onFormSubmit = () => {
+            console.log(newPayslip);
+        }
+    
+    
+
 
     useEffect(() => {
         currentDate = Date.now();
@@ -135,7 +192,7 @@ const RecordIncome = (navigation) => {
 
                             />
                             <DateTimePicker onDateChange={handleDateChange} textColor={'white'}  value={currentDate}  display={"default"} />
-
+                            
 
 
 
@@ -152,6 +209,7 @@ const RecordIncome = (navigation) => {
                                 <CameraComponent handlePhoto={handlePhoto}/>
                             </View>
                         </View>
+                        <Button onPress={onFormSubmit} title="SUBMIT"/>
                     </View>
 
                 </SafeAreaView>
