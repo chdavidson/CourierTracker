@@ -76,12 +76,14 @@ const Main = () => {
         headerShown: false,
       }}
     >
-      <MainStack.Screen name="MainTabs" component={MainTabs} />
+      <MainStack.Screen name="Tabs" component={Tabs} />
       <MainStack.Screen name="Landing Page" component={HomeScreen}/>
       <MainStack.Screen name="Profile" component={ProfileScreen} />
       <MainStack.Screen name="Reports" component={ReportDetailScreen} />
       <MainStack.Screen name="Record" component={RecordItemScreen} />
       <MainStack.Screen name="RecordData" component={RecordData} />
+      <MainStack.Screen name="ReportScreen" component={ReportScreen} />
+      <MainStack.Screen name="Settings" component={Settings} />
               
     </MainStack.Navigator>
   );
@@ -89,269 +91,187 @@ const Main = () => {
 
 
 
-const Tabs = createBottomTabNavigator();
-const MainTabs = () => {
-  const { isDarkmode } = useTheme();
-  return (
-    <Tabs.Navigator
-      screenOptions={{
-        style: {
-          borderTopWidth: 1,
-          borderTopColor: isDarkmode ? themeColor.dark100 : "#c0c0c0",
-          backgroundColor: isDarkmode ? themeColor.dark200 : "#ffffff",
-        },
-      }}
-    >
+const Tab = createBottomTabNavigator()
+const TabBarCustomButton = ({children, onPress}) => {
+    return(
+        <TouchableOpacity
+            style={{
+                top: -30,
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: 30,
+                ...styles.shadow
+            }}
+            onPress={onPress}
+         >
+             <LinearGradient
+                colors={[COLORS.primary, COLORS.secondary]}
+                style={{
+                    width: 70,
+                    height: 70,
+                    borderRadius: 35
+                }}
+             >
+                 {children}
+             </LinearGradient>
+         </TouchableOpacity>
+    )
+}
 
-
-      <Tabs.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Home" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"md-home"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Profile" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"person"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Reports"
-        component={ReportDetailScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Reports" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-trending-up"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Record"
-        component={RecordItemScreen}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Record" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-barcode-outline"} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="RecordData"
-        component={RecordData}
-        options={{
-          tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="RecordData" />
-          ),
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-barcode-outline"} />
-          ),
-        }}
-      />
-              
-       
-    </Tabs.Navigator>
-  );
-};
-
-
-// const Tab = createBottomTabNavigator()
-// const TabBarCustomButton = ({children, onPress}) => {
-//     return(
-//         <TouchableOpacity
-//             style={{
-//                 top: -30,
-//                 justifyContent: 'center',
-//                 alignItems: 'center',
-//                 paddingTop: 30,
-//                 ...styles.shadow
-//             }}
-//             onPress={onPress}
-//          >
-//              <LinearGradient
-//                 colors={[COLORS.primary, COLORS.secondary]}
-//                 style={{
-//                     width: 70,
-//                     height: 70,
-//                     borderRadius: 35
-//                 }}
-//              >
-//                  {children}
-//              </LinearGradient>
-//          </TouchableOpacity>
-//     )
-// }
-
-// const Tabs = () => {
-//     return (
-//         <Tab.Navigator 
-//             tabBarOptions={{
-//                 showLabel: false,
-//                 style: {
-//                     position: 'absolute',
-//                     bottom: 0,
-//                     left: 0,
-//                     right: 0,
-//                     elevation: 0,
-//                     backgroundColor: COLORS.white,
-//                     borderTopColor: "transparent"
-//                 }
-//             }}
-//             screenOptions={{
-//                 headerShown: null
-//             }}
-//         >
-//             <Tab.Screen
-//                 name="Home"
-//                 component={Home}
-//                 options={{
-//                     tabBarIcon: ({focused}) => (
-//                         <View style={{alignItems: 'center',
-//                             justifyContent: 'center',
-//                             paddingTop: 20
-//                         }}>
-//                         <Image 
-//                             source={icons.home}
-//                             resizeMode="contain"
-//                             style={{
-//                                 width: 30,
-//                                 height: 30,
-//                                 tintColor: focused ? COLORS.primary
-//                                 : COLORS.black
-//                             }}
+const Tabs = () => {
+    return (
+        <Tab.Navigator 
+            tabBarOptions={{
+                showLabel: false,
+                style: {
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    elevation: 0,
+                    backgroundColor: COLORS.white,
+                    borderTopColor: "transparent"
+                }
+            }}
+            screenOptions={{
+                headerShown: null
+            }}
+        >
+            <Tab.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.home}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
                     
-//                          />
-//                          <Text style={{color : focused ? COLORS.primary : COLORS.black,
-//                             ...FONTS.body5
-//                          }}>Home</Text>
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Home</Text>
 
-//                         </View>
-//                     )
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Portfolio"
-//                 component={Report}
-//                 options={{
-//                     tabBarIcon: ({focused}) => (
-//                         <View style={{alignItems: 'center',
-//                             justifyContent: 'center',
-//                             paddingTop: 20
-//                         }}>
-//                         <Image 
-//                             source={icons.pie_chart}
-//                             resizeMode="contain"
-//                             style={{
-//                                 width: 30,
-//                                 height: 30,
-//                                 tintColor: focused ? COLORS.primary
-//                                 : COLORS.black
-//                             }}
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Portfolio"
+                component={ReportDetailScreen}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.pie_chart}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
                     
-//                          />
-//                          <Text style={{color : focused ? COLORS.primary : COLORS.black,
-//                             ...FONTS.body5
-//                          }}>Reports</Text>
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Reports</Text>
 
-//                         </View>
-//                     )
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Transaction"
-//                 component={RecordData}
-//                 options={{
-//                     tabBarIcon: ({focused}) => (
-//                         <Image
-//                             source={icons.transaction}
-//                             resizeMode= 'contain'
-//                             style={{
-//                                 width: 30,
-//                                 height: 30,
-//                                 tintColor: COLORS.white,
-//                             }} />
-//                     ),
-//                     tabBarButton: (props) => (
-//                         <TabBarCustomButton {...props}/>
-//                     )
-//                 }}
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Transaction"
+                component={RecordData}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <Image
+                            source={icons.transaction}
+                            resizeMode= 'contain'
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: COLORS.white,
+                            }} />
+                    ),
+                    tabBarButton: (props) => (
+                        <TabBarCustomButton {...props}/>
+                    )
+                }}
                 
-//             />
-//             <Tab.Screen
-//                 name="Details"
-//                 component={Detail}
-//                 options={{
-//                     tabBarIcon: ({focused}) => (
-//                         <View style={{alignItems: 'center',
-//                             justifyContent: 'center',
-//                             paddingTop: 20
-//                         }}>
-//                         <Image 
-//                             source={icons.line_graph}
-//                             resizeMode="contain"
-//                             style={{
-//                                 width: 30,
-//                                 height: 30,
-//                                 tintColor: focused ? COLORS.primary
-//                                 : COLORS.black
-//                             }}
+            />
+            <Tab.Screen
+                name="ReportScreen"
+                component={ReportScreen}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.line_graph}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
                     
-//                          />
-//                          <Text style={{color : focused ? COLORS.primary : COLORS.black,
-//                             ...FONTS.body5
-//                          }}>Stats</Text>
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Stats</Text>
 
-//                         </View>
-//                     )
-//                 }}
-//             />
-//             <Tab.Screen
-//                 name="Settings"
-//                 component={Settings}
-//                 options={{
-//                     tabBarIcon: ({focused}) => (
-//                         <View style={{alignItems: 'center',
-//                             justifyContent: 'center',
-//                             paddingTop: 20
-//                         }}>
-//                         <Image 
-//                             source={icons.settings}
-//                             resizeMode="contain"
-//                             style={{
-//                                 width: 30,
-//                                 height: 30,
-//                                 tintColor: focused ? COLORS.primary
-//                                 : COLORS.black
-//                             }}
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={Settings}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View style={{alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 20
+                        }}>
+                        <Image 
+                            source={icons.settings}
+                            resizeMode="contain"
+                            style={{
+                                width: 30,
+                                height: 30,
+                                tintColor: focused ? COLORS.primary
+                                : COLORS.black
+                            }}
                     
-//                          />
-//                          <Text style={{color : focused ? COLORS.primary : COLORS.black,
-//                             ...FONTS.body5
-//                          }}>Settings</Text>
+                         />
+                         <Text style={{color : focused ? COLORS.primary : COLORS.black,
+                            ...FONTS.body5
+                         }}>Settings</Text>
 
-//                         </View>
-//                     )
-//                 }}
-//             />
-//         </Tab.Navigator>
-//     )
-// }
+                        </View>
+                    )
+                }}
+            />
+        </Tab.Navigator>
+    )
+}
 
 export default () => {
   const auth = useContext(AuthContext);
@@ -364,3 +284,17 @@ export default () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  shadow: {
+      shadowColor: COLORS.primary,
+      shadowOffset: {
+          width: 0,
+          height: 10,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+
+      elevation: 5
+  }
+})
