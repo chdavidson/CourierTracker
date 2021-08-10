@@ -19,6 +19,10 @@ const HomeScreen = ({navigation}) => {
     const [transactionHistory , SetTransactionHistory] = React.useState(dummyData.transactionHistory);
 
 
+    useEffect(() => {
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
+    }, [])
+
 
     function renderHeader() {
         const renderItem = ({item, index}) => (
