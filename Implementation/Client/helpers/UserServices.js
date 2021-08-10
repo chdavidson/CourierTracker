@@ -1,4 +1,6 @@
-const baseURL = 'http://192.168.1.2:8080/'
+
+
+const baseURL = 'http://192.168.0.25:8080/'
 
 const UserServices = {
 
