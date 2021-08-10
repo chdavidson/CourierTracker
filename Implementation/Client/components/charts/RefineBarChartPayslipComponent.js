@@ -10,7 +10,7 @@ import ColourPalette from '../../Constants/ColourPalette';
 
 const RefineBarChartExpensesComponent = ({refinedSlipsState}) => {
 
-    console.log(refinedSlipsState)
+    // console.log(refinedSlipsState)
 
     const assignedLabels = []
     const assignedData = []
@@ -20,15 +20,15 @@ const RefineBarChartExpensesComponent = ({refinedSlipsState}) => {
     
         {
             const newSlipDate = new Date(slip.date)
-            console.log("new date log = " + newSlipDate.getDate());
+            // console.log("new date log = " + newSlipDate.getDate());
             
             assignedLabels.push((newSlipDate.getDate() + "/" + newSlipDate.getMonth())); 
             assignedData.push(slip.amount)})
         
     
 
-    console.log("data = " + assignedData)
-    console.log("labels = " + assignedLabels)
+    // console.log("data = " + assignedData)
+    // console.log("labels = " + assignedLabels)
 
     if(assignedLabels.length > 6){
         assignedLabels.length = 6

@@ -28,7 +28,7 @@ const ExpensesNodes = ({
                     name='ios-color-fill'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
                 <Text style={[styles.nodeText]}>£{fuelTotal}</Text>
@@ -38,7 +38,7 @@ const ExpensesNodes = ({
                     name='ios-film'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
                 <Text style={[styles.nodeText]}>£{entertainmentTotal}</Text>
@@ -48,7 +48,7 @@ const ExpensesNodes = ({
                     name='ios-pizza'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
                 <Text style={[styles.nodeText]}>£{foodTotal}</Text>
@@ -58,7 +58,7 @@ const ExpensesNodes = ({
                     name='ios-car'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
                 <Text style={[styles.nodeText]}>£{insuranceTotal}</Text>
@@ -68,7 +68,7 @@ const ExpensesNodes = ({
                     name='ios-construct'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
                 <Text style={[styles.nodeText]}>£{maintenanceTotal}</Text>
@@ -78,7 +78,7 @@ const ExpensesNodes = ({
                     name='ios-paw'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
                 <Text style={[styles.nodeText]}>£{miscTotal}</Text>
