@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { View, Text,
      TouchableOpacity, StyleSheet,
@@ -11,6 +11,7 @@ import * as Font from 'expo-font'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Settings from "./Settings";
+import {DbContext} from "../provider/DbProvider";
 
 
 const HomeScreen = ({navigation}) => {
@@ -20,7 +21,11 @@ const HomeScreen = ({navigation}) => {
 
 
     // LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
+    const db = useContext(DbContext);
 
+    const currentUser = db.currentUser
+    const paySlips = [...currentUser.payslips]
+    console.log(paySlips)
 
 
     function renderHeader() {
@@ -119,7 +124,6 @@ const HomeScreen = ({navigation}) => {
             />
         )
     }
-
     return (
         <ScrollView>
             <StatusBar  style="Dark" />

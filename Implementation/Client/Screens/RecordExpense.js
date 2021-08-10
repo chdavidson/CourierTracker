@@ -97,7 +97,7 @@ const RecordExpense = ({navigation}) => {
         console.log(newExpense);
         const request = new Request();
         request.post('/expenses', newExpense);
-        navigation.navigate("Landing Page")
+        navigation.navigate("HomeScreen")
     }
 
 

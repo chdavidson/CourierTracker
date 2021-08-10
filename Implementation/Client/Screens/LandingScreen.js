@@ -13,10 +13,9 @@ const LandingScreen = ({navigation}) => {
     const [expenses, setExpenses] = useState(null)
 
     const getUsers = function() {
-        fetch('http://localhost:8080/users')
+        fetch('http://192.168.1.181:8080/users')
             .then(res => res.json())
             .then(data => setUsers(data))
-            //Set loaded
             .catch(err => {console.log(err)})
     }
 
