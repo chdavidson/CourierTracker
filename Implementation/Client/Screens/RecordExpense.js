@@ -15,8 +15,6 @@ const RecordExpense = ({navigation}) => {
     const db = useContext(DbContext);
     const currentUser = db.currentUser;
 
-    const [selectedValue, setSelectedValue] = useState(" ");
-
     const [newExpense, setNewExpense] = useState({
                                                     "amount": 0.0,
                                                     "date": '',
