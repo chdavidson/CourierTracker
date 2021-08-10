@@ -83,8 +83,6 @@ import AppNavigator from "./navigation/AppNavigator";
 import { AuthProvider } from "./provider/AuthProvider";
 import { DbProvider } from "./provider/DbProvider";
 import { ThemeProvider } from "react-native-rapi-ui";
-import { ChartProvider } from "./provider/ChartProvider";
-
 
 
 export default function App() {
@@ -100,9 +98,9 @@ export default function App() {
     <ThemeProvider images={images}>
       <AuthProvider>
         <DbProvider> 
-          <ChartProvider>  
+ 
             <AppNavigator />
-          </ChartProvider>
+
         </DbProvider>
       </AuthProvider>
     </ThemeProvider>

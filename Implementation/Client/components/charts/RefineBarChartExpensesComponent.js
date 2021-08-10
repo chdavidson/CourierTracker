@@ -11,7 +11,7 @@ import { AutoFocus } from 'expo-camera/build/Camera.types';
 
 const RefineBarChartExpensesComponent = ({refinedExpensesState}) => {
 
-    console.log(refinedExpensesState)
+    // console.log(refinedExpensesState)
 
     const assignedLabels = []
     const assignedData = []
@@ -21,15 +21,15 @@ const RefineBarChartExpensesComponent = ({refinedExpensesState}) => {
     
         {
             const newExpenseDate = new Date(expense.date)
-            console.log("new date log = " + newExpenseDate.getDate());
+            // console.log("new date log = " + newExpenseDate.getDate());
             
             assignedLabels.push((newExpenseDate.getDate() + "/" + newExpenseDate.getMonth())); 
             assignedData.push(expense.amount)})
         
     
 
-    console.log("data = " + assignedData)
-    console.log("labels = " + assignedLabels)
+    // console.log("data = " + assignedData)
+    // console.log("labels = " + assignedLabels)
 
     if(assignedLabels.length > 6){
         assignedLabels.length = 6
