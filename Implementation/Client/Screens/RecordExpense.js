@@ -1,58 +1,14 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { StyleSheet, View, Button, TextInput, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import { DbContext } from "../provider/DbProvider";
-import CameraComponent from '../components/CameraComponent'
-import { Dimensions } from "react-native";
-import { counterEvent } from 'react-native/Libraries/Performance/Systrace';
-import Request from '../helpers/request';
 import RNPickerSelect from 'react-native-picker-select';
 import {LinearGradient} from "expo-linear-gradient";
 import {COLORS, SIZES, FONTS, icons, images, dummyData} from '../Constants';
-
-import RNDateTimePicker from "@react-native-community/datetimepicker";
-import DateTimePicker from "@react-native-community/datetimepicker/src/datetimepicker";
 import { Input } from 'react-native-elements';
 import DatePicker from '../components/DatePicker';
 import HeadBar from "../components/HeadBar";
-
-
-
-// const RecordExpenseScreen = (navigation) => {
-
-
-
-
-//     let currentDate = new Date();
-
-//     const [newExpense, setNewExpense] = useState({
-//                                                     "amount": 0.0,
-//                                                     "date": '',
-//                                                     "image": '',
-//                                                     "category": '',
-//                                                     "user": {
-//                                                         "id": currentUser.id,
-//                                                         "firstName": currentUser.firstName,
-//                                                         "secondName": currentUser.secondName,
-//                                                         "username": currentUser.username,
-//                                                         "password": currentUser.password,
-//                                                         "profilePicture": currentUser.profilePicture,
-//                                                     }  
-
-//                                                 })
-
-
-
-
-
-
-
-
-//     const handleCategoryChange = (event) => {}
-
-
-
-
-
+import * as Firebase from 'firebase'
+import Request from '../helpers/request';
 
 
 const RecordExpense = ({navigation}) => {
@@ -103,17 +59,13 @@ const RecordExpense = ({navigation}) => {
         const snapshot = ref.put(blob);
 
         snapshot.on(    Firebase.storage.TaskEvent.STATE_CHANGED,
-                                    () => {
-                                        //setUploading(true);
-                                    },
-                                    err =>  { 
-                                            //setUploading(false);
+                                    () => { },
+                                    err =>  {
                                             console.log(err)
                                             blob.close();
                                             return err;
                                             },
                                     () => { 
-                                            //setUploading(false);
                                             snapshot.snapshot.ref.getDownloadURL()
                                             .then(url => {  
                                                             console.log("download url: "+url); 
@@ -134,13 +86,19 @@ const RecordExpense = ({navigation}) => {
         setNewExpense(copiedState);
     }
 
+    const handlePickerChange = (value) => {
+        let copiedState = newExpense;
+        copiedState["category"] = value;
+        setNewExpense(copiedState);
+    }
+
 
     const onFormSubmit = () => {
         console.log(newExpense);
-        // const request = new Request();
-        // request.post('/expenses', newExpense);
-        // nav back to landing page
-                                                }
+        const request = new Request();
+        request.post('/expenses', newExpense);
+        navigation.navigate("Landing Page")
+    }
 
 
 
@@ -200,7 +158,6 @@ const RecordExpense = ({navigation}) => {
                                 placeholder={"£ 0.00"}
                                 placeholderTextColor={COLORS.lightGray}
                                 onChange={handleAmountChange}
-
                             />
                             <View>
                                 <Text style={{
@@ -227,17 +184,18 @@ const RecordExpense = ({navigation}) => {
                                 </Text>
                                 <RNPickerSelect
                                     placeholder={{ label: "Choose Here", value: null }}
-                                    onValueChange={(value) => console.log(value)} items={[
-                                    { label: 'Fuel', value: 'fuel' },
-                                    { label: 'Maintenance', value: 'maintenance' },
-                                    { label: 'Food', value: 'food' },
-                                    { label: 'Insurance', value: 'insurance' },
-                                    { label: 'Entertainment', value: 'entertainment' },
-                                ]}
+                                    // onValueChange={(value) => console.log(value)} 
+                                    onValueChange={handlePickerChange}
+                                    items={[
+                                        { label: 'Fuel', value: 'FUEL' },
+                                        { label: 'Maintenance', value: 'MAINTENANCE' },
+                                        { label: 'Food', value: 'FOOD' },
+                                        { label: 'Insurance', value: 'INSURANCE' },
+                                        { label: 'Entertainment', value: 'ENTERTAINMENT' },
+                                    ]}
                                     style={{inputIOS: {
                                             fontSize: 12,
                                             fontWeight: '600',
-                                            // paddingTop: 30,
                                             color: 'white',
                                             paddingLeft: 2
 
@@ -263,7 +221,7 @@ const RecordExpense = ({navigation}) => {
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     height: 10,
-                                }} onPress={() => navigation.navigate("CameraComponent",{ handlePhoto: {handlePhoto} })}
+                                }} onPress={() => navigation.navigate("CameraComponent",{ handlePhoto: handlePhoto })}
                                 >
                                     <Image  source={images.camera}
                                             resizeMode='contain'

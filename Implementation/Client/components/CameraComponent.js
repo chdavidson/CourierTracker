@@ -43,6 +43,7 @@ const CameraComponent = ({route, navigation}) => {
     // setCapture(photo);
     console.log("IN CC: "+ photo.uri);
     handlePhoto(photo.uri);
+    navigation.goBack()
   }
   
   

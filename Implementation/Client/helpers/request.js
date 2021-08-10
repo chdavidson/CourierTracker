@@ -1,4 +1,4 @@
-const baseUrl = 'http://192.168.1.196:8080/users'
+const baseUrl = 'http://192.168.1.196:8080'
 
 class Request {
 
