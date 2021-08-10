@@ -3,11 +3,13 @@ import { StyleSheet, Text, View, TouchableOpacity, Button, Image} from 'react-na
 import { Camera } from 'expo-camera';
 import HeadBar from "./HeadBar";
 
-const CameraComponent = ({handlePhoto, navigation}) => {
+const CameraComponent = ({route, navigation}) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [torch, setTorch] = useState(Camera.Constants.FlashMode.off);
   const [capture, setCapture] = useState(null);
+
+  const {handlePhoto} = route.params;
 
   useEffect(() => {
     (async () => {
@@ -38,7 +40,8 @@ const CameraComponent = ({handlePhoto, navigation}) => {
   }
 
   const processPicture = photo => {
-    setCapture(photo);
+    // setCapture(photo);
+    console.log("IN CC: "+ photo.uri);
     handlePhoto(photo.uri);
   }
   

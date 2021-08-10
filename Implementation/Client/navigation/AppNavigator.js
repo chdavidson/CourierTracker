@@ -98,18 +98,11 @@ const Main = () => {
       
       {currentUser ? <MainStack.Screen name="RecordIncome" component={RecordIncome} /> : <MainStack.Screen name="Loading6" component={Loading} />}
       {currentUser ? <MainStack.Screen name="RecordExpense" component={RecordExpense} /> : <MainStack.Screen name="Loading7" component={Loading} />}
-
-
-<<<<<<< HEAD
-      <MainStack.Screen name="ReportScreen" component={ReportScreen} />
-      <MainStack.Screen name="Settings" component={Settings} />
       <MainStack.Screen name="CameraComponent" component={CameraComponent} />
 
-=======
       {currentUser ? <MainStack.Screen name="ReportScreen" component={ReportScreen} /> : <MainStack.Screen name="Loading8" component={Loading} /> }
       {currentUser ? <MainStack.Screen name="Settings" component={Settings} /> : <MainStack.Screen name="Loading9" component={Loading} /> } 
               
->>>>>>> chartImprovements3
     </MainStack.Navigator>
   );
 };

@@ -20,8 +20,7 @@ import HeadBar from "../components/HeadBar";
 // const RecordExpenseScreen = (navigation) => {
 
 
-//     const db = useContext(DbContext);
-//     const currentUser = db.currentUser;
+
 
 //     let currentDate = new Date();
 
@@ -42,105 +41,117 @@ import HeadBar from "../components/HeadBar";
 //                                                 })
 
 
-//     const handlePhoto = async (photoURI) => {
-//         const blob = await new Promise((resolve, reject)=> {
-//             const xhr = new XMLHttpRequest();
-//             xhr.onload = function(){
-//               resolve(xhr.response)
-//             };
-//             xhr.onerror = function (){
-//               reject(new TypeError('Network request failed'));
-//             };
-//             xhr.responseType = 'blob';
-//             xhr.open('GET', photoURI, true);
-//             xhr.send(null);
-//          });
 
-
-//         const ref = Firebase.storage().ref().child(currentUser.username+'/Expenses/'+newExpense["date"]);
-//         const snapshot = ref.put(blob);
-
-//         snapshot.on(    Firebase.storage.TaskEvent.STATE_CHANGED,
-//                                     () => {
-//                                         //setUploading(true);
-//                                     },
-//                                     err =>  { 
-//                                             //setUploading(false);
-//                                             console.log(err)
-//                                             blob.close();
-//                                             return err;
-//                                             },
-//                                     () => { 
-//                                             //setUploading(false);
-//                                             snapshot.snapshot.ref.getDownloadURL()
-//                                             .then(url => {  
-//                                                             console.log("download url: "+url); 
-//                                                             let copiedState = newExpense;
-//                                                             copiedState["image"] = url;
-//                                                             setNewExpense(copiedState);
-//                                                 })
-//                                             blob.close();
-//                                             return url;
-//                                         }
-//                                 )
-//     }
-
-//     const handleDateChange = (event, date) => {
-//         let copiedState = newExpense;
-//         copiedState["date"] = date;
-//         setNewExpense(copiedState);
-//     }
-
-//     const handleAmountChange = (event) => {
-//         let copiedState = newExpense;
-//         copiedState["amount"] = event.nativeEvent.text;
-//         setNewExpense(copiedState);
-//     }
-
-//     const handleCategoryChange = (event) => {}
-
-//     const onFormSubmit = () => {
-//         console.log(newExpense);
-//         const request = new Request();
-//         request.post('/expenses', newExpense);
-//         // nav back to landing page
-//     }
-
-//     useEffect(() => {
-//         currentDate = Date.now();
-//     },[])
 
 
 
 
 
-    
+//     const handleCategoryChange = (event) => {}
 
-//     return(
-//         <View>
-//             <Text>RECORD EXPENSE</Text>
-//         </View>
-//     );
-// }
 
-// const styles = StyleSheet.create({
-//     CameraViewContainer:{
-//         height: 300,
-//         // width: 200
-//     },
-//     buttonContainer: {
-//         height: 100
-//     }
 
-// })
 
-// export default RecordExpenseScreen;
+
 
 
 const RecordExpense = ({navigation}) => {
-    const handleDateChange = (event, date) => { console.log(date)}
+    const db = useContext(DbContext);
+    const currentUser = db.currentUser;
 
     const [selectedValue, setSelectedValue] = useState(" ");
+
+    const [newExpense, setNewExpense] = useState({
+                                                    "amount": 0.0,
+                                                    "date": '',
+                                                    "image": '',
+                                                    "category": '',
+                                                    "user": {
+                                                        "id": currentUser.id,
+                                                        "firstName": currentUser.firstName,
+                                                        "secondName": currentUser.secondName,
+                                                        "username": currentUser.username,
+                                                        "password": currentUser.password,
+                                                        "profilePicture": currentUser.profilePicture,
+                                                    }  
+
+                                                })
+
+    
+    const handleAmountChange = (event) => {
+        let copiedState = newExpense;
+        copiedState["amount"] = event.nativeEvent.text;
+        setNewExpense(copiedState);
+    }
+
+    const handlePhoto = async (photoURI) => {
+        const blob = await new Promise((resolve, reject)=> {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+              resolve(xhr.response)
+            };
+            xhr.onerror = function (){
+              reject(new TypeError('Network request failed'));
+            };
+            xhr.responseType = 'blob';
+            xhr.open('GET', photoURI, true);
+            xhr.send(null);
+         });
+
+
+        const ref = Firebase.storage().ref().child(currentUser.username+'/Expenses/'+newExpense["date"]);
+        const snapshot = ref.put(blob);
+
+        snapshot.on(    Firebase.storage.TaskEvent.STATE_CHANGED,
+                                    () => {
+                                        //setUploading(true);
+                                    },
+                                    err =>  { 
+                                            //setUploading(false);
+                                            console.log(err)
+                                            blob.close();
+                                            return err;
+                                            },
+                                    () => { 
+                                            //setUploading(false);
+                                            snapshot.snapshot.ref.getDownloadURL()
+                                            .then(url => {  
+                                                            console.log("download url: "+url); 
+                                                            let copiedState = newExpense;
+                                                            copiedState["image"] = url;
+                                                            setNewExpense(copiedState);
+                                                })
+                                            blob.close();
+                                            return url;
+                                        }
+                                )
+    }
+
+
+    const handleDateChange = (event, date) => {
+        let copiedState = newExpense;
+        copiedState["date"] = date;
+        setNewExpense(copiedState);
+    }
+
+
+    const onFormSubmit = () => {
+        console.log(newExpense);
+        // const request = new Request();
+        // request.post('/expenses', newExpense);
+        // nav back to landing page
+                                                }
+
+
+
+
+
+
+
+
+
+
+
 
     const renderForm = () => {
         return (
@@ -188,6 +199,7 @@ const RecordExpense = ({navigation}) => {
                                 }}
                                 placeholder={"£ 0.00"}
                                 placeholderTextColor={COLORS.lightGray}
+                                onChange={handleAmountChange}
 
                             />
                             <View>
@@ -198,7 +210,7 @@ const RecordExpense = ({navigation}) => {
                                     fontWeight: '600',
                                     paddingTop: 10
                                 }}> Select Date</Text>
-                                <DatePicker  />
+                            <DatePicker onDateChange={handleDateChange} />
 
                             </View>
                             <View style={{
@@ -251,7 +263,7 @@ const RecordExpense = ({navigation}) => {
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     height: 10,
-                                }} onPress={() => navigation.navigate("CameraComponent")}
+                                }} onPress={() => navigation.navigate("CameraComponent",{ handlePhoto: {handlePhoto} })}
                                 >
                                     <Image  source={images.camera}
                                             resizeMode='contain'
@@ -274,7 +286,7 @@ const RecordExpense = ({navigation}) => {
                                         justifyContent: 'center',
                                         alignItems: 'center',
 
-                                    }} onPress={"POST"}>
+                                    }} onPress={onFormSubmit}>
                                         <Text style={{
                                             justifyContent: 'center',
                                             alignItems: 'center',
