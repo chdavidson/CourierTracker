@@ -15,12 +15,10 @@ const RecordExpense = ({navigation}) => {
     const db = useContext(DbContext);
     const currentUser = db.currentUser;
 
-    const [selectedValue, setSelectedValue] = useState(" ");
-
     const [newExpense, setNewExpense] = useState({
                                                     "amount": 0.0,
                                                     "date": '',
-                                                    "image": '',
+                                                    "receipt": '',
                                                     "category": '',
                                                     "user": {
                                                         "id": currentUser.id,
@@ -70,7 +68,7 @@ const RecordExpense = ({navigation}) => {
                                             .then(url => {  
                                                             console.log("download url: "+url); 
                                                             let copiedState = newExpense;
-                                                            copiedState["image"] = url;
+                                                            copiedState["receipt"] = url;
                                                             setNewExpense(copiedState);
                                                 })
                                             blob.close();
@@ -191,7 +189,6 @@ const RecordExpense = ({navigation}) => {
                                         { label: 'Maintenance', value: 'MAINTENANCE' },
                                         { label: 'Food', value: 'FOOD' },
                                         { label: 'Insurance', value: 'INSURANCE' },
-                                        { label: 'Entertainment', value: 'ENTERTAINMENT' },
                                     ]}
                                     style={{inputIOS: {
                                             fontSize: 12,
