@@ -6,9 +6,10 @@ import {
 
 import { Dimensions } from "react-native";
 import ColourPalette from '../../Constants/ColourPalette';
+import { AutoFocus } from 'expo-camera/build/Camera.types';
 
 
-const RefineBarChartComponent = ({payslipTotal, expenseTotal, refinedExpensesState}) => {
+const RefineBarChartExpensesComponent = ({refinedExpensesState}) => {
 
     console.log(refinedExpensesState)
 
@@ -19,17 +20,27 @@ const RefineBarChartComponent = ({payslipTotal, expenseTotal, refinedExpensesSta
     refinedExpensesState.map((expense) => 
     
         {
-            console.log("new date log = " + new Date(expense.date));
-            assignedLabels.push(new Date(expense.date)); 
+            const newExpenseDate = new Date(expense.date)
+            console.log("new date log = " + newExpenseDate.getDate());
+            
+            assignedLabels.push((newExpenseDate.getDate() + "/" + newExpenseDate.getMonth())); 
             assignedData.push(expense.amount)})
         
     
 
     console.log("data = " + assignedData)
     console.log("labels = " + assignedLabels)
-    
 
-  
+    if(assignedLabels.length > 6){
+        assignedLabels.length = 6
+    }
+    if(assignedData.length > 6){
+        assignedData.length = 6
+    }
+
+    assignedData.reverse()
+    assignedLabels.reverse()
+
 
     const screenWidth = Dimensions.get("window").width;
 
@@ -44,12 +55,12 @@ const RefineBarChartComponent = ({payslipTotal, expenseTotal, refinedExpensesSta
 
     return (
         <View>
-            <Text>Bar Chart</Text>
+            <Text style={{marginLeft: "auto", marginRight: "auto"}}>Recent Expenses</Text>
             <BarChart
                 // style={graphStyle}
                 data={data}
-                width={screenWidth}
-                height={250}
+                width={screenWidth - 20}
+                height={200}
                 yAxisLabel="£"
                 chartConfig={{
                 //     backgroundGradientFrom: "rgba(255,255,255)",
@@ -57,11 +68,11 @@ const RefineBarChartComponent = ({payslipTotal, expenseTotal, refinedExpensesSta
                     backgroundGradientFromOpacity: 0,
                     backgroundGradientToOpacity: 0,
 
-                    fillGradientFrom:'dodgerblue',
-                    fillShadowGradient:'dodgerblue',
+                    fillGradientFrom:'rgba(127, 93, 240, 1)',
+                    fillShadowGradient:'rgba(127, 93, 240, 1)',
                     fillShadowGradientOpacity: 1,
                 
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,        // Tips of bars
+                    color: (opacity = 0.5) => `rgba(127, 93, 240, ${opacity})`,        // Tips of bars
                     labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,   // Labels x&y
                     
                 }}
@@ -72,4 +83,7 @@ const RefineBarChartComponent = ({payslipTotal, expenseTotal, refinedExpensesSta
     )
 }
 
-export default RefineBarChartComponent
+export default RefineBarChartExpensesComponent
+
+
+

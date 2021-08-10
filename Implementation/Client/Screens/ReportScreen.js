@@ -12,7 +12,8 @@ import LineChartComponent from '../components/charts/LineChartComponent';
 import DateTimePicker from '@react-native-community/datetimepicker/src/datetimepicker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ExpensesNodes from '../components/charts/ExpensesNodes';
-import RefineBarChartComponent from '../components/charts/RefineBarChartComponent';
+import RefineBarChartExpensesComponent from '../components/charts/RefineBarChartExpensesComponent';
+import RefineBarChartPayslipComponent from '../components/charts/RefineBarChartPayslipComponent';
 import { Icon } from 'react-native-elements'
 
 
@@ -56,25 +57,25 @@ const ReportScreen = () => {
       {"id":6,"amount":28,"date":"2021-05-09T18:04:37.455+00:00","receipt":"","category":"MISC"},
       {"id":6,"amount":23,"date":"2021-05-09T18:04:37.455+00:00","receipt":"","category":"FOOD"}],
     "payslips":[
-      {"id":1,"amount":300,"invoiceNumber":"123abc","date":"2021-08-09T18:04:37.458+00:00","companyName":"UBEREATS","image":""},
-      {"id":2,"amount":200,"invoiceNumber":"123abc","date":"2021-08-09T18:04:37.497+00:00","companyName":"JUSTEAT","image":""},
-      {"id":2,"amount":200,"invoiceNumber":"123abc","date":"2021-08-04T18:04:37.497+00:00","companyName":"UBEREATS","image":""},
-      {"id":2,"amount":200,"invoiceNumber":"123abc","date":"2021-08-02T18:04:37.497+00:00","companyName":"DELIVEROO","image":""},
-      {"id":2,"amount":200,"invoiceNumber":"123abc","date":"2021-08-01T18:04:37.497+00:00","companyName":"JUSTEAT","image":""},
-      {"id":2,"amount":200,"invoiceNumber":"123abc","date":"2021-07-20T18:04:37.497+00:00","companyName":"UBEREATS","image":""},
-      {"id":2,"amount":200,"invoiceNumber":"123abc","date":"2021-07-03T18:04:37.497+00:00","companyName":"UBEREATS","image":""},
+      {"id":1,"amount":245.27,"invoiceNumber":"123abc","date":"2021-08-09T18:04:37.458+00:00","companyName":"UBEREATS","image":""},
+      {"id":2,"amount":150.45,"invoiceNumber":"123abc","date":"2021-08-09T18:04:37.497+00:00","companyName":"JUSTEAT","image":""},
+      {"id":2,"amount":37.38,"invoiceNumber":"123abc","date":"2021-08-04T18:04:37.497+00:00","companyName":"UBEREATS","image":""},
+      {"id":2,"amount":182.34,"invoiceNumber":"123abc","date":"2021-08-02T18:04:37.497+00:00","companyName":"DELIVEROO","image":""},
+      {"id":2,"amount":420.23,"invoiceNumber":"123abc","date":"2021-08-01T18:04:37.497+00:00","companyName":"JUSTEAT","image":""},
+      {"id":2,"amount":200.00,"invoiceNumber":"123abc","date":"2021-07-20T18:04:37.497+00:00","companyName":"UBEREATS","image":""},
+      {"id":2,"amount":133.33,"invoiceNumber":"123abc","date":"2021-07-03T18:04:37.497+00:00","companyName":"UBEREATS","image":""},
       {"id":3,"amount":50,"invoiceNumber":"123abc","date":"2021-06-09T18:04:37.503+00:00","companyName":"DELIVEROO","image":""},
       {"id":4,"amount":38,"invoiceNumber":"123abc","date":"2021-06-03T18:04:37.507+00:00","companyName":"JUSTEAT","image":""},
       {"id":5,"amount":239,"invoiceNumber":"123abc","date":"2021-05-30T18:04:37.510+00:00","companyName":"DELIVEROO","image":""},
       {"id":6,"amount":87,"invoiceNumber":"123abc","date":"2021-05-20T18:04:37.514+00:00","companyName":"JUSTEAT","image":""},
-      {"id":7,"amount":87,"invoiceNumber":"123abc","date":"2021-04-09T18:04:37.514+00:00","companyName":"DELIVEROO","image":""},
-      {"id":8,"amount":87,"invoiceNumber":"123abc","date":"2021-04-04T18:04:37.514+00:00","companyName":"UBEREATS","image":""},
-      {"id":9,"amount":87,"invoiceNumber":"123abc","date":"2021-03-13T18:04:37.514+00:00","companyName":"JUSTEAT","image":""},
-      {"id":20,"amount":87,"invoiceNumber":"123abc","date":"2021-03-16T18:04:37.514+00:00","companyName":"DELIVEROO","image":""},
-      {"id":22,"amount":87,"invoiceNumber":"123abc","date":"2021-02-02T18:04:37.514+00:00","companyName":"UBEREATS","image":""},
-      {"id":22,"amount":87,"invoiceNumber":"123abc","date":"2021-02-09T18:04:37.514+00:00","companyName":"JUSTEAT","image":""},
-      {"id":22,"amount":87,"invoiceNumber":"123abc","date":"2021-01-29T18:04:37.514+00:00","companyName":"DELIVEROO","image":""},
-      {"id":23,"amount":87,"invoiceNumber":"123abc","date":"2021-01-09T18:04:37.514+00:00","companyName":"UBEREATS","image":""}]}
+      {"id":7,"amount":248.34,"invoiceNumber":"123abc","date":"2021-04-09T18:04:37.514+00:00","companyName":"DELIVEROO","image":""},
+      {"id":8,"amount":87.24,"invoiceNumber":"123abc","date":"2021-04-04T18:04:37.514+00:00","companyName":"UBEREATS","image":""},
+      {"id":9,"amount":140.34,"invoiceNumber":"123abc","date":"2021-03-13T18:04:37.514+00:00","companyName":"JUSTEAT","image":""},
+      {"id":20,"amount":95.45,"invoiceNumber":"123abc","date":"2021-03-16T18:04:37.514+00:00","companyName":"DELIVEROO","image":""},
+      {"id":22,"amount":34.34,"invoiceNumber":"123abc","date":"2021-02-02T18:04:37.514+00:00","companyName":"UBEREATS","image":""},
+      {"id":22,"amount":9.23,"invoiceNumber":"123abc","date":"2021-02-09T18:04:37.514+00:00","companyName":"JUSTEAT","image":""},
+      {"id":22,"amount":395.95,"invoiceNumber":"123abc","date":"2021-01-29T18:04:37.514+00:00","companyName":"DELIVEROO","image":""},
+      {"id":23,"amount":60.67,"invoiceNumber":"123abc","date":"2021-01-09T18:04:37.514+00:00","companyName":"UBEREATS","image":""}]}
   // console.log("data: " + JSON.stringify(userData));
 
   var payslipTempTotal = 0
@@ -307,10 +308,22 @@ const ReportScreen = () => {
 
         {refineEnable ? 
         <>
-        <Text>
-          Total Earnings Between {dateFrom.getDate()} {dateFrom.getMonth()} {dateFrom.getFullYear()} and {dateTo.getDate()} {dateTo.getMonth()} {dateTo.getFullYear()} is {payslipTotal}
-        </Text> 
-        <RefineBarChartComponent payslipTotal={payslipTotal} expenseTotal={expenseTotal} refinedExpensesState={refinedExpensesState}/>
+        <View style={styles.dateShowContainer}>
+          <Text style={styles.dateShow}>
+            {dateFrom.getDate()}/{dateFrom.getMonth()}/{dateFrom.getFullYear()}
+          </Text> 
+          <Text style={styles.dateShow}>
+            {dateTo.getDate()}/{dateTo.getMonth()}/{dateTo.getFullYear()}
+          </Text> 
+        </View>
+
+        <View style={styles.totalShowContainer}> 
+          <Text style={styles.totalShow}>
+            £{payslipTotal}
+          </Text>
+        </View>
+        <RefineBarChartPayslipComponent refinedSlipsState={refinedSlipsState}/>
+        <RefineBarChartExpensesComponent refinedExpensesState={refinedExpensesState}/>
         </>    
         : null }
 
@@ -388,7 +401,26 @@ const styles = StyleSheet.create({
       height: 50,
       top: 15,
       left: 10, 
-
+    },
+    dateShow: {
+      fontSize: 25,
+      color: "#7F5DF0"
+    },
+    dateShowContainer: {
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: 'space-around',
+      marginTop: -62,
+      marginBottom: 20
+    },
+    totalShow: {
+      fontSize: 40,
+      color: "#7F5DF0"
+    },
+    totalShowContainer: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginBottom: 20
     }
 })
 
