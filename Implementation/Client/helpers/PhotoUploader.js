@@ -2,10 +2,11 @@
 // import { firebaseConfig } from './firebase';
 import { firebaseConfig } from '../navigation/AppNavigator';
 import * as Firebase from 'firebase'
+import {useEffect} from 'react'
+
 
 class PhotoUploader {
 
-    
 
     checkFBConfigured(){
         if(!Firebase.apps.length){
@@ -16,8 +17,6 @@ class PhotoUploader {
 
     uploadPhoto = async (fileURI, filename) => {
 
-
-        let resultUrl = '';
         this.checkFBConfigured();
 
 
@@ -38,26 +37,28 @@ class PhotoUploader {
         const ref = Firebase.storage().ref().child(filename);
         const snapshot = ref.put(blob);
 
+        let result =
         snapshot.on(    Firebase.storage.TaskEvent.STATE_CHANGED,
-                        () => {
-                            //setUploading(true);
-                        },
-                        err =>  { 
-                                //setUploading(false);
-                                console.log(err)
-                                blob.close();
-                                return err;
-                                },
-                        () => { 
-                                //setUploading(false);
-                                snapshot.snapshot.ref.getDownloadURL()
-                                .then(url => {  console.log("download url: "+url);
-                                                resultUrl = url;
-                                })
-                                blob.close();
-                                return resultUrl;
-                            }
-                    )
+                                    () => {
+                                        //setUploading(true);
+                                    },
+                                    err =>  { 
+                                            //setUploading(false);
+                                            console.log(err)
+                                            blob.close();
+                                            return err;
+                                            },
+                                    () => { 
+                                            //setUploading(false);
+                                            snapshot.snapshot.ref.getDownloadURL()
+                                            .then(url => {  console.log("download url: "+url); })
+                                            blob.close();
+                                            return url;
+                                        }
+                                )
+
+        
+        
     }
 }
 

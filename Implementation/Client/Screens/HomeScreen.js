@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { View, Text,
      TouchableOpacity, StyleSheet,
-      FlatList, ImageBackground, ScrollView, Image, LogBox } from 'react-native'
+      FlatList, ImageBackground, ScrollView, Image, LogBox  } from 'react-native'
 import {COLORS, SIZES, FONTS, icons, images, dummyData} from '../Constants'
 import { LinearGradient } from 'expo-linear-gradient'
 import Tabs from '../navigation/tabs'
@@ -19,9 +19,8 @@ const HomeScreen = ({navigation}) => {
     const [transactionHistory , SetTransactionHistory] = React.useState(dummyData.transactionHistory);
 
 
-    useEffect(() => {
-        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
-    }, [])
+    // LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
+
 
 
     function renderHeader() {
@@ -129,6 +128,7 @@ const HomeScreen = ({navigation}) => {
                 {renderTransactionHistory()}
             </View>            
         </ScrollView>
+
     )
 }
 

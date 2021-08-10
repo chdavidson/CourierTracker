@@ -8,7 +8,7 @@ import { Dimensions } from "react-native";
 import ColourPalette from '../../Constants/ColourPalette';
 
 
-const BarChartComponent = () => {
+const BarChartComponent = ({payslipTotal, expenseTotal}) => {
 
     const screenWidth = Dimensions.get("window").width;
 
@@ -16,7 +16,7 @@ const BarChartComponent = () => {
         labels: ["Income", "Expenses"],
         datasets: [
         {
-            data: [400, 300]
+            data: [payslipTotal, expenseTotal]
         }
         ]
     };

@@ -1,4 +1,4 @@
-2021-08-09 19:51:00 database: flush
+2021-08-10 19:29:03 database: flush
 org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/mymac/Desktop/CourierTracker/Implementation/Server/db/courier_tracker_db.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.get(DbException.java:194)
 	at org.h2.message.DbException.convert(DbException.java:347)
@@ -50,7 +50,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1165)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
-2021-08-09 19:51:00 database: flush
+2021-08-10 19:29:03 database: flush
 org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/mymac/Desktop/CourierTracker/Implementation/Server/db/courier_tracker_db.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.get(DbException.java:194)
 	at org.h2.message.DbException.convert(DbException.java:347)

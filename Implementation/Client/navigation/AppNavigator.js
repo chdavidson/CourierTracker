@@ -21,6 +21,7 @@ import Settings from "../Screens/Settings";
 import ReportDetailScreen from "../Screens/ReportDetailScreen";
 import Report from "../Screens/Report";
 import RecordIncome from "../Screens/RecordIncome";
+
 import HomeScreen from "../Screens/HomeScreen";
 import About from "../Screens/About";
 import ProfileScreen from "../Screens/ProfileScreen";
@@ -28,7 +29,8 @@ import Loading from "../Screens/utils/Loading";
 import LandingScreen from "../Screens/LandingScreen"
 import AccountSettingsScreen from "../Screens/AccountSettingsScreen"
 import ReportScreen from "../Screens/ReportScreen"
-import RecordItemScreen from "../Screens/RecordItemScreen"
+import RecordExpense from "../Screens/RecordExpense"
+
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -38,6 +40,7 @@ import Register from "../Screens/auth/Register";
 import ForgetPassword from "../Screens/auth/ForgetPassword";
 import { AuthContext } from "../provider/AuthProvider";
 import RecordLandingScreen from "../Screens/RecordLandingScreen";
+import CameraComponent from "../components/CameraComponent";
 
 // Better put your these secret keys in .env file
 export const firebaseConfig = {
@@ -81,16 +84,16 @@ const Main = () => {
       <MainStack.Screen name="Landing Page" component={HomeScreen}/>
       <MainStack.Screen name="Profile" component={ProfileScreen} />
       <MainStack.Screen name="Reports" component={ReportDetailScreen} />
-      <MainStack.Screen name="Record" component={RecordItemScreen} />
       <MainStack.Screen name="RecordLandingScreen" component={RecordLandingScreen}/>
       
       <MainStack.Screen name="RecordIncome" component={RecordIncome} />
-      {/* <MainStack.Screen name="RecordExpense" component={RecordData} /> */}
+      <MainStack.Screen name="RecordExpense" component={RecordExpense} />
 
 
       <MainStack.Screen name="ReportScreen" component={ReportScreen} />
       <MainStack.Screen name="Settings" component={Settings} />
-              
+      <MainStack.Screen name="CameraComponent" component={CameraComponent} />
+
     </MainStack.Navigator>
   );
 };
