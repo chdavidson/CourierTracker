@@ -37,6 +37,10 @@ const ReportScreen = () => {
 
   const [refineEnable, setRefineEnable] = useState(false)
 
+  const [expenseViewEnable, setExpenseViewEnable] = useState(false)
+  const [incomeViewEnable, setIncomeViewEnable] = useState(false)
+  
+
 
   const db = useContext(DbContext);
   const userData = db.currentUser
@@ -278,49 +282,66 @@ const ReportScreen = () => {
                 />
       <DateTimePicker onChange={onDateToChange} textColor={'white'}  value={dateTo}  display={"default"} style={styles.datePicker}/> 
       </View>
+      
 
       <View style={styles.refineButtonContainer}>
-      {refineEnable ?  <Icon
-                    name='close-circle-outline'
-                    type='ionicon'
-                    color='#7F5DF0'
-                    size={50}
-                    style={[styles.nodeIcon]}
-                    onPress={() => setRefineEnable(false)}
-                />  : <Icon
-                    name='checkmark-circle-outline'
-                    type='ionicon'
-                    color='#7F5DF0'
-                    size={50}
-                    style={[styles.nodeIcon]}
-                    onPress={() => setRefineEnable(true)}
-                />       }
+      {refineEnable ?  
+        <>
+          
+            <View style={styles.dateShowContainer}>
+              <Text style={styles.dateShow}>
+                {dateFrom.getDate()}/{dateFrom.getMonth()}/{dateFrom.getFullYear()}
+              </Text>
+
+            <Icon
+              name='close-circle-outline'
+              type='ionicon'
+              color='#7F5DF0'
+              size={50}
+              style={[styles.nodeIcon]}
+              onPress={() => setRefineEnable(false)}
+            />   
+
+              <Text style={styles.dateShow}>
+                {dateTo.getDate()}/{dateTo.getMonth()}/{dateTo.getFullYear()}
+              </Text> 
+            </View>
+
+        </> : 
+        <Icon
+            name='checkmark-circle-outline'
+            type='ionicon'
+            color='#7F5DF0'
+            size={50}
+            style={[styles.nodeIcon]}
+            onPress={() => setRefineEnable(true)}
+        />       
+      }
                 
                     
 
       </View>
+      <Button title="Income" onPress={() => {setIncomeViewEnable(true); setExpenseViewEnable(false)}} />
+        <Button title="Expenses" onPress={() => {setIncomeViewEnable(false); setExpenseViewEnable(true)}}/>
 
         {refineEnable ? 
         <>
-        <View style={styles.dateShowContainer}>
-          <Text style={styles.dateShow}>
-            {dateFrom.getDate()}/{dateFrom.getMonth()}/{dateFrom.getFullYear()}
-          </Text> 
-          <Text style={styles.dateShow}>
-            {dateTo.getDate()}/{dateTo.getMonth()}/{dateTo.getFullYear()}
-          </Text> 
-        </View>
+        
 
         <View style={styles.totalShowContainer}> 
           <Text style={styles.totalShow}>
             £{payslipTotal}
           </Text>
         </View>
-        <RefineBarChartPayslipComponent refinedSlipsState={refinedSlipsState}/>
-        <RefineBarChartExpensesComponent refinedExpensesState={refinedExpensesState}/>
+        {incomeViewEnable ? <RefineBarChartPayslipComponent refinedSlipsState={refinedSlipsState}/> : null}
+        
+        {expenseViewEnable ? <RefineBarChartExpensesComponent refinedExpensesState={refinedExpensesState}/> : null}
         </>    
         : null }
 
+       
+
+          {expenseViewEnable ? 
           <ExpensesNodes 
           expenseTotal={expenseTotal} 
           fuelTotal={fuelTotal} 
@@ -328,20 +349,32 @@ const ReportScreen = () => {
           foodTotal={foodTotal} 
           insuranceTotal={insuranceTotal} 
           maintenanceTotal={maintenanceTotal} 
-          miscTotal={miscTotal}  />
+          miscTotal={miscTotal}  /> 
+          
+          
+          : null }
 
-          <PieChartComponent deliverooTotal={deliverooTotal} uberTotal={uberTotal} justEatTotal={justEatTotal} />
+          {incomeViewEnable ? 
 
-          <View style={styles.divider}></View>
+          <>
+          
+            <PieChartComponent deliverooTotal={deliverooTotal} uberTotal={uberTotal} justEatTotal={justEatTotal} />
 
-          <Text>Income vs Expenses?</Text>
+            <LineChartComponent />
+          </>
+          
+          : null}
+          
+
+
+          <Text>Income vs Expenses</Text>
 
           <BarChartComponent payslipTotal={payslipTotal} expenseTotal={expenseTotal}/>
 
           <View style={styles.divider}></View>
           <Text>Earnings across n</Text>
 
-          <LineChartComponent />
+          
           <View style={styles.divider}></View>
 
 
@@ -403,8 +436,8 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: "row",
       justifyContent: 'space-around',
-      marginTop: -62,
-      marginBottom: 20
+      alignItems: 'center',
+
     },
     totalShow: {
       fontSize: 40,
