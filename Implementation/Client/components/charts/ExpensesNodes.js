@@ -1,13 +1,11 @@
 import React from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback, useColorScheme } from 'react-native'
 import {
     BarChart,
   } from "react-native-chart-kit";
 
 import { Dimensions } from "react-native";
-import ColourPalette from '../../Constants/ColourPalette';
 import { Icon } from 'react-native-elements'
-
 
 const ExpensesNodes = ({
     expenseTotal, 
@@ -19,8 +17,6 @@ const ExpensesNodes = ({
     miscTotal
 }) => {
 
-    
-
     return (
         <>
         <Text style={[styles.nodeText]}>£{expenseTotal}</Text>
@@ -31,7 +27,7 @@ const ExpensesNodes = ({
             <Icon
                     name='ios-color-fill'
                     type='ionicon'
-                    color='black'
+                    color='#7F5DF0'
                     size='50'
                     style={[styles.nodeIcon]}
                 />
@@ -41,7 +37,7 @@ const ExpensesNodes = ({
             <Icon
                     name='ios-film'
                     type='ionicon'
-                    color='black'
+                    color='#7F5DF0'
                     size='50'
                     style={[styles.nodeIcon]}
                 />
@@ -51,7 +47,7 @@ const ExpensesNodes = ({
             <Icon
                     name='ios-pizza'
                     type='ionicon'
-                    color='black'
+                    color='#7F5DF0'
                     size='50'
                     style={[styles.nodeIcon]}
                 />
@@ -61,7 +57,7 @@ const ExpensesNodes = ({
             <Icon
                     name='ios-car'
                     type='ionicon'
-                    color='black'
+                    color='#7F5DF0'
                     size='50'
                     style={[styles.nodeIcon]}
                 />
@@ -71,7 +67,7 @@ const ExpensesNodes = ({
             <Icon
                     name='ios-construct'
                     type='ionicon'
-                    color='black'
+                    color='#7F5DF0'
                     size='50'
                     style={[styles.nodeIcon]}
                 />
@@ -81,7 +77,7 @@ const ExpensesNodes = ({
             <Icon
                     name='ios-paw'
                     type='ionicon'
-                    color='black'
+                    color='#7F5DF0'
                     size='50'
                     style={[styles.nodeIcon]}
                 />
@@ -104,7 +100,6 @@ const styles = StyleSheet.create({
     node: {
         height: 70,
         width: 70,
-       
         padding: 0,
         // backgroundColor: 'dodgerblue',
         margin: 10
@@ -123,6 +118,10 @@ const styles = StyleSheet.create({
         bottom: 70,
         borderRadius: 30,
        
+    },
+    nodeIcon: {
+        color: 'dodgerblue',
+        
     }
 
   });

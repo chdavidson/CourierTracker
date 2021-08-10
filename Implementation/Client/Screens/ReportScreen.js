@@ -12,6 +12,10 @@ import LineChartComponent from '../components/charts/LineChartComponent';
 import DateTimePicker from '@react-native-community/datetimepicker/src/datetimepicker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ExpensesNodes from '../components/charts/ExpensesNodes';
+import RefineBarChartComponent from '../components/charts/RefineBarChartComponent';
+import { Icon } from 'react-native-elements'
+
+
 
 const ReportScreen = () => {
 
@@ -28,6 +32,9 @@ const ReportScreen = () => {
   const [insuranceTotal, setInsuranceTotal] = useState(0)
   const [maintenanceTotal, setMaintenanceTotal] = useState(0)
   const [miscTotal, setMiscTotal] = useState(0)
+
+  const [refinedSlipsState, setRefinedSlips] = useState([])
+  const [refinedExpensesState, setRefinedExpenses] = useState([])
 
   const [refineEnable, setRefineEnable] = useState(false)
 
@@ -105,8 +112,8 @@ const ReportScreen = () => {
   console?.log("To = " + dateTo.getTime())
 
 
-  const refinedPayslips = []
-  const refinedExpenses = []
+  var refinedPayslips = []
+  var refinedExpenses = []
 
 
   useEffect(() => {
@@ -177,11 +184,13 @@ const ReportScreen = () => {
       setMaintenanceTotal(maintenanceTempTotal)
       setMiscTotal(miscTempTotal)
 
+      setRefinedSlips(refinedPayslips)
+      setRefinedExpenses(refinedExpenses)
+
       
 
     } else {
 
-    
 
 
       for(var i = 0; userData.payslips.length > i; i++){
@@ -262,14 +271,48 @@ const ReportScreen = () => {
 
     <SafeAreaView>
       <ScrollView style={styles.screen}>
+      <View style={styles.refineContainer}>
 
-      <DateTimePicker onChange={onDateFromChange} textColor={'white'}  value={dateFrom}  display={"default"} />
-      <DateTimePicker onChange={onDateToChange} textColor={'white'}  value={dateTo}  display={"default"} /> 
-      <Button title="Refine" onPress={() => setRefineEnable(true)}></Button>
-      <Button title="Clear" onPress={() => setRefineEnable(false)}></Button>
+      <DateTimePicker onChange={onDateFromChange} textColor={'white'}  value={dateFrom}  display={"default"} style={styles.datePicker}/>
+      <Icon
+                    name='code-outline'
+                    type='ionicon'
+                    color='#7F5DF0'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                />
+      <DateTimePicker onChange={onDateToChange} textColor={'white'}  value={dateTo}  display={"default"} style={styles.datePicker}/> 
+      </View>
 
-        {refineEnable ? <Text>Total Earnings Between {dateFrom.getDate()} {dateFrom.getMonth()} {dateFrom.getFullYear()} and {dateTo.getDate()} {dateTo.getMonth()} {dateTo.getFullYear()} is {payslipTotal}</Text> : null }
+      <View style={styles.refineButtonContainer}>
+      {refineEnable ?  <Icon
+                    name='close-circle-outline'
+                    type='ionicon'
+                    color='#7F5DF0'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                    onPress={() => setRefineEnable(false)}
+                />  : <Icon
+                    name='checkmark-circle-outline'
+                    type='ionicon'
+                    color='#7F5DF0'
+                    size='50'
+                    style={[styles.nodeIcon]}
+                    onPress={() => setRefineEnable(true)}
+                />       }
+                
+                    
 
+      </View>
+
+        {refineEnable ? 
+        <>
+        <Text>
+          Total Earnings Between {dateFrom.getDate()} {dateFrom.getMonth()} {dateFrom.getFullYear()} and {dateTo.getDate()} {dateTo.getMonth()} {dateTo.getFullYear()} is {payslipTotal}
+        </Text> 
+        <RefineBarChartComponent payslipTotal={payslipTotal} expenseTotal={expenseTotal} refinedExpensesState={refinedExpensesState}/>
+        </>    
+        : null }
 
           <ExpensesNodes 
           expenseTotal={expenseTotal} 
@@ -320,23 +363,33 @@ const styles = StyleSheet.create({
         right: 63,
         bottom: 150,
         marginBottom: -130
+    },
+    refineContainer: {
+      // backgroundColor: "dodgerblue",
+      flex: 1,
+      padding: 20,
+      flexDirection: 'row',
+      flexWrap: "wrap",
+      justifyContent: "space-evenly"
+
+    },
+    refineButtonContainer: {
+      // backgroundColor: "dodgerblue",
+      flex: 1,
+      padding: 20,
+      flexDirection: 'row',
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+      marginTop: -30,
+
+    },
+    datePicker: {
+      width: 100,
+      height: 50,
+      top: 15,
+      left: 10, 
+
     }
 })
 
 export default ReportScreen;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
