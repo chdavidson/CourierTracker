@@ -23,7 +23,7 @@ const RecordIncome = (navigation) => {
     const [selectedValue, setSelectedValue] = useState("java");
     const [newPayslip, setNewPayslip] = useState({  "amount": 0.0,
                                                     "invoiceNumber": null,
-                                                    "date": '',
+                                                    "date": null,
                                                     "courierName": 'UBEREATS',
                                                     "image": [],
                                                     "user": {

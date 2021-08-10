@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text} from 'react-native';
-import {COLORS, SIZES, FONTS, icons, images, dummyData} from '../Constants'
-
+import { COLORS, SIZES, FONTS, icons, images, dummyData } from '../Constants';
+import {LinearGradient} from "expo-linear-gradient";
 
 
 const RecordLandingScreen = ({navigation}) =>{
@@ -9,54 +9,69 @@ const RecordLandingScreen = ({navigation}) =>{
 
 
     return(
-        <View style={{height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
         <View style={{  justifyContent: 'center',
-                        alignItems: 'center',
-                        width: '100%',
-                        height: 290,
-                        ...styles.shadow
-                    }}>
-            <View style={styles.touchableContainer}>
-                <TouchableOpacity
-                    style={{
-                        width: 180,
-                        paddingVertical: SIZES.padding,
-                        paddingHorizontal: SIZES.padding,
-                        // marginLeft: index === 0 ? SIZES.padding : 0,
-                        marginRight: SIZES.radius,
-                        borderRadius: 10,
-                        backgroundColor: COLORS.primary
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
+            height: 290,
+            ...styles.shadow
+        }}>
+            <TouchableOpacity
+                style={{
+                    width: 170,
+                    paddingVertical: SIZES.padding,
+                    paddingHorizontal: SIZES.padding,
+                    // marginLeft: index === 0 ? SIZES.padding : 0,
+                    marginRight: SIZES.radius,
+                    borderRadius: 10,
+                    backgroundColor: COLORS.primary,
+                    justifyContent: 'center',
+                    alignItems: 'center'
 
-                    }}
-                    onPress={() => navigation.navigate('RecordIncome')}
-                >
 
-                    <Text style={{color: COLORS.white}}>RECORD INCOME</Text>
+                }}
+                onPress={() => navigation.navigate('RecordIncome')}
 
-                    
-                </TouchableOpacity>
-            </View>
-            <View style={styles.touchableContainer}>
-                <TouchableOpacity
-                    style={{
-                        width: 180,
-                        paddingVertical: SIZES.padding,
-                        paddingHorizontal: SIZES.padding,
-                        // marginLeft: index === 0 ? SIZES.padding : 0,
-                        marginRight: SIZES.radius,
-                        borderRadius: 10,
-                        backgroundColor: COLORS.primary
+            >
+                <Text style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    color: 'white',
 
-                    }}
-                    onPress={() => navigation.navigate('RecordExpense')}
-                >
+                }}>
+                    Payslip
+                </Text>
+            </TouchableOpacity>
 
-                    <Text style={{color: COLORS.white}}>RECORD EXPENSE</Text>
+            <TouchableOpacity
+                style={{
+                    width: 170,
+                    paddingVertical: SIZES.padding,
+                    paddingHorizontal: SIZES.padding,
+                    // marginLeft: index === 0 ? SIZES.padding : 0,
+                    marginRight: SIZES.radius,
+                    borderRadius: 10,
+                    backgroundColor: COLORS.primary,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+                onPress={() => navigation.navigate('RecordExpense')}
+            >
+                <Text style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    color: 'white'
+                }}>
+                    Expense
+                </Text>
 
-                    
-                </TouchableOpacity>
-            </View>
-        </View>
+            </TouchableOpacity>
+
+
         </View>
     );
 }
@@ -74,8 +89,5 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5
-    },
-    touchableContainer:{
-        padding:20,
     }
 })
