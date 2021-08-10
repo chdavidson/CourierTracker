@@ -16,8 +16,6 @@ import RefineBarChartExpensesComponent from '../components/charts/RefineBarChart
 import RefineBarChartPayslipComponent from '../components/charts/RefineBarChartPayslipComponent';
 import { Icon } from 'react-native-elements'
 
-
-
 const ReportScreen = () => {
 
   const [dateFrom, setDateFrom] = useState(new Date())
@@ -41,8 +39,8 @@ const ReportScreen = () => {
 
 
   const db = useContext(DbContext);
-  // const userData = db.currentUser
-  const userData  = {
+  const userData = db.currentUser
+  const useerData  = {
     "id":2,"firstName":"Calum", "secondName":"Davidosn", "username":"calum@calum.calum","password":"123","profilePicture":"",
     "expenses":[
       {"id":1,"amount":20,"date":"2021-08-09T18:04:37.368+00:00","receipt":"","category":"FUEL"},
@@ -104,7 +102,6 @@ const ReportScreen = () => {
       amount: userData.payslips[i].amount
     }
     earningsByMonthListOfObjects.push(earningsByMonthObject)
-  
   }
 
   // console.log(earningsByMonthListOfObjects)
@@ -116,10 +113,7 @@ const ReportScreen = () => {
   var refinedPayslips = []
   var refinedExpenses = []
 
-
   useEffect(() => {
-
-
 
     userData.payslips.map((payslip) => {
       var slipDate = new Date(payslip.date)
@@ -279,7 +273,7 @@ const ReportScreen = () => {
                     name='code-outline'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                 />
       <DateTimePicker onChange={onDateToChange} textColor={'white'}  value={dateTo}  display={"default"} style={styles.datePicker}/> 
@@ -290,14 +284,14 @@ const ReportScreen = () => {
                     name='close-circle-outline'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                     onPress={() => setRefineEnable(false)}
                 />  : <Icon
                     name='checkmark-circle-outline'
                     type='ionicon'
                     color='#7F5DF0'
-                    size='50'
+                    size={50}
                     style={[styles.nodeIcon]}
                     onPress={() => setRefineEnable(true)}
                 />       }
@@ -384,7 +378,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       flexWrap: "wrap",
       justifyContent: "space-evenly"
-
     },
     refineButtonContainer: {
       // backgroundColor: "dodgerblue",

@@ -41,6 +41,8 @@ import ForgetPassword from "../Screens/auth/ForgetPassword";
 import { AuthContext } from "../provider/AuthProvider";
 import RecordLandingScreen from "../Screens/RecordLandingScreen";
 
+import { DbContext } from "../provider/DbProvider"
+
 // Better put your these secret keys in .env file
 export const firebaseConfig = {
   apiKey: "AIzaSyCg3gv56sdm-8BlaO1o37XtYlyO7L-rF7w",
@@ -72,25 +74,33 @@ const Auth = () => {
 };
 
 const MainStack = createStackNavigator();
+
+       
+
 const Main = () => {
+    const db = useContext(DbContext)
+    var currentUser = null;
+    if(currentUser == null){
+    currentUser = db.currentUser
+    console.log("current user from app navigator: " + currentUser)} 
   return (
     <MainStack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <MainStack.Screen name="Tabs" component={Tabs} />
-      <MainStack.Screen name="Landing Page" component={HomeScreen}/>
-      <MainStack.Screen name="Profile" component={ProfileScreen} />
-      <MainStack.Screen name="Reports" component={ReportDetailScreen} />
-      <MainStack.Screen name="RecordLandingScreen" component={RecordLandingScreen}/>
+      {currentUser ? <MainStack.Screen name="Tabs" component={Tabs} /> :  <MainStack.Screen name="Loading" component={Loading} />}
+      {currentUser ? <MainStack.Screen name="Landing Page" component={HomeScreen}/> : <MainStack.Screen name="Loading2" component={Loading} />}
+      {currentUser ? <MainStack.Screen name="Profile" component={ProfileScreen} /> : <MainStack.Screen name="Loading3" component={Loading} />}
+      {currentUser ? <MainStack.Screen name="Reports" component={ReportDetailScreen} /> : <MainStack.Screen name="Loading4" component={Loading} />}
+      {currentUser ? <MainStack.Screen name="RecordLandingScreen" component={RecordLandingScreen}/> : <MainStack.Screen name="Loading5" component={Loading} />}
       
-      <MainStack.Screen name="RecordIncome" component={RecordIncome} />
-      <MainStack.Screen name="RecordExpense" component={RecordExpense} />
+      {currentUser ? <MainStack.Screen name="RecordIncome" component={RecordIncome} /> : <MainStack.Screen name="Loading6" component={Loading} />}
+      {currentUser ? <MainStack.Screen name="RecordExpense" component={RecordExpense} /> : <MainStack.Screen name="Loading7" component={Loading} />}
 
 
-      <MainStack.Screen name="ReportScreen" component={ReportScreen} />
-      <MainStack.Screen name="Settings" component={Settings} />
+      {currentUser ? <MainStack.Screen name="ReportScreen" component={ReportScreen} /> : <MainStack.Screen name="Loading8" component={Loading} /> }
+      {currentUser ? <MainStack.Screen name="Settings" component={Settings} /> : <MainStack.Screen name="Loading9" component={Loading} /> } 
               
     </MainStack.Navigator>
   );
@@ -284,6 +294,7 @@ const Tabs = () => {
 export default () => {
   const auth = useContext(AuthContext);
   const user = auth.user;
+  
   return (
     <NavigationContainer>
       {user == null && <Loading />}
