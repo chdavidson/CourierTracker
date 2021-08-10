@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
 
     },
     nodeIcon: {
-      
+      //
     }
 })
 
