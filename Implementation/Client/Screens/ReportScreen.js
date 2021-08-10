@@ -420,7 +420,11 @@ const styles = StyleSheet.create({
     totalShowContainer: {
       marginLeft: "auto",
       marginRight: "auto",
-      marginBottom: 20
+      marginBottom: 20,
+
+    },
+    nodeIcon: {
+      
     }
 })
 
