@@ -13,6 +13,7 @@ import RNDateTimePicker from "@react-native-community/datetimepicker";
 import DateTimePicker from "@react-native-community/datetimepicker/src/datetimepicker";
 import { Input } from 'react-native-elements';
 import DatePicker from '../components/DatePicker';
+import HeadBar from "../components/HeadBar";
 
 
 
@@ -136,159 +137,195 @@ import DatePicker from '../components/DatePicker';
 // export default RecordExpenseScreen;
 
 
-const RecordExpense = ({navigation}) => {
+const RecordExpense = (navigation) => {
+    const handleDateChange = (event, date) => { console.log(date)}
 
-    return (
-        <LinearGradient colors={[COLORS.primary, COLORS.secondary]} style={{
-            marginTop: 30,
-            marginBottom:150,
-            marginHorizontal: SIZES.radius,
-            alignItems: 'left',
-            borderRadius: SIZES.radius,
-            ...styles.shadow
-        }}>
-            <SafeAreaView >
-​
-​
-                <View style={{
-                    flexDirection: 'column',
-                    marginTop: SIZES.padding,
-                    paddingHorizontal: SIZES.padding
-                }}>
+    const [selectedValue, setSelectedValue] = useState(" ");
+
+    const renderForm = () => {
+        return (
+            <LinearGradient colors={[COLORS.primary, COLORS.secondary]} style={{
+                marginTop: 30,
+                marginBottom:150,
+                marginHorizontal: SIZES.radius,
+                alignItems: 'left',
+                borderRadius: SIZES.radius,
+                ...styles.shadow
+            }}>
+                <SafeAreaView >
+
+
                     <View style={{
-                        flex: 1,
-                        width: 300
+                        flexDirection: 'column',
+                        marginTop: SIZES.padding,
+                        paddingHorizontal: SIZES.padding
                     }}>
-                        <Text style={{
-                            fontWeight: 'bold',
-                            fontSize: 25,
-                            paddingBottom: 50,
-                            color: 'white'
-                        }}>
-                            Invoice
-                        </Text>
-                        <Input
-                            onlyEnglish
-                            id="amount"
-                            label="Amount"
-                            labelStyle={{color: COLORS.white}}
-                            keyboardType="default"
-                            required
-                            contain=" "
-                            autoCapitalize="sentences"
-                            errorText="Your name is invalid"
-                            initialValue=""
-                            outlined
-                            borderColor="white"
-                            style={{
-                                color: 'white',
-                            }}
-                            placeholder={"£ 0.00"}
-                            placeholderTextColor={COLORS.lightGray}
-                        />
-
-                        <View>
-                            <Text style={{
-                                color: 'white',
-                                fontSize: 17,
-                                paddingLeft: 7,
-                                fontWeight: '600',
-                                paddingTop: 10
-                            }}> Select Date</Text>
-                            <DatePicker  />
-​
-                        </View>
-​
-​
                         <View style={{
-                            paddingLeft:13
+                            flex: 1,
+                            width: 300
                         }}>
                             <Text style={{
-                                paddingTop: 20,
-                                fontSize: 17,
-                                color: 'white',
-                                fontWeight: '600',
-                                paddingBottom: 10
+                                fontWeight: 'bold',
+                                fontSize: 25,
+                                paddingBottom: 50,
+                                color: 'white'
                             }}>
-                                Select Expense Category
+                                Invoice
                             </Text>
-​
-                            <RNPickerSelect
-                                placeholder={{ label: "Choose Here", value: null }}
-                                onValueChange={(value) => console.log(value)} items={[
-                                { label: 'Fuel', value: 'fuel' },
-                                { label: 'Maintenance', value: 'maintenance' },
-                                { label: 'Food', value: 'food' },
-                                { label: 'Insurance', value: 'insurance' },
-                                { label: 'Entertainment', value: 'entertainment' },
-                            ]}
-                                style={{inputIOS: {
-                                        fontSize: 12,
-                                        fontWeight: '600',
-                                        // paddingTop: 30,
-                                        color: 'white',
-                                        paddingLeft: 2
-                                    }}}
+                            <Input
+                                onlyEnglish
+                                id="amount"
+                                label="Amount"
+                                labelStyle={{color: COLORS.white}}
+                                keyboardType="default"
+                                required
+                                contain=" "
+                                autoCapitalize="sentences"
+                                errorText="Your name is invalid"
+                                initialValue=""
+                                outlined
+                                borderColor="white"
+                                style={{
+                                    color: 'white',
+                                }}
+                                placeholder={"£ 0.00"}
+                                placeholderTextColor={COLORS.lightGray}
+
                             />
-​
-                            <Text style={{
-                                paddingTop: 25,
-                                fontSize: 17,
-                                color: 'white',
-                                fontWeight: '600',
-                                paddingBottom: 10
-                            }}>
-                                Upload Expense Receipt
-                            </Text>
-                            <TouchableOpacity style={{
-                                width: 100,
-                                paddingVertical: SIZES.padding,
-                                paddingHorizontal: SIZES.padding,
-                                // marginLeft: index === 0 ? SIZES.padding : 0,
-                                marginRight: 10,
-                                borderRadius: 10,
-                                backgroundColor: COLORS.lightGray,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                height: 10,
-                            }} onPress={() => navigation.navigate("Camera")}
-                            >
-                                <Image  source={images.camera}
-                                        resizeMode='contain'
-                                />
-                            </TouchableOpacity>
-​
-                            <View style={{
-                                alignItems: "center",
-                                marginTop: 60,
-                                ...styles.shadow
-                            }}>
-                          <TouchableOpacity style={{
-                              width: 100,
-                              paddingVertical: 10,
-                              paddingHorizontal: 10,
-                              borderRadius: 10,
-                              backgroundColor: COLORS.green,
-                              marginTop: 50,
-                              height: 50,
-                              justifyContent: 'center',
-                              alignItems: 'center',
-                          }} onPress={"POST"}>
+                            <View>
                                 <Text style={{
+                                    color: 'white',
+                                    fontSize: 17,
+                                    paddingLeft: 7,
+                                    fontWeight: '600',
+                                    paddingTop: 10
+                                }}> Select Date</Text>
+                                <DatePicker  />
+
+                            </View>
+
+
+                            <View style={{
+                                paddingLeft:13
+                            }}>
+                                <Text style={{
+                                    paddingTop: 20,
+                                    fontSize: 17,
+                                    color: 'white',
+                                    fontWeight: '600',
+                                    paddingBottom: 10
+                                }}>
+                                    Select Expense Category
+                                </Text>
+
+                                <RNPickerSelect
+                                    placeholder={{ label: "Choose Here", value: null }}
+                                    onValueChange={(value) => console.log(value)} items={[
+                                    { label: 'Fuel', value: 'fuel' },
+                                    { label: 'Maintenance', value: 'maintenance' },
+                                    { label: 'Food', value: 'food' },
+                                    { label: 'Insurance', value: 'insurance' },
+                                    { label: 'Entertainment', value: 'entertainment' },
+                                ]}
+                                    style={{inputIOS: {
+                                            fontSize: 12,
+                                            fontWeight: '600',
+                                            // paddingTop: 30,
+                                            color: 'white',
+                                            paddingLeft: 2
+
+
+                                        }}}
+                                />
+
+                                <Text style={{
+                                    paddingTop: 25,
+                                    fontSize: 17,
+                                    color: 'white',
+                                    fontWeight: '600',
+                                    paddingBottom: 10
+                                }}>
+                                    Upload Expense Receipt
+                                </Text>
+                                <TouchableOpacity style={{
+                                    width: 100,
+                                    paddingVertical: SIZES.padding,
+                                    paddingHorizontal: SIZES.padding,
+                                    // marginLeft: index === 0 ? SIZES.padding : 0,
+                                    marginRight: 10,
+                                    borderRadius: 10,
+                                    backgroundColor: COLORS.lightGray,
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                    fontSize: 15
+                                    height: 10,
+
+
+                                }} onPress={() => navigation.navigate("Camera")}
+                                >
+                                    <Image  source={images.camera}
+                                            resizeMode='contain'
+                                    />
+                                </TouchableOpacity>
+
+                                <View style={{
+                                    alignItems: "center",
+                                    marginTop: 60,
+                                    ...styles.shadow
                                 }}>
-                                    SUBMIT
-                                </Text>
-                          </TouchableOpacity>
+                                    <TouchableOpacity style={{
+                                        width: 100,
+                                        paddingVertical: 10,
+                                        paddingHorizontal: 10,
+                                        borderRadius: 10,
+                                        backgroundColor: COLORS.green,
+                                        marginTop: 50,
+                                        height: 50,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+
+                                    }} onPress={"POST"}>
+                                        <Text style={{
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            fontSize: 15
+                                        }}>
+                                            SUBMIT
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+
+
                             </View>
-​
                         </View>
+
                     </View>
-                </View>
-            </SafeAreaView>
-        </LinearGradient>
+
+
+                </SafeAreaView>
+            </LinearGradient>
+
+        )
+    }
+
+    return (
+
+        <View style={{
+            flex: 1
+        }}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Home")}
+                style={{
+                    paddingTop: 60
+                }}
+            >
+                <HeadBar />
+
+            </TouchableOpacity>
+
+            {renderForm()}
+
+        </View>
+
     )
 }
 const styles = StyleSheet.create({
@@ -305,6 +342,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
+
         elevation: 8,
     },
     datePickerStyle: {
@@ -312,4 +350,5 @@ const styles = StyleSheet.create({
         marginTop: 10,
     }
 })
-export default RecordExpense;
+
+export default RecordExpense

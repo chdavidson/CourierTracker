@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image} from 'react-native';
 import { Camera } from 'expo-camera';
+import HeadBar from "./HeadBar";
 
-const CameraComponent = ({handlePhoto}) => {
+const CameraComponent = ({handlePhoto, navigation}) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [torch, setTorch] = useState(Camera.Constants.FlashMode.off);
@@ -71,6 +72,7 @@ const CameraComponent = ({handlePhoto}) => {
                         uri: capture.uri,
                     }}
                 /> : null}
+      <Button title={"Back"} onPress={() => navigation.goBack()} />
     </View>
   );
 }

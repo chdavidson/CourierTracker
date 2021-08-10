@@ -293,7 +293,7 @@ import CameraComponent from "../components/CameraComponent";
 
 
 
-const RecordIncome = (navigation) => {
+const RecordIncome = ({navigation}) => {
     const handleDateChange = (event, date) => { console.log(date)}
 
     const [selectedValue, setSelectedValue] = useState(" ");
@@ -435,7 +435,7 @@ const RecordIncome = (navigation) => {
                                     height: 10,
 
 
-                                }} onPress={() =>  <CameraComponent />}
+                                }} onPress={() =>  navigation.navigate('CameraComponent')}
                                 >
                                     <Image  source={images.camera}
                                         resizeMode='contain'
