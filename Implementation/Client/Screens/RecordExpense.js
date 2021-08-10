@@ -137,7 +137,7 @@ import HeadBar from "../components/HeadBar";
 // export default RecordExpenseScreen;
 
 
-const RecordExpense = (navigation) => {
+const RecordExpense = ({navigation}) => {
     const handleDateChange = (event, date) => { console.log(date)}
 
     const [selectedValue, setSelectedValue] = useState(" ");
@@ -153,8 +153,6 @@ const RecordExpense = (navigation) => {
                 ...styles.shadow
             }}>
                 <SafeAreaView >
-
-
                     <View style={{
                         flexDirection: 'column',
                         marginTop: SIZES.padding,
@@ -203,8 +201,6 @@ const RecordExpense = (navigation) => {
                                 <DatePicker  />
 
                             </View>
-
-
                             <View style={{
                                 paddingLeft:13
                             }}>
@@ -217,7 +213,6 @@ const RecordExpense = (navigation) => {
                                 }}>
                                     Select Expense Category
                                 </Text>
-
                                 <RNPickerSelect
                                     placeholder={{ label: "Choose Here", value: null }}
                                     onValueChange={(value) => console.log(value)} items={[
@@ -234,10 +229,8 @@ const RecordExpense = (navigation) => {
                                             color: 'white',
                                             paddingLeft: 2
 
-
                                         }}}
                                 />
-
                                 <Text style={{
                                     paddingTop: 25,
                                     fontSize: 17,
@@ -258,9 +251,7 @@ const RecordExpense = (navigation) => {
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     height: 10,
-
-
-                                }} onPress={() => navigation.navigate("Camera")}
+                                }} onPress={() => navigation.navigate("CameraComponent")}
                                 >
                                     <Image  source={images.camera}
                                             resizeMode='contain'
@@ -293,8 +284,6 @@ const RecordExpense = (navigation) => {
                                         </Text>
                                     </TouchableOpacity>
                                 </View>
-
-
                             </View>
                         </View>
 
