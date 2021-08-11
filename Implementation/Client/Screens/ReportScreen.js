@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect, useContext} from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback, Button } from 'react-native'
+import { StyleSheet, ScrollView, Text, View, TouchableOpacity, Button } from 'react-native'
+import { COLORS, SIZES, FONTS, icons, images, dummyData } from '../Constants';
 
 import ColourPalette from '../Constants/ColourPalette';
 
@@ -37,10 +38,14 @@ const ReportScreen = () => {
 
   const [refineEnable, setRefineEnable] = useState(false)
 
+  const [expenseViewEnable, setExpenseViewEnable] = useState(false)
+  const [incomeViewEnable, setIncomeViewEnable] = useState(false)
+  
+
 
   const db = useContext(DbContext);
-  const userData = db.currentUser
-  const useerData  = {
+  const useerData = db.currentUser
+  const userData  = {
     "id":2,"firstName":"Calum", "secondName":"Davidosn", "username":"calum@calum.calum","password":"123","profilePicture":"",
     "expenses":[
       {"id":1,"amount":20,"date":"2021-08-09T18:04:37.368+00:00","receipt":"","category":"FUEL"},
@@ -112,10 +117,12 @@ const ReportScreen = () => {
 
   var refinedPayslips = []
   var refinedExpenses = []
+  var allSlips = []
 
   useEffect(() => {
 
     userData.payslips.map((payslip) => {
+      allSlips.push(payslip)
       var slipDate = new Date(payslip.date)
       // console.log(slipDate.getTime())
     if(slipDate.getTime() > dateFrom.getTime() && slipDate.getTime() < dateTo.getTime()){
@@ -266,61 +273,142 @@ const ReportScreen = () => {
 
     <SafeAreaView>
       <ScrollView style={styles.screen}>
-      <View style={styles.refineContainer}>
-
-      <DateTimePicker onChange={onDateFromChange} textColor={'white'}  value={dateFrom}  display={"default"} style={styles.datePicker}/>
-      <Icon
-                    name='code-outline'
-                    type='ionicon'
-                    color='#7F5DF0'
-                    size={50}
-                    style={[styles.nodeIcon]}
-                />
-      <DateTimePicker onChange={onDateToChange} textColor={'white'}  value={dateTo}  display={"default"} style={styles.datePicker}/> 
-      </View>
-
-      <View style={styles.refineButtonContainer}>
-      {refineEnable ?  <Icon
-                    name='close-circle-outline'
-                    type='ionicon'
-                    color='#7F5DF0'
-                    size={50}
-                    style={[styles.nodeIcon]}
-                    onPress={() => setRefineEnable(false)}
-                />  : <Icon
-                    name='checkmark-circle-outline'
-                    type='ionicon'
-                    color='#7F5DF0'
-                    size={50}
-                    style={[styles.nodeIcon]}
-                    onPress={() => setRefineEnable(true)}
-                />       }
-                
-                    
-
-      </View>
-
-        {refineEnable ? 
-        <>
-        <View style={styles.dateShowContainer}>
-          <Text style={styles.dateShow}>
-            {dateFrom.getDate()}/{dateFrom.getMonth()}/{dateFrom.getFullYear()}
-          </Text> 
-          <Text style={styles.dateShow}>
-            {dateTo.getDate()}/{dateTo.getMonth()}/{dateTo.getFullYear()}
-          </Text> 
-        </View>
-
-        <View style={styles.totalShowContainer}> 
+      <View style={styles.totalShowContainer}> 
           <Text style={styles.totalShow}>
             £{payslipTotal}
           </Text>
         </View>
-        <RefineBarChartPayslipComponent refinedSlipsState={refinedSlipsState}/>
-        <RefineBarChartExpensesComponent refinedExpensesState={refinedExpensesState}/>
+      <View style={{  justifyContent: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
+            height: 90,
+            ...styles.shadow
+        }}>
+      <TouchableOpacity
+                style={{
+                    width: 170,
+                    paddingVertical: SIZES.padding,
+                    paddingHorizontal: SIZES.padding,
+                    // marginLeft: index === 0 ? SIZES.padding : 0,
+                    marginRight: SIZES.radius,
+                    borderRadius: 10,
+                    backgroundColor: COLORS.primary,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+
+
+                }}
+                onPress={() => {setIncomeViewEnable(true); setExpenseViewEnable(false)}}
+            >
+            <Text style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    color: 'white',
+
+                }}>
+                    Income
+                </Text>
+            </TouchableOpacity>
+      <TouchableOpacity
+                style={{
+                    width: 170,
+                    paddingVertical: SIZES.padding,
+                    paddingHorizontal: SIZES.padding,
+                    // marginLeft: index === 0 ? SIZES.padding : 0,
+                    marginRight: SIZES.radius,
+                    borderRadius: 10,
+                    backgroundColor: COLORS.primary,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+
+
+                }}
+                onPress={() => {setIncomeViewEnable(false); setExpenseViewEnable(true)}}
+            >
+            <Text style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    color: 'white',
+                }}>
+                    Expenses
+                </Text>
+            </TouchableOpacity>
+            </View>
+      <View style={styles.refineContainer}>
+
+        <DateTimePicker onChange={onDateFromChange} textColor={'white'}  value={dateFrom}  display={"default"} style={styles.datePicker}/>
+        <View style={{alignSelf: 'flex-start'}}>
+          <Icon
+              name='code-outline'
+              type='ionicon'
+              color='#7F5DF0'
+              size={50}
+              style={[styles.nodeIcon], {alignSelf: 'center'}}
+          />
+        </View>
+        <DateTimePicker onChange={onDateToChange} textColor={'white'}  value={dateTo}  display={"default"} style={styles.datePicker}/> 
+      </View>
+      
+
+      <View style={styles.refineButtonContainer}>
+      {refineEnable ?  
+        <>
+          
+            <View style={styles.dateShowContainer}>
+              <Text style={styles.dateShow}>
+                {dateFrom.getDate()}/{dateFrom.getMonth()}/{dateFrom.getFullYear()}
+              </Text>
+
+            <Icon
+              name='close-circle-outline'
+              type='ionicon'
+              color='#7F5DF0'
+              size={50}
+              style={[styles.nodeIcon]}
+              onPress={() => setRefineEnable(false)}
+            />   
+
+              <Text style={styles.dateShow}>
+                {dateTo.getDate()}/{dateTo.getMonth()}/{dateTo.getFullYear()}
+              </Text> 
+            </View>
+
+        </> : 
+        <Icon
+            name='checkmark-circle-outline'
+            type='ionicon'
+            color='#7F5DF0'
+            size={50}
+            style={[styles.nodeIcon]}
+            onPress={() => setRefineEnable(true)}
+        />       
+      }
+                
+                    
+
+      </View>
+      
+       
+
+        {refineEnable ? 
+        <>
+        
+
+        
+        {incomeViewEnable ? <RefineBarChartPayslipComponent refinedSlipsState={refinedSlipsState}/> : null}
+        
+        {expenseViewEnable ? <RefineBarChartExpensesComponent refinedExpensesState={refinedExpensesState}/> : null}
         </>    
         : null }
 
+       
+
+          {expenseViewEnable ? 
           <ExpensesNodes 
           expenseTotal={expenseTotal} 
           fuelTotal={fuelTotal} 
@@ -328,20 +416,32 @@ const ReportScreen = () => {
           foodTotal={foodTotal} 
           insuranceTotal={insuranceTotal} 
           maintenanceTotal={maintenanceTotal} 
-          miscTotal={miscTotal}  />
+          miscTotal={miscTotal}  /> 
+          
+          
+          : null }
 
-          <PieChartComponent deliverooTotal={deliverooTotal} uberTotal={uberTotal} justEatTotal={justEatTotal} />
+          {incomeViewEnable ? 
 
-          <View style={styles.divider}></View>
+          <>
+          
+            <PieChartComponent deliverooTotal={deliverooTotal} uberTotal={uberTotal} justEatTotal={justEatTotal} />
 
-          <Text>Income vs Expenses?</Text>
+            <LineChartComponent refinedSlipsState={refinedSlipsState}/>
+          </>
+          
+          : null}
+          
+
+
+          <Text>Income vs Expenses</Text>
 
           <BarChartComponent payslipTotal={payslipTotal} expenseTotal={expenseTotal}/>
 
           <View style={styles.divider}></View>
           <Text>Earnings across n</Text>
 
-          <LineChartComponent />
+          
           <View style={styles.divider}></View>
 
 
@@ -403,12 +503,13 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: "row",
       justifyContent: 'space-around',
-      marginTop: -62,
-      marginBottom: 20
+      alignItems: 'center',
+
     },
     totalShow: {
       fontSize: 40,
-      color: "#7F5DF0"
+      color: "#7F5DF0",
+      marginTop: 30
     },
     totalShowContainer: {
       marginLeft: "auto",
@@ -417,8 +518,18 @@ const styles = StyleSheet.create({
 
     },
     nodeIcon: {
-      //
-    }
+    },
+    shadow: {
+      shadowColor: COLORS.primary,
+      shadowOffset: {
+          width: 0,
+          height: 10,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+
+      elevation: 5
+  }
 })
 
 export default ReportScreen;
