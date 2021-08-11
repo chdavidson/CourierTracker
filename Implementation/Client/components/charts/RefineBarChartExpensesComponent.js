@@ -55,12 +55,12 @@ const RefineBarChartExpensesComponent = ({refinedExpensesState}) => {
 
     return (
         <View>
-            <Text style={{marginLeft: "auto", marginRight: "auto"}}>Recent Expenses</Text>
+            {/* <Text style={{marginLeft: "auto", marginRight: "auto"}}>Recent Expenses</Text> */}
             <BarChart
                 // style={graphStyle}
                 data={data}
                 width={screenWidth - 20}
-                height={200}
+                height={250}
                 yAxisLabel="£"
                 chartConfig={{
                 //     backgroundGradientFrom: "rgba(255,255,255)",

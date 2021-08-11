@@ -15,6 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ExpensesNodes from '../components/charts/ExpensesNodes';
 import RefineBarChartExpensesComponent from '../components/charts/RefineBarChartExpensesComponent';
 import RefineBarChartPayslipComponent from '../components/charts/RefineBarChartPayslipComponent';
+import LineChartIncomeComponent from '../components/charts/LineChartIncomeComponent';
 import { Icon } from 'react-native-elements'
 
 const ReportScreen = () => {
@@ -409,14 +410,18 @@ const ReportScreen = () => {
        
 
           {expenseViewEnable ? 
-          <ExpensesNodes 
-          expenseTotal={expenseTotal} 
-          fuelTotal={fuelTotal} 
-          entertainmentTotal={entertainmentTotal} 
-          foodTotal={foodTotal} 
-          insuranceTotal={insuranceTotal} 
-          maintenanceTotal={maintenanceTotal} 
-          miscTotal={miscTotal}  /> 
+          <>
+            <ExpensesNodes 
+            expenseTotal={expenseTotal} 
+            fuelTotal={fuelTotal} 
+            entertainmentTotal={entertainmentTotal} 
+            foodTotal={foodTotal} 
+            insuranceTotal={insuranceTotal} 
+            maintenanceTotal={maintenanceTotal} 
+            miscTotal={miscTotal}  /> 
+
+            <LineChartComponent refinedExpensesState={refinedExpensesState}/>
+          </>
           
           
           : null }
@@ -427,19 +432,17 @@ const ReportScreen = () => {
           
             <PieChartComponent deliverooTotal={deliverooTotal} uberTotal={uberTotal} justEatTotal={justEatTotal} />
 
-            <LineChartComponent refinedSlipsState={refinedSlipsState}/>
+            <LineChartIncomeComponent refinedSlipsState={refinedSlipsState}/>
           </>
+
+            
+     
           
           : null}
-          
 
-
-          <Text>Income vs Expenses</Text>
 
           <BarChartComponent payslipTotal={payslipTotal} expenseTotal={expenseTotal}/>
-
-          <View style={styles.divider}></View>
-          <Text>Earnings across n</Text>
+         
 
           
           <View style={styles.divider}></View>
@@ -454,7 +457,7 @@ const styles = StyleSheet.create({
         backgroundColor: ColourPalette.SECONDARY
     },
     divider:{
-        borderBottomColor: ColourPalette.PRIMARY,
+        borderBottomColor: "#7f5df0",
         borderBottomWidth: 2,
         paddingVertical: 10
     },

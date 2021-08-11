@@ -19,7 +19,7 @@ const ExpensesNodes = ({
 
     return (
         <>
-        <Text style={[styles.nodeText]}>£{expenseTotal}</Text>
+        {/* <Text style={[styles.nodeText]}>£{expenseTotal}</Text> */}
         
         <View style={[styles.container]}>
            
