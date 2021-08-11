@@ -21,18 +21,17 @@ const TransactionHistory = ({customerContainerStyle, history}) => {
     //
     // console.log(paySlips)
     const paySlips = [...currentUser.payslips, ...currentUser.expenses]
-    console.log(paySlips)
+    // console.log(paySlips)
 
 
     const renderItem = ({item}) => {
-        console.log(item)
         return(
         <TouchableOpacity style={{
             flexDirection: 'row',
             alignItems: 'center',
             paddingVertical: 12
         }}
-        onPress={() => console.log("item")} >
+        onPress={() => console.log(item)} >
         <Image 
             source={icons.transaction}
             style={{

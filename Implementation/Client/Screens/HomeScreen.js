@@ -12,9 +12,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Settings from "./Settings";
 import {DbContext} from "../provider/DbProvider";
+import {useIsFocused} from '@react-navigation/native'
 
 
 const HomeScreen = ({navigation}) => {
+
+    const isFocused = useIsFocused()
 
     const [trending, setTrending] = React.useState(dummyData.trendingCurrencies)
     const [transactionHistory , SetTransactionHistory] = React.useState(dummyData.transactionHistory);
@@ -25,10 +28,31 @@ const HomeScreen = ({navigation}) => {
 
     const currentUser = db.currentUser
     const paySlips = [...currentUser.payslips]
-    console.log(paySlips)
 
+
+    // console.log(paySlips)
+
+    const [wallet, setWallet] = useState(0);
+
+    useEffect(() => {
+        totalBalance();
+    }, [currentUser])
+
+    const totalBalance = () => {
+        let totalIncome = 0
+        currentUser.payslips.map(income => totalIncome += income.amount)
+        let totalExpense = 0
+        currentUser.expenses.map(expense => totalExpense += expense.amount)
+
+        setWallet((totalIncome - totalExpense))
+    }
+    useEffect(() => {
+        totalBalance()
+    },[isFocused])
 
     function renderHeader() {
+
+
         const renderItem = ({item, index}) => (
         <TouchableOpacity
             style={{
@@ -62,7 +86,7 @@ const HomeScreen = ({navigation}) => {
                 </View>
             </View>
             <View style={{ marginTop: SIZES.radius}}>
-                        <Text style={{fontFamily: 'Helvetica', fontSize: 22}} >£{item.amount}</Text>
+                {paySlips ?  <Text style={{fontFamily: 'Helvetica', fontSize: 22}} >£{item.amount}</Text> : null }
             </View>
 
         </TouchableOpacity>
@@ -91,7 +115,7 @@ const HomeScreen = ({navigation}) => {
                     }}
                     >
                         <Text style= {{color: COLORS.white, fontFamily: 'Helvetica', fontSize: 24}}>Your Balance</Text>
-                        <Text style={{ marginTop: SIZES.base, color: COLORS.white, fontFamily: 'Helvetica', fontSize:30}}>£{dummyData.portfolio.balance}</Text>
+                        { wallet ? <Text style={{ marginTop: SIZES.base, color: COLORS.white, fontFamily: 'Helvetica', fontSize:30}}>£{wallet}</Text> : null }
                     </View>
                     <View style={{
                         position: 'absolute',
