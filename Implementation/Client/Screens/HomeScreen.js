@@ -21,19 +21,12 @@ const HomeScreen = ({navigation}) => {
 
     const [trending, setTrending] = React.useState(dummyData.trendingCurrencies)
     const [transactionHistory , SetTransactionHistory] = React.useState(dummyData.transactionHistory);
-
-
-    // LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
     const db = useContext(DbContext);
 
     const currentUser = db.currentUser
     const paySlips = [...currentUser.payslips]
 
-
-    // console.log(paySlips)
-
     const [wallet, setWallet] = useState(0);
-
     useEffect(() => {
         totalBalance();
     }, [currentUser])
@@ -51,7 +44,6 @@ const HomeScreen = ({navigation}) => {
     },[isFocused])
 
     function renderHeader() {
-
 
         const renderItem = ({item, index}) => (
         <TouchableOpacity
@@ -80,7 +72,7 @@ const HomeScreen = ({navigation}) => {
                     />
                 </View>
                 <View style={{marginLeft: SIZES.base}}>
-                       <Text style={{ fontFamily: 'Helvetica', fontSize: 18}}>{item.currency}</Text>
+                       <Text style={{ fontFamily: 'Helvetica', fontSize: 18}}>{item.companyName}</Text>
                        <Text style={{fontFamily: 'Helvetica', fontSize: 14}} >{item.code}</Text>
 
                 </View>
@@ -126,7 +118,7 @@ const HomeScreen = ({navigation}) => {
                         }}>Couriers</Text>
                         <FlatList
                             contentContainerStyle={{marginTop: SIZES.base}}
-                            data={trending}
+                            data={paySlips}
                             renderItem={renderItem}
                             keyExtractor={item => {item.id}}
                             horizontal

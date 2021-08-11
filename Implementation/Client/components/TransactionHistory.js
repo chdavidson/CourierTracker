@@ -13,22 +13,10 @@ const TransactionHistory = ({customerContainerStyle, history}) => {
 
     const currentUser = db.currentUser
 
-
-    // const [paySlips, setPaySlips] = useState([])
-    // useEffect(() => {
-    //     setPaySlips(currentUser[paySlips])
-    // }, [])
-    //
-    // console.log(paySlips)
     const paySlips = [...currentUser.payslips, ...currentUser.expenses]
     paySlips.sort(function (a, b){
         return new Date(a.date) - new Date(b.date)
     });
-
-    console.log(paySlips)
-
-
-    // console.log(paySlips)
 
 
     const renderItem = ({item}) => {
@@ -51,7 +39,7 @@ const TransactionHistory = ({customerContainerStyle, history}) => {
             style={{ flex: 1, marginLeft: SIZES.radius}}
          >
             <Text style={{fontSize: 16}}>{item.companyName ? item.companyName : item.category }</Text>
-            {/*<Text style={{fontSize: 12}} >{item.expenses[0].date}</Text>*/}
+            <Text style={{fontSize: 12}} >{item.date.substring(0, 10)}</Text>
          </View>
           <View style={{flexDirection: 'row', height: '100%'}}>
               <Text style={{ color : item.companyName ? COLORS.green : COLORS.black}}>
@@ -88,7 +76,9 @@ const TransactionHistory = ({customerContainerStyle, history}) => {
                     <View style={{width: '100%',
                         height: 1,
                         backgroundColor: COLORS.lightGray
-                    }}></View>
+                    }}>
+
+                    </View>
                 )
             }}
          />
