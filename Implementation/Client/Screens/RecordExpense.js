@@ -27,8 +27,7 @@ const RecordExpense = ({navigation}) => {
                                                         "username": currentUser.username,
                                                         "password": currentUser.password,
                                                         "profilePicture": currentUser.profilePicture,
-                                                    }  
-
+                                                    }
                                                 })
 
     

@@ -21,6 +21,13 @@ const TransactionHistory = ({customerContainerStyle, history}) => {
     //
     // console.log(paySlips)
     const paySlips = [...currentUser.payslips, ...currentUser.expenses]
+    paySlips.sort(function (a, b){
+        return new Date(a.date) - new Date(b.date)
+    });
+
+    console.log(paySlips)
+
+
     // console.log(paySlips)
 
 
