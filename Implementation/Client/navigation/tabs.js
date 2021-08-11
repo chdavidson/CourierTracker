@@ -16,6 +16,7 @@ import Report from "../Screens/Report";
 import RecordIncome from "../Screens/RecordIncome";
 import { LinearGradient } from 'expo-linear-gradient';
 import RecordLandingScreen from "../Screens/RecordLandingScreen";
+import CameraComponent from "../components/CameraComponent";
 
 const Tab = createBottomTabNavigator()
 const TabBarCustomButton = ({children, onPress}) => {
@@ -43,7 +44,6 @@ const TabBarCustomButton = ({children, onPress}) => {
          </TouchableOpacity>
     )
 }
-
 const Tabs = () => {
     return (
         <Tab.Navigator 
@@ -92,8 +92,8 @@ const Tabs = () => {
                 }}
             />
             <Tab.Screen
-                name="Portfolio"
-                component={Report}
+                name="CameraComponent"
+                component={CameraComponent}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <View style={{alignItems: 'center',

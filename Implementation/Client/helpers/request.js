@@ -1,12 +1,7 @@
 
-const baseUrl = 'http://192.168.0.25:8080/'
+const baseUrl = 'http://172.19.29.109:8080/'
 
 class Request {
-
-    // get(url) {
-    //     return fetch(url)
-    //         .then((res) => res.json());
-    // }
 
     delete(url, id) {
         console.log("Delete request recieved on "+baseUrl+url+'/'+id);

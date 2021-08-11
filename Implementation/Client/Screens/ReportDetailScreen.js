@@ -22,6 +22,8 @@ const ReportDetailScreen = ({ navigation, route }) => {
     //     setSelectedCourier(currency)
     // })
 
+
+
     function renderChart() {
         return(
             <View style={{

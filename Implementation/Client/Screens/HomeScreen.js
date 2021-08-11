@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { View, Text,
      TouchableOpacity, StyleSheet,
-      FlatList, ImageBackground, ScrollView, Image, LogBox } from 'react-native'
+      FlatList, ImageBackground, ScrollView, Image, LogBox  } from 'react-native'
 import {COLORS, SIZES, FONTS, icons, images, dummyData} from '../Constants'
 import { LinearGradient } from 'expo-linear-gradient'
 import Tabs from '../navigation/tabs'
@@ -11,6 +11,7 @@ import * as Font from 'expo-font'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Settings from "./Settings";
+import {DbContext} from "../provider/DbProvider";
 
 
 const HomeScreen = ({navigation}) => {
@@ -18,9 +19,14 @@ const HomeScreen = ({navigation}) => {
     const [trending, setTrending] = React.useState(dummyData.trendingCurrencies)
     const [transactionHistory , SetTransactionHistory] = React.useState(dummyData.transactionHistory);
 
-    useEffect(() => {
-        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
-    })
+
+    // LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
+    const db = useContext(DbContext);
+
+    const currentUser = db.currentUser
+    const paySlips = [...currentUser.payslips]
+    console.log(paySlips)
+
 
     function renderHeader() {
         const renderItem = ({item, index}) => (
@@ -118,7 +124,6 @@ const HomeScreen = ({navigation}) => {
             />
         )
     }
-
     return (
         <ScrollView>
             <StatusBar  style="Dark" />
@@ -127,6 +132,7 @@ const HomeScreen = ({navigation}) => {
                 {renderTransactionHistory()}
             </View>            
         </ScrollView>
+
     )
 }
 
