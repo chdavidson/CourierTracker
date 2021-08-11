@@ -1,34 +1,37 @@
-const baseUrl = 'http://192.168.1.2:8080/'
 
-const Request = {
+const baseUrl = 'http://172.19.29.114:8080/'
 
-    get(url) {
-        return fetch(url)
-            .then((res) => res.json());
-    },
+class Request {
 
-    delete(url) {
-        return fetch(url, {
+    delete(url, id) {
+        console.log("Delete request recieved on "+baseUrl+url+'/'+id);
+        return fetch(baseUrl+url+'/'+id, {
             method: "DELETE",
             headers: {'Content-Type': 'application/json'}
         })
-    },
+    }
 
     post(url, payload) {
-        return fetch(url, {
+        console.log("Payload successfully delivered to "+baseUrl+url);
+        return fetch(baseUrl+url, {
             method: "POST",
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         })
-    },
+    }
 
     patch(url, payload){
-        return fetch(url, {
+        console.log("Object at "+baseUrl+url+" update request sent successfully")
+        return fetch(baseUrl+url, {
             method: "PUT",
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         })
-    },
+    }
 
 
 }

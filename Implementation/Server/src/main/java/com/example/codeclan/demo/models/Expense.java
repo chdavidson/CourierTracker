@@ -22,7 +22,9 @@ public class Expense {
 
     @Lob
     @Column(name = "receipt")
-    private byte[] receipt;
+    private String receipt;
+
+    @Column(name="category")
     private ExpenseCategory category;
 
     @JsonIgnoreProperties({"expenses"})
@@ -33,7 +35,7 @@ public class Expense {
     public Expense(double amount, Date date, ExpenseCategory category, User user) {
         this.amount = amount;
         this.date = date;
-        this.receipt = new byte[0];
+        this.receipt = "";
         this.category = category;
         this.user = user;
     }
@@ -64,16 +66,17 @@ public class Expense {
         this.date = date;
     }
 
-    public byte[] getReceipt() {
-        return receipt;
-    }
 
-    public void setReceipt(byte[] receipt) {
+    public void setReceipt(String receipt) {
         this.receipt = receipt;
     }
 
-    public String getCategory() {
-        return category.getCategory();
+    public String getReceipt() {
+        return receipt;
+    }
+
+    public ExpenseCategory getCategory() {
+        return category;
     }
 
     public void setCategory(ExpenseCategory category) {

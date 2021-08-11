@@ -3,6 +3,8 @@ import { StyleSheet, View, Button} from 'react-native'
 import firebase from 'firebase'
 import ColourPalette from '../Constants/ColourPalette'
 
+import Request from '../helpers/request';
+
 const LandingScreen = ({navigation}) => {
 
     const [users, setUsers] = useState(null);
@@ -11,11 +13,27 @@ const LandingScreen = ({navigation}) => {
     const [expenses, setExpenses] = useState(null)
 
     const getUsers = function() {
-        fetch('http://localhost:8080/users')
+
+        fetch('http://172.20.10.6:8080/users')
             .then(res => res.json())
             .then(data => setUsers(data))
-            //Set loaded
             .catch(err => {console.log(err)})
+    }
+
+    const handleCreateRequest = (path, payload) => {
+        const request = new Request();
+        request.post(path, payload)
+    }
+
+    const handleUpdateRequest = (path, payload) => {
+        const request = new Request();
+        request.patch(path+'/'+payload.id, payload)
+    }
+
+    const handleDeleteRequest = (path, id) => {
+        const request = new Request();
+        request.delete(path, id);
+        //.then(()=>{})
     }
 
 
@@ -54,6 +72,31 @@ const LandingScreen = ({navigation}) => {
               style={{
                 marginTop: 10,
               }}
+            />
+            <Button
+                title="TEST POST user"
+                onPress={() => {
+                    handleCreateRequest('users', {  firstName: "A",
+                                                    secondName: "A",
+                                                    username: "A",
+                                                    password: "A",
+                                                    profilePicture: ""
+                                                })
+                }}
+            />
+            <Button
+                title="TEST PUT user"
+                onPress={() => {
+                    handleUpdateRequest('users', {  id: 4,
+                                                    firstName: "CCC",
+                                                    secondName: "CCC",
+                                                    username: "CCC",
+                                                    password: "123",
+                                                    profilePicture: "",
+                                                    expenses: [],
+                                                    payslips: []
+                                                })
+                }}
             />
         </View>
     )
