@@ -6,12 +6,12 @@ import {
 
 import { Dimensions } from "react-native";
 
-const LineChartComponent = ({refinedExpensesState}) => {
+const LineChartComponent = ({refinedSlipsState}) => {
 
     const assignedLabels = [1, 2, 3, 4]
     const assignedData = [33, 234, 33, 33]
 
-    console.log(refinedExpensesState)
+    console.log(refinedSlipsState)
 
     var currentObject = {
       0: 0, 
@@ -28,18 +28,18 @@ const LineChartComponent = ({refinedExpensesState}) => {
       11 : 0,
     }
    
-    refinedExpensesState.map((expense) => 
+    refinedSlipsState.map((payslip) => 
     
         {          
-            const newExpenseDate = new Date(expense.date)
-            console.log(newExpenseDate.getMonth())
-            console.log(expense.amount)
+            const newPayslipDate = new Date(payslip.date)
+            console.log(newPayslipDate.getMonth())
+            console.log(payslip.amount)
 
-            currentObject[newExpenseDate.getMonth()] += expense.amount 
+            currentObject[newPayslipDate.getMonth()] += payslip.amount 
 
-            // console.log("new date log = " + newExpenseDate.getDate());
-            assignedLabels.push((newExpenseDate.getDate() + "/" + newExpenseDate.getMonth())); 
-            assignedData.push(expense.amount)})
+            // console.log("new date log = " + newPayslipDate.getDate());
+            assignedLabels.push((newPayslipDate.getDate() + "/" + newPayslipDate.getMonth())); 
+            assignedData.push(payslip.amount)})
 
             console.log(currentObject)
         

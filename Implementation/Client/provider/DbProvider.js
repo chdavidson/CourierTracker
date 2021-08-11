@@ -18,8 +18,7 @@ const DbProvider = (props) => {
 
 
     const getUsers = function() {
-
-        fetch('http://172.20.10.6:8080/users')
+        fetch('http://172.19.29.114:8080/users')
             .then(res => res.json())
             .then(data => setUsers(data))
             .then(() => console.log("api loaded to state"))

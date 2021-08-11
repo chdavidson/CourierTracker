@@ -23,11 +23,11 @@ const BarChartComponent = ({payslipTotal, expenseTotal}) => {
 
     return (
         <View>
-            <Text>Bar Chart</Text>
+       
             <BarChart
                 // style={graphStyle}
                 data={data}
-                width={screenWidth}
+                width={screenWidth - 20}
                 height={250}
                 yAxisLabel="£"
                 chartConfig={{
@@ -36,16 +36,17 @@ const BarChartComponent = ({payslipTotal, expenseTotal}) => {
                     backgroundGradientFromOpacity: 0,
                     backgroundGradientToOpacity: 0,
 
-                    fillGradientFrom:'dodgerblue',
-                    fillShadowGradient:'dodgerblue',
+                    fillGradientFrom:'rgba(127, 93, 240, 1)',
+                    fillShadowGradient:'rgba(127, 93, 240, 1)',
                     fillShadowGradientOpacity: 1,
                 
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,        // Tips of bars
-                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,   // Labels x&y
+                    color: (opacity = 0.5) => `rgba(127, 93, 240, ${opacity})`,        // Tips of bars
+                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                     
                 }}
                 verticalLabelRotation={0}
                 fromZero={true}
+                style={{marginLeft: 10}}
             />
         </View>
     )

@@ -53,7 +53,7 @@ const screenWidth = Dimensions.get("window").width;
 
     return (
         <View>
-            <Text>Pie Chart</Text>    
+              
             <PieChart
             data={sampleData}
             width={screenWidth}
@@ -64,7 +64,7 @@ const screenWidth = Dimensions.get("window").width;
             paddingLeft={"40"}
             // center={[10, 50]}
         />
-        <View style={styles.circle}></View>
+        {/* <View style={styles.circle}></View> */}
         </View>
     )
 }
