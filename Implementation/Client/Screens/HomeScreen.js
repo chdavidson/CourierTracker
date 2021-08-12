@@ -4,13 +4,9 @@ import { View, Text,
      TouchableOpacity, StyleSheet,
       FlatList, ImageBackground, ScrollView, Image, LogBox  } from 'react-native'
 import {COLORS, SIZES, FONTS, icons, images, dummyData} from '../Constants'
-import { LinearGradient } from 'expo-linear-gradient'
-import Tabs from '../navigation/tabs'
+
 import TransactionHistory from '../components/TransactionHistory'
-import * as Font from 'expo-font'
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import Settings from "./Settings";
+
 import {DbContext} from "../provider/DbProvider";
 import {useIsFocused} from '@react-navigation/native'
 

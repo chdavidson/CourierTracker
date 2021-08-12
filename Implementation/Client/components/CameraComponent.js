@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image} from 'react-native';
 import { Camera } from 'expo-camera';
-import HeadBar from "./HeadBar";
 
 const CameraComponent = ({route, navigation}) => {
   const [hasPermission, setHasPermission] = useState(null);

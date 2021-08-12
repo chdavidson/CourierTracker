@@ -1,13 +1,10 @@
 import React from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+import { View } from 'react-native'
 import {
     BarChart,
   } from "react-native-chart-kit";
 
 import { Dimensions } from "react-native";
-import ColourPalette from '../../Constants/ColourPalette';
-import { AutoFocus } from 'expo-camera/build/Camera.types';
-
 
 const RefineBarChartExpensesComponent = ({refinedExpensesState}) => {
 

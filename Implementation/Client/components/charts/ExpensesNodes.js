@@ -1,10 +1,5 @@
 import React from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback, useColorScheme } from 'react-native'
-import {
-    BarChart,
-  } from "react-native-chart-kit";
-
-import { Dimensions } from "react-native";
+import { StyleSheet, Text, View} from 'react-native'
 import { Icon } from 'react-native-elements'
 
 const ExpensesNodes = ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, Button } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import * as firebase from 'firebase'
 
 const Settings = () => {

@@ -1,4 +1,3 @@
-
 const baseUrl = 'http://172.19.29.14:8080/'
 
 class Request {

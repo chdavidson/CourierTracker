@@ -2,7 +2,8 @@ import React from 'react'
 import {
     PieChart,
   } from "react-native-chart-kit";
-  import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+  import { StyleSheet, View} from 'react-native'
+
 
 
 import { Dimensions } from "react-native";

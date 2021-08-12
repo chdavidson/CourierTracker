@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import { COLORS, SIZES, FONTS, icons, images, dummyData } from '../Constants';
-import {LinearGradient} from "expo-linear-gradient";
 
 
 const RecordLandingScreen = ({navigation}) =>{

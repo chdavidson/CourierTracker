@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+import { View } from 'react-native'
 import {
     LineChart,
   } from "react-native-chart-kit";

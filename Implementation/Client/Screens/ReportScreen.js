@@ -6,7 +6,6 @@ import { COLORS, SIZES, FONTS, icons, images, dummyData } from '../Constants';
 import ColourPalette from '../Constants/ColourPalette';
 
 import { DbContext } from '../provider/DbProvider'
-import { ChartContext } from '../provider/ChartProvider';
 import PieChartComponent from '../components/charts/PieChartComponent';
 import BarChartComponent from '../components/charts/BarChartComponent';
 import LineChartComponent from '../components/charts/LineChartComponent';

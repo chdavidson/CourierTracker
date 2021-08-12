@@ -5,11 +5,9 @@ import {
     Text,
     TouchableOpacity,
     SafeAreaView,
-    Image,
-    Animated, ScrollView
+    ScrollView
 } from 'react-native';
 import {dummyData, COLORS, SIZES, FONTS, icons} from "../Constants";
-import {useNavigation} from '@react-navigation/native'
 import HeadBar from '../components/HeadBar'
 import CourierRender from "../components/CourierRender";
 

@@ -1,7 +1,4 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { StyleSheet, View, Button} from 'react-native'
-import firebase from 'firebase'
-import ColourPalette from '../Constants/ColourPalette'
 import { AuthContext } from './AuthProvider';
 
 const DbContext = createContext();
@@ -14,7 +11,6 @@ const DbProvider = (props) => {
     const [users, setUsers] = useState([]);
     // const [workProviders, setWorkProviders] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
-    const [loaded, setLoaded] = useState(false)
 
 
     const getUsers = function() {

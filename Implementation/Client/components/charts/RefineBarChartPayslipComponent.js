@@ -1,11 +1,10 @@
 import React from 'react'
-import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback } from 'react-native'
+import {Text, View, } from 'react-native'
 import {
     BarChart,
   } from "react-native-chart-kit";
 
 import { Dimensions } from "react-native";
-import ColourPalette from '../../Constants/ColourPalette';
 
 
 const RefineBarChartExpensesComponent = ({refinedSlipsState}) => {

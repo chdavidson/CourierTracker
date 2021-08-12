@@ -1,5 +1,3 @@
-
-
 const baseURL = 'http://172.19.29.14:8080/'
 
 const UserServices = {

@@ -12,22 +12,14 @@ import {
 } from "react-native";
 import { COLORS, FONTS, icons } from "../Constants"
 
-import { useTheme, themeColor } from "react-native-rapi-ui";
-import TabBarIcon from "../components/utils/TabBarIcon";
-import TabBarText from "../components/utils/TabBarText";
 //Screens
-import Home from "../Screens/Home";
 import Settings from "../Screens/Settings";
 import ReportDetailScreen from "../Screens/ReportDetailScreen";
-import Report from "../Screens/Report";
 import RecordIncome from "../Screens/RecordIncome";
 
 import HomeScreen from "../Screens/HomeScreen";
-import About from "../Screens/About";
 import ProfileScreen from "../Screens/ProfileScreen";
 import Loading from "../Screens/utils/Loading";
-import LandingScreen from "../Screens/LandingScreen"
-import AccountSettingsScreen from "../Screens/AccountSettingsScreen"
 import ReportScreen from "../Screens/ReportScreen"
 import RecordExpense from "../Screens/RecordExpense"
 

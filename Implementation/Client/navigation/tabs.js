@@ -7,13 +7,9 @@ import {
     StyleSheet
 } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
-import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, icons } from "../Constants"
 import HomeScreen from "../Screens/HomeScreen";
 import Settings from "../Screens/Settings";
-import ReportDetailScreen from "../Screens/ReportDetailScreen";
-import Report from "../Screens/Report";
-import RecordIncome from "../Screens/RecordIncome";
 import { LinearGradient } from 'expo-linear-gradient';
 import RecordLandingScreen from "../Screens/RecordLandingScreen";
 import CameraComponent from "../components/CameraComponent";
